@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "m_logogame-sheet0",
+    "texture": "f46808b0-a4ba-4e44-b5fb-9f087406401a",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      822,
+      265
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      824,
+      267
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

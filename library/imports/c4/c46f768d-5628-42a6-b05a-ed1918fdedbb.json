@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg_forest-sheet0",
+    "texture": "0819c4de-955f-4883-9b0f-9cb4fcced8b4",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1139,
+      819
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1139,
+      819
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

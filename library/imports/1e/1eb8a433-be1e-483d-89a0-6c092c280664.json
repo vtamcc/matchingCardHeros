@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gui_heart_ply-sheet0",
+    "texture": "06698459-c2cb-43e1-887b-79473a566c03",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      42,
+      37
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      43,
+      38
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

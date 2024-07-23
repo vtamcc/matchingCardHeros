@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gui_heart_eny-sheet0",
+    "texture": "fbdcfeb0-93fb-4bcb-8229-ee03adc6d90f",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      42,
+      37
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      43,
+      38
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

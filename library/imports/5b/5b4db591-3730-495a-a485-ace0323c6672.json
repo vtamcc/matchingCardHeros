@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bg_win-sheet0",
+    "texture": "b7bddcc9-4b82-4e2d-ab1f-4af5f18c4850",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      790,
+      1406
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      790,
+      1406
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

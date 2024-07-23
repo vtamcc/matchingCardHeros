@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_menugame-sheet1",
+    "texture": "b42b92ad-7461-4a32-a9bf-13584929b869",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      100,
+      101
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      100,
+      101
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

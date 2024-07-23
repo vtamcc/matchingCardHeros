@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gui_stars-sheet1",
+    "texture": "308c7751-ee4c-44d1-a8ad-66fedb5e8b31",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      211,
+      210
+    ],
+    "offset": [
+      0,
+      -0.5
+    ],
+    "originalSize": [
+      211,
+      211
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

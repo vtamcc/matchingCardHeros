@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "m_logoocteto-sheet0",
+    "texture": "6e11e04e-3a97-4aa4-881c-e8eaaa4d5ca8",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      101,
+      102
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      101,
+      102
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
