@@ -41,7 +41,12 @@ var GameView = /** @class */ (function (_super) {
         _this.nTableCards = null;
         _this.lbHpChar = null;
         _this.lbHpBagGuy = null;
+        _this.nMaskClick = null;
+        _this.nMaskLoadGame = null;
+        _this.isClick = false;
+        _this.countClick = 0;
         _this.listIdCard = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12];
+        _this.selectedCards = [];
         return _this;
         // update (dt) {}
     }
@@ -51,11 +56,19 @@ var GameView = /** @class */ (function (_super) {
         var _this = this;
         GameView_1.instance = this;
         this.listIdCard = this.shuffleArray(this.listIdCard);
+        this.maskLoadGame();
         this.scheduleOnce(function () {
             _this.loadCards();
         }, 1);
         this.updateHpChar();
         this.updateHpBagGuy();
+    };
+    GameView.prototype.maskLoadGame = function () {
+        var _this = this;
+        this.nMaskLoadGame.active = true;
+        this.scheduleOnce(function () {
+            _this.nMaskLoadGame.active = false;
+        }, 5);
     };
     GameView.prototype.loadCards = function () {
         for (var i = 0; i < 25; i++) {
@@ -71,6 +84,62 @@ var GameView = /** @class */ (function (_super) {
             _a = [array[j], array[i]], array[i] = _a[0], array[j] = _a[1];
         }
         return array;
+    };
+    GameView.prototype.addSelectedCard = function (card) {
+        if (this.selectedCards.length < 2) {
+            this.selectedCards.push(card);
+            if (this.selectedCards.length === 2) {
+                this.scheduleOnce(this.checkMatch.bind(this), 1); // Delay to show the cards
+            }
+        }
+    };
+    GameView.prototype.checkMatch = function () {
+        var _a = this.selectedCards, firstCard = _a[0], secondCard = _a[1];
+        console.log("Mang ", this.selectedCards);
+        if (firstCard.idCard === secondCard.idCard) {
+            this.selectAttack(firstCard.idCard);
+            firstCard.node.destroy();
+            secondCard.node.destroy();
+        }
+        else {
+            // firstCard.flipCard();
+            // secondCard.flipCard();
+            console.log("sai me roi");
+        }
+        this.selectedCards = [];
+    };
+    GameView.prototype.selectAttack = function (id) {
+        switch (id) {
+            case 0:
+                console.log("Giap ne ");
+                break;
+            case 1:
+                console.log("Mau ne ");
+                break;
+            case 2:
+                console.log("Cung nho ban ");
+                break;
+            case 3:
+                console.log("Cung Tb bắn ");
+                break;
+            case 4:
+                console.log("Giap ne ");
+                break;
+            case 5:
+                console.log("Giap ne ");
+                break;
+            case 6:
+                console.log("Giap ne ");
+                break;
+            case 7:
+                console.log("Giap ne ");
+                break;
+            case 8:
+                console.log("Giap ne ");
+                break;
+            default:
+                break;
+        }
     };
     GameView.prototype.start = function () {
     };
@@ -97,6 +166,12 @@ var GameView = /** @class */ (function (_super) {
     __decorate([
         property(cc.Label)
     ], GameView.prototype, "lbHpBagGuy", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameView.prototype, "nMaskClick", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameView.prototype, "nMaskLoadGame", void 0);
     GameView = GameView_1 = __decorate([
         ccclass
     ], GameView);

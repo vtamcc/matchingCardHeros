@@ -88,13 +88,13 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "card_back",
+    "_name": "card_front",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 3
@@ -195,7 +195,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "card_front",
+    "_name": "card_back",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -205,7 +205,7 @@
         "__id__": 6
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 9
@@ -452,10 +452,10 @@
     },
     "_enabled": true,
     "nCardBack": {
-      "__id__": 2
+      "__id__": 5
     },
     "nCardFront": {
-      "__id__": 5
+      "__id__": 2
     },
     "nCardSpf": {
       "__id__": 6

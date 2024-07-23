@@ -14,65 +14,83 @@ export default class Card extends cc.Component {
 
    @property(cc.Node)
    nCardBack: cc.Node = null;
-
    @property(cc.Node)
    nCardFront: cc.Node = null;
-
    @property(cc.Node)
    nCardSpf: cc.Node = null;
-
+   isClicked = false;
    idCard = 0;
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {}
+    onLoad () {
+        this.flipToback();
+        //this.scheduleOnce(this.flipTofront,3);
+    }
     setData(id) {
         this.idCard = id;
         this.nCardSpf.getComponent(cc.Sprite).spriteFrame = GameView.instance.listSpfCards[id];
     }
 
     onClickCards() {
+        if(this.isClicked) return;
+        this.isClicked = true;
         console.log("id ", this.idCard);
-        this.flipCard();
-    }
-
-    flipCard() {
-        cc.tween(this.node)
-            .to(0.3, { scaleX: 0 })
-            .call(() => {
-                if (!this.nCardFront.active) {
-                    this.nCardFront.active = true;
-                    this.nCardBack.active = false;
-                } else {
-                    this.nCardFront.active = false;
-                    this.nCardBack.active = true;
-                }
-            })
-            .to(0.3, { scaleX: 1 })
-            .start();
-    }
-
-    flipToFront() {
-        // Đảm bảo thẻ hiện tại đang ở trạng thái mặt sau
-        if (this.nCardFront.active) {
-            cc.tween(this.node)
-                .to(0.3, { scaleX: 0 })
-                .call(() => {
-                    this.nCardFront.active = false;
-                    this.nCardBack.active = true;
-                })
-                .to(0.3, { scaleX: 1 })
-                .start();
+        //this.flipCard();
+        GameView.instance.addSelectedCard(this);
+        GameView.instance.countClick++;
+        if(GameView.instance.countClick == 2) {
+            GameView.instance.nMaskClick.active = true;
+            this.scheduleOnce(() => {
+                GameView.instance.nMaskClick.active = false;
+            },0.6)
+            GameView.instance.countClick = 0;
         }
     }
 
-    start() {
-        // Khởi tạo trạng thái thẻ (mặt sau)
-        this.nCardFront.active = true;
-        this.nCardBack.active = false;
-
-        // Lật thẻ trở lại mặt trước sau 3 giây
-        this.scheduleOnce(this.flipToFront, 3);
+    setCards(active: boolean) {
+        this.nCardBack.active = active;
+        this.nCardFront.active = !active;
     }
+
+    flipToback() {
+
+        cc.tween(this.node)
+        .to(0.3,{scaleX: 0.1})
+        .call(() => {
+            this.setCards(true);
+        })
+        .to(0.3,{scaleX:1}).start();
+        
+    }
+
+    flipTofront() {
+        if(!this.nCardFront.active) {
+            cc.tween(this.node)
+            .to(0.3,{scaleX:0})
+            .call(()=> {
+                this.setCards(false);
+            })
+            .to(0.3, {scaleX:1})
+            .start();
+        }
+    }
+
+    // flipCard() {
+    //     cc.tween(this.node)
+    //     .to(0.3,{scaleX: 0})
+    //     .call(() =>{
+    //         if(!this.nCardBack.active) {
+    //             this.setCards(true);
+    //             console.log("vao if")
+    //         }else {
+    //             this.setCards(false);
+    //             console.log("vao else")
+    //         }
+    //     }).to(0.3, {scaleX:1}).start();
+    // }
+   
+    // start() {
+    // }
 
     // update (dt) {}
 }

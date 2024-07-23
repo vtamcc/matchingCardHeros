@@ -38,57 +38,75 @@ var Card = /** @class */ (function (_super) {
         _this.nCardBack = null;
         _this.nCardFront = null;
         _this.nCardSpf = null;
+        _this.isClicked = false;
         _this.idCard = 0;
         return _this;
+        // flipCard() {
+        //     cc.tween(this.node)
+        //     .to(0.3,{scaleX: 0})
+        //     .call(() =>{
+        //         if(!this.nCardBack.active) {
+        //             this.setCards(true);
+        //             console.log("vao if")
+        //         }else {
+        //             this.setCards(false);
+        //             console.log("vao else")
+        //         }
+        //     }).to(0.3, {scaleX:1}).start();
+        // }
+        // start() {
+        // }
         // update (dt) {}
     }
     // LIFE-CYCLE CALLBACKS:
-    // onLoad () {}
+    Card.prototype.onLoad = function () {
+        this.flipToback();
+        //this.scheduleOnce(this.flipTofront,3);
+    };
     Card.prototype.setData = function (id) {
         this.idCard = id;
         this.nCardSpf.getComponent(cc.Sprite).spriteFrame = CardHero_GameView_1.default.instance.listSpfCards[id];
     };
     Card.prototype.onClickCards = function () {
+        if (this.isClicked)
+            return;
+        this.isClicked = true;
         console.log("id ", this.idCard);
-        this.flipCard();
+        //this.flipCard();
+        CardHero_GameView_1.default.instance.addSelectedCard(this);
+        CardHero_GameView_1.default.instance.countClick++;
+        if (CardHero_GameView_1.default.instance.countClick == 2) {
+            CardHero_GameView_1.default.instance.nMaskClick.active = true;
+            this.scheduleOnce(function () {
+                CardHero_GameView_1.default.instance.nMaskClick.active = false;
+            }, 0.6);
+            CardHero_GameView_1.default.instance.countClick = 0;
+        }
     };
-    Card.prototype.flipCard = function () {
+    Card.prototype.setCards = function (active) {
+        this.nCardBack.active = active;
+        this.nCardFront.active = !active;
+    };
+    Card.prototype.flipToback = function () {
         var _this = this;
         cc.tween(this.node)
-            .to(0.3, { scaleX: 0 })
+            .to(0.3, { scaleX: 0.1 })
             .call(function () {
-            if (!_this.nCardFront.active) {
-                _this.nCardFront.active = true;
-                _this.nCardBack.active = false;
-            }
-            else {
-                _this.nCardFront.active = false;
-                _this.nCardBack.active = true;
-            }
+            _this.setCards(true);
         })
-            .to(0.3, { scaleX: 1 })
-            .start();
+            .to(0.3, { scaleX: 1 }).start();
     };
-    Card.prototype.flipToFront = function () {
+    Card.prototype.flipTofront = function () {
         var _this = this;
-        // Đảm bảo thẻ hiện tại đang ở trạng thái mặt sau
-        if (this.nCardFront.active) {
+        if (!this.nCardFront.active) {
             cc.tween(this.node)
                 .to(0.3, { scaleX: 0 })
                 .call(function () {
-                _this.nCardFront.active = false;
-                _this.nCardBack.active = true;
+                _this.setCards(false);
             })
                 .to(0.3, { scaleX: 1 })
                 .start();
         }
-    };
-    Card.prototype.start = function () {
-        // Khởi tạo trạng thái thẻ (mặt sau)
-        this.nCardFront.active = true;
-        this.nCardBack.active = false;
-        // Lật thẻ trở lại mặt trước sau 3 giây
-        this.scheduleOnce(this.flipToFront, 3);
     };
     __decorate([
         property(cc.Node)
