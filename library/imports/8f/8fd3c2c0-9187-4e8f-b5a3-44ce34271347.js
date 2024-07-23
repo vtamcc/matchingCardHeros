@@ -29,31 +29,79 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var CardHero_Global_1 = require("../CardHero.Global");
+var CardHero_Card_1 = require("./CardHero.Card");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var NewClass = /** @class */ (function (_super) {
-    __extends(NewClass, _super);
-    function NewClass() {
+var GameView = /** @class */ (function (_super) {
+    __extends(GameView, _super);
+    function GameView() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.label = null;
-        _this.text = 'hello';
+        _this.prfCard = null;
+        _this.listSpfCards = [];
+        _this.nTableCards = null;
+        _this.lbHpChar = null;
+        _this.lbHpBagGuy = null;
+        _this.listIdCard = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12];
         return _this;
         // update (dt) {}
     }
+    GameView_1 = GameView;
     // LIFE-CYCLE CALLBACKS:
-    // onLoad () {}
-    NewClass.prototype.start = function () {
+    GameView.prototype.onLoad = function () {
+        var _this = this;
+        GameView_1.instance = this;
+        this.listIdCard = this.shuffleArray(this.listIdCard);
+        this.scheduleOnce(function () {
+            _this.loadCards();
+        }, 1);
+        this.updateHpChar();
+        this.updateHpBagGuy();
     };
+    GameView.prototype.loadCards = function () {
+        for (var i = 0; i < 25; i++) {
+            var card = cc.instantiate(this.prfCard).getComponent(CardHero_Card_1.default);
+            card.setData(this.listIdCard[i]);
+            this.nTableCards.addChild(card.node);
+        }
+    };
+    GameView.prototype.shuffleArray = function (array) {
+        var _a;
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            _a = [array[j], array[i]], array[i] = _a[0], array[j] = _a[1];
+        }
+        return array;
+    };
+    GameView.prototype.start = function () {
+    };
+    GameView.prototype.updateHpChar = function () {
+        this.lbHpChar.string = CardHero_Global_1.Global.hpChar + ' ';
+    };
+    GameView.prototype.updateHpBagGuy = function () {
+        this.lbHpBagGuy.string = CardHero_Global_1.Global.hpBagGuy + ' ';
+    };
+    var GameView_1;
+    GameView.instance = null;
+    __decorate([
+        property(cc.Prefab)
+    ], GameView.prototype, "prfCard", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], GameView.prototype, "listSpfCards", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameView.prototype, "nTableCards", void 0);
     __decorate([
         property(cc.Label)
-    ], NewClass.prototype, "label", void 0);
+    ], GameView.prototype, "lbHpChar", void 0);
     __decorate([
-        property
-    ], NewClass.prototype, "text", void 0);
-    NewClass = __decorate([
+        property(cc.Label)
+    ], GameView.prototype, "lbHpBagGuy", void 0);
+    GameView = GameView_1 = __decorate([
         ccclass
-    ], NewClass);
-    return NewClass;
+    ], GameView);
+    return GameView;
 }(cc.Component));
-exports.default = NewClass;
+exports.default = GameView;
 
 cc._RF.pop();

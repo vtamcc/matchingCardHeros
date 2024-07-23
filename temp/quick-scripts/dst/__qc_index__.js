@@ -11,6 +11,8 @@
                     function __define (exports, require, module) {
                         if (!nodeEnv) {__quick_compile_project__.registerModule(__filename, module);}
 require('./assets/MatchingCardHeros/scripts/CardHero.GameManager');
+require('./assets/MatchingCardHeros/scripts/CardHero.Global');
+require('./assets/MatchingCardHeros/scripts/game/CardHero.Card');
 require('./assets/MatchingCardHeros/scripts/game/CardHero.GameView');
 
                     }

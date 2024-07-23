@@ -29,30 +29,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var CardHero_GameView_1 = require("./game/CardHero.GameView");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
-var NewClass = /** @class */ (function (_super) {
-    __extends(NewClass, _super);
-    function NewClass() {
+var GameManager = /** @class */ (function (_super) {
+    __extends(GameManager, _super);
+    function GameManager() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.prfGameView = null;
         return _this;
         // update (dt) {}
     }
-    NewClass.prototype.onLoad = function () { };
-    NewClass.prototype.start = function () {
+    GameManager.prototype.onLoad = function () { };
+    GameManager.prototype.start = function () {
     };
-    NewClass.prototype.onClickPlay = function () {
-        var gamView = cc.instantiate(this.prfGameView);
-        this.node.addChild(gamView);
+    GameManager.prototype.onClickPlay = function () {
+        var gameView = cc.instantiate(this.prfGameView).getComponent(CardHero_GameView_1.default);
+        this.node.addChild(gameView.node);
     };
     __decorate([
         property(cc.Prefab)
-    ], NewClass.prototype, "prfGameView", void 0);
-    NewClass = __decorate([
+    ], GameManager.prototype, "prfGameView", void 0);
+    GameManager = __decorate([
         ccclass
-    ], NewClass);
-    return NewClass;
+    ], GameManager);
+    return GameManager;
 }(cc.Component));
-exports.default = NewClass;
+exports.default = GameManager;
 
 cc._RF.pop();

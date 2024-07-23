@@ -5,10 +5,12 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
+import GameView from "./game/CardHero.GameView";
+
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class GameManager extends cc.Component {
 
     @property(cc.Prefab)
     prfGameView: cc.Prefab = null;
@@ -19,8 +21,8 @@ export default class NewClass extends cc.Component {
     }
 
     onClickPlay() {
-        let gamView = cc.instantiate(this.prfGameView)
-        this.node.addChild(gamView);
+        let gameView = cc.instantiate(this.prfGameView).getComponent(GameView)
+        this.node.addChild(gameView.node);
     }
 
     // update (dt) {}
