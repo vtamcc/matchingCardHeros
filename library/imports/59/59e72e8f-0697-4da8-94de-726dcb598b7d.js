@@ -41,27 +41,14 @@ var Card = /** @class */ (function (_super) {
         _this.isClicked = false;
         _this.idCard = 0;
         return _this;
-        // flipCard() {
-        //     cc.tween(this.node)
-        //     .to(0.3,{scaleX: 0})
-        //     .call(() =>{
-        //         if(!this.nCardBack.active) {
-        //             this.setCards(true);
-        //             console.log("vao if")
-        //         }else {
-        //             this.setCards(false);
-        //             console.log("vao else")
-        //         }
-        //     }).to(0.3, {scaleX:1}).start();
-        // }
         // start() {
         // }
         // update (dt) {}
     }
     // LIFE-CYCLE CALLBACKS:
     Card.prototype.onLoad = function () {
-        this.flipToback();
-        //this.scheduleOnce(this.flipTofront,3);
+        this.flipToBack();
+        this.scheduleOnce(this.flipTofront, 5);
     };
     Card.prototype.setData = function (id) {
         this.idCard = id;
@@ -72,7 +59,7 @@ var Card = /** @class */ (function (_super) {
             return;
         this.isClicked = true;
         console.log("id ", this.idCard);
-        //this.flipCard();
+        this.flipCard();
         CardHero_GameView_1.default.instance.addSelectedCard(this);
         CardHero_GameView_1.default.instance.countClick++;
         if (CardHero_GameView_1.default.instance.countClick == 2) {
@@ -87,12 +74,15 @@ var Card = /** @class */ (function (_super) {
         this.nCardBack.active = active;
         this.nCardFront.active = !active;
     };
-    Card.prototype.flipToback = function () {
+    Card.prototype.flipToBack = function (callback) {
         var _this = this;
+        if (callback === void 0) { callback = null; }
         cc.tween(this.node)
             .to(0.3, { scaleX: 0.1 })
             .call(function () {
             _this.setCards(true);
+            if (callback)
+                callback();
         })
             .to(0.3, { scaleX: 1 }).start();
     };
@@ -107,6 +97,21 @@ var Card = /** @class */ (function (_super) {
                 .to(0.3, { scaleX: 1 })
                 .start();
         }
+    };
+    Card.prototype.flipCard = function () {
+        var _this = this;
+        cc.tween(this.node)
+            .to(0.3, { scaleX: 0 })
+            .call(function () {
+            if (!_this.nCardBack.active) {
+                _this.setCards(true);
+                console.log("vao if");
+            }
+            else {
+                _this.setCards(false);
+                console.log("vao else");
+            }
+        }).to(0.3, { scaleX: 1 }).start();
     };
     __decorate([
         property(cc.Node)

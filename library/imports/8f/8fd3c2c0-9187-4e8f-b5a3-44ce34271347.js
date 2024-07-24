@@ -47,6 +47,14 @@ var GameView = /** @class */ (function (_super) {
         _this.countClick = 0;
         _this.listIdCard = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12];
         _this.selectedCards = [];
+        _this.dataCard = [];
+        _this.rows = 5;
+        _this.cols = 5;
+        _this.spacing = 10;
+        _this.dame = 0;
+        _this.startX = -337;
+        _this.startY = 210;
+        _this.tileWidth = 135;
         return _this;
         // update (dt) {}
     }
@@ -71,11 +79,27 @@ var GameView = /** @class */ (function (_super) {
         }, 5);
     };
     GameView.prototype.loadCards = function () {
-        for (var i = 0; i < 25; i++) {
-            var card = cc.instantiate(this.prfCard).getComponent(CardHero_Card_1.default);
-            card.setData(this.listIdCard[i]);
-            this.nTableCards.addChild(card.node);
+        // for(let i = 0; i < 25; i++) {
+        //     let card = cc.instantiate(this.prfCard).getComponent(Card)
+        //     card.setData(this.listIdCard[i])
+        //     this.nTableCards.addChild(card.node);
+        // }
+        var idIndex = 0;
+        for (var i = 0; i < this.rows; i++) {
+            this.dataCard[i] = [];
+            for (var j = 0; j < this.cols; j++) {
+                if (idIndex >= this.listIdCard.length)
+                    break;
+                var card = cc.instantiate(this.prfCard).getComponent(CardHero_Card_1.default);
+                card.setData(this.listIdCard[idIndex]);
+                this.nTableCards.addChild(card.node);
+                card.node.x = this.startX + j * this.tileWidth + this.tileWidth / 2;
+                card.node.y = this.startY - i * this.tileWidth + this.tileWidth / 2;
+                this.dataCard[i][j] = card;
+                idIndex++;
+            }
         }
+        console.log(this.dataCard);
     };
     GameView.prototype.shuffleArray = function (array) {
         var _a;
@@ -89,7 +113,7 @@ var GameView = /** @class */ (function (_super) {
         if (this.selectedCards.length < 2) {
             this.selectedCards.push(card);
             if (this.selectedCards.length === 2) {
-                this.scheduleOnce(this.checkMatch.bind(this), 1); // Delay to show the cards
+                this.scheduleOnce(this.checkMatch.bind(this), 2); // Delay to show the cards
             }
         }
     };
@@ -102,8 +126,10 @@ var GameView = /** @class */ (function (_super) {
             secondCard.node.destroy();
         }
         else {
-            // firstCard.flipCard();
-            // secondCard.flipCard();
+            CardHero_Global_1.Global.hpChar--;
+            this.updateHpChar();
+            firstCard.flipCard();
+            secondCard.flipCard();
             console.log("sai me roi");
         }
         this.selectedCards = [];
@@ -118,6 +144,9 @@ var GameView = /** @class */ (function (_super) {
                 break;
             case 2:
                 console.log("Cung nho ban ");
+                this.dame += 5;
+                CardHero_Global_1.Global.hpBagGuy -= this.dame;
+                this.updateHpBagGuy();
                 break;
             case 3:
                 console.log("Cung Tb bắn ");

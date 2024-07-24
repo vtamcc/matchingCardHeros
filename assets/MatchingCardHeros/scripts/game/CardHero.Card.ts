@@ -23,8 +23,8 @@ export default class Card extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        this.flipToback();
-        //this.scheduleOnce(this.flipTofront,3);
+        this.flipToBack();
+        this.scheduleOnce(this.flipTofront,5);
     }
     setData(id) {
         this.idCard = id;
@@ -35,7 +35,7 @@ export default class Card extends cc.Component {
         if(this.isClicked) return;
         this.isClicked = true;
         console.log("id ", this.idCard);
-        //this.flipCard();
+        this.flipCard();
         GameView.instance.addSelectedCard(this);
         GameView.instance.countClick++;
         if(GameView.instance.countClick == 2) {
@@ -52,15 +52,14 @@ export default class Card extends cc.Component {
         this.nCardFront.active = !active;
     }
 
-    flipToback() {
-
+    flipToBack(callback: Function = null) {
         cc.tween(this.node)
-        .to(0.3,{scaleX: 0.1})
-        .call(() => {
-            this.setCards(true);
-        })
-        .to(0.3,{scaleX:1}).start();
-        
+            .to(0.3, { scaleX: 0.1 })
+            .call(() => {
+                this.setCards(true);
+                if (callback) callback();
+            })
+            .to(0.3, { scaleX: 1 }).start();
     }
 
     flipTofront() {
@@ -75,19 +74,19 @@ export default class Card extends cc.Component {
         }
     }
 
-    // flipCard() {
-    //     cc.tween(this.node)
-    //     .to(0.3,{scaleX: 0})
-    //     .call(() =>{
-    //         if(!this.nCardBack.active) {
-    //             this.setCards(true);
-    //             console.log("vao if")
-    //         }else {
-    //             this.setCards(false);
-    //             console.log("vao else")
-    //         }
-    //     }).to(0.3, {scaleX:1}).start();
-    // }
+    flipCard() {
+        cc.tween(this.node)
+        .to(0.3,{scaleX: 0})
+        .call(() =>{
+            if(!this.nCardBack.active) {
+                this.setCards(true);
+                console.log("vao if")
+            }else {
+                this.setCards(false);
+                console.log("vao else")
+            }
+        }).to(0.3, {scaleX:1}).start();
+    }
    
     // start() {
     // }

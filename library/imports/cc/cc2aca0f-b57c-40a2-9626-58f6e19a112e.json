@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "9p_menugame",
+    "texture": "e2ebd73c-6452-4390-be11-4deb925760f5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      42,
+      42
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      42,
+      42
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
