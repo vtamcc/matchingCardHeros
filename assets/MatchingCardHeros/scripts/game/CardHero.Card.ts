@@ -34,7 +34,6 @@ export default class Card extends cc.Component {
     onClickCards() {
         if(this.isClicked) return;
         this.isClicked = true;
-        console.log("id ", this.idCard);
         this.flipCard();
         GameView.instance.addSelectedCard(this);
         GameView.instance.countClick++;
@@ -80,10 +79,8 @@ export default class Card extends cc.Component {
         .call(() =>{
             if(!this.nCardBack.active) {
                 this.setCards(true);
-                console.log("vao if")
             }else {
                 this.setCards(false);
-                console.log("vao else")
             }
         }).to(0.3, {scaleX:1}).start();
     }

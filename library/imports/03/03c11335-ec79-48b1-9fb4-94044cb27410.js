@@ -16,7 +16,11 @@ var Global = /** @class */ (function () {
     }
     Global.totalGold = 0;
     Global.hpChar = 10;
-    Global.hpBagGuy = 10;
+    Global.hpMonster = 10;
+    Global.dameMonster = 1;
+    Global.dameCharSmall = 5;
+    Global.dameCharNormal = 10;
+    Global.dameCharBig = 15;
     return Global;
 }());
 exports.Global = Global;

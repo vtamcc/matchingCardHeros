@@ -7,49 +7,57 @@
 
 import { Global } from "../CardHero.Global";
 import Card from "./CardHero.Card";
+import Char from "./CardHero.Char";
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class GameView extends cc.Component {
-   public static instance: GameView = null;
-   @property(cc.Prefab)
-   prfCard: cc.Prefab = null;
-   @property(cc.SpriteFrame)
-   listSpfCards: cc.SpriteFrame[] = [];
-   @property(cc.Node)
-   nTableCards: cc.Node = null;
-   @property(cc.Label)
-   lbHpChar: cc.Label = null;
-   @property(cc.Label)
-   lbHpBagGuy: cc.Label = null;
-   @property(cc.Node)
-   nMaskClick: cc.Node = null;
-   @property(cc.Node)
-   nMaskLoadGame: cc.Node = null;
-   isClick = false;
-   countClick = 0;
-   listIdCard = [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12];
-   selectedCards = [];
-   dataCard =[];
-   rows = 5;
-   cols = 5;
-   spacing = 10;
-   dame = 0;
-   private startX: number = -337;
-   private startY: number = 210;
-   private tileWidth: number = 135;
+    public static instance: GameView = null;
+    @property(cc.Prefab)
+    prfCard: cc.Prefab = null;
+    @property(cc.SpriteFrame)
+    listSpfCards: cc.SpriteFrame[] = [];
+    @property(cc.Node)
+    nTableCards: cc.Node = null;
+    @property(cc.Label)
+    lbHpChar: cc.Label = null;
+    @property(cc.Label)
+    lbHpMonster: cc.Label = null;
+    @property(cc.Node)
+    nMaskClick: cc.Node = null;
+    @property(cc.Node)
+    nMaskLoadGame: cc.Node = null;
+    @property(cc.Node)
+    lbDameMonster: cc.Node = null;
+    isClick = false;
+    countClick = 0;
+    listIdCard = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12];
+    selectedCards = [];
+    dataCard = [];
+    @property(Char)
+    charArchers: Char = null;
+    @property(Char)
+    charFighter: Char = null;
+    @property(Char)
+    charMagic: Char = null;
+    rows = 5;
+    cols = 5;
+    spacing = 10;
+    private startX: number = -337;
+    private startY: number = 210;
+    private tileWidth: number = 135;
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
+    onLoad() {
         GameView.instance = this;
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.maskLoadGame();
         this.scheduleOnce(() => {
             this.loadCards();
-           
-        },1)
-        
+
+        }, 1)
+
         this.updateHpChar();
         this.updateHpBagGuy();
     }
@@ -58,7 +66,7 @@ export default class GameView extends cc.Component {
         this.nMaskLoadGame.active = true;
         this.scheduleOnce(() => {
             this.nMaskLoadGame.active = false;
-        },5)
+        }, 5)
     }
 
     loadCards() {
@@ -84,12 +92,16 @@ export default class GameView extends cc.Component {
                 idIndex++;
             }
         }
-  
-        console.log(this.dataCard);
+
     }
 
+    gameOver() {
+        if (Global.hpChar == 0) {
+            console.log("Thua con me may roiiiiiiii");
+        }
+    }
     shuffleArray(array: number[]): number[] {
-        for (let i = array.length-1; i > 0; i--) {
+        for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
@@ -100,76 +112,143 @@ export default class GameView extends cc.Component {
         if (this.selectedCards.length < 2) {
             this.selectedCards.push(card);
             if (this.selectedCards.length === 2) {
-                this.scheduleOnce(this.checkMatch.bind(this), 2); // Delay to show the cards
+                this.scheduleOnce(this.checkMatch.bind(this), 0.8);
             }
         }
     }
 
-   
+
     checkMatch() {
         let [firstCard, secondCard] = this.selectedCards;
-        console.log("Mang ",this.selectedCards);
-        if (firstCard.idCard === secondCard.idCard) {
-           this.selectAttack(firstCard.idCard);
-           
-           firstCard.node.destroy();
-           secondCard.node.destroy();
+        let doubleDame = false;
+        if (firstCard.idCard === 12 || secondCard.idCard === 12) {
+            doubleDame = true;
+            let multiplierCard = (firstCard.idCard === 12) ? secondCard : firstCard;
+            console.log("Id x2 ", multiplierCard.idCard);
+            this.selectAttack(multiplierCard.idCard, true)
+            firstCard.node.destroy();
+            secondCard.node.destroy();
+        } else if (firstCard.idCard === secondCard.idCard) {
+            this.selectAttack(firstCard.idCard, false);
+            firstCard.node.destroy();
+            secondCard.node.destroy();
         } else {
+            this.effectDameBagGuy()
             Global.hpChar--;
             this.updateHpChar();
             firstCard.flipCard();
             secondCard.flipCard();
-            console.log("sai me roi");
+            firstCard.isClicked = false;
+            secondCard.isClicked = false;
+            this.gameOver();
         }
+
+
         this.selectedCards = [];
     }
-    
-   selectAttack(id) {
+
+    selectAttack(id, isDoubleDame: boolean) {
         switch (id) {
             case 0:
                 console.log("Giap ne ");
                 break
             case 1:
                 console.log("Mau ne ");
+                if (Global.hpChar >= 10) return;
+                else {
+                    Global.hpChar += 5;
+                    this.updateHpChar();
+                }
                 break
             case 2:
                 console.log("Cung nho ban ");
-                this.dame += 5;
-                Global.hpBagGuy -= this.dame;
+                Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
+                console.log("dame small ", Global.dameCharSmall);
+                Global.hpMonster -= Global.dameCharSmall;
+                this.charArchers.charAttack();
                 this.updateHpBagGuy();
                 break
             case 3:
-                console.log("Cung Tb bắn ");
+                console.log("Cung Tb ban ");
+                Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
+                Global.hpMonster -= Global.dameCharNormal;
+                this.charArchers.charAttack();
+                this.updateHpBagGuy();
                 break
             case 4:
-                console.log("Giap ne ");
+                console.log("Cung To ban ");
+                this.charArchers.charAttack();
+                Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
+                Global.hpMonster -= Global.dameCharBig;
+                this.updateHpBagGuy();
                 break
             case 5:
-                console.log("Giap ne ");
+                console.log("KIem danh ");
+                Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
+                console.log("dame small ", Global.dameCharSmall);
+                Global.hpMonster -= Global.dameCharSmall;
+                this.charFighter.charAttack();
+                this.updateHpBagGuy();
                 break
             case 6:
-                console.log("Giap ne ");
+                console.log("KIem danh ");
+                Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
+                Global.hpMonster -= Global.dameCharNormal;
+                this.charFighter.charAttack();
+                this.updateHpBagGuy();
                 break
             case 7:
-                console.log("Giap ne ");
+                console.log("KIem danh ");
+                Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
+                Global.hpMonster -= Global.dameCharBig;
+                this.charFighter.charAttack();
+                this.updateHpBagGuy();
                 break
             case 8:
-                console.log("Giap ne ");
+                console.log("KIem danh ");
+                Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
+                Global.hpMonster -= Global.dameCharSmall;
+                console.log("Phap Su ");
+                this.charMagic.charAttack();
+                break;
+            case 9:
+                Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
+                Global.hpMonster -= Global.dameCharNormal;
+                console.log("Phap Su ");
+                this.charMagic.charAttack();
+                this.updateHpBagGuy();
+                break
+            case 10:
+                Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
+                Global.hpMonster -= Global.dameCharBig;
+                console.log("Phap Su ");
+                this.charMagic.charAttack();
+                this.updateHpBagGuy();
                 break
             default:
                 break;
         }
-   }
-    start () {
+    }
+    start() {
 
     }
 
+    effectDameBagGuy() {
+        this.lbDameMonster.active = true;
+        this.lbDameMonster.getComponent(cc.Label).string = "-" + Global.dameMonster;
+        cc.tween(this.lbDameMonster)
+            .to(0.8, { y: 200 })
+            .call(() => {
+                this.lbDameMonster.active = false;
+                this.lbDameMonster.y = -70;
+            }).start();
+    }
     updateHpChar() {
         this.lbHpChar.string = Global.hpChar + ' ';
     }
 
     updateHpBagGuy() {
-        this.lbHpBagGuy.string = Global.hpBagGuy + ' ';
+        this.lbHpMonster.string = Global.hpMonster + ' ';
     }
 
 

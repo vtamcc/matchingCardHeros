@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "slime_2 damage",
+    "texture": "a926a2f8-4133-44af-8f6b-f020e2f29b73",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      280,
+      199
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      280,
+      199
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

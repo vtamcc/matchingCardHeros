@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "slime_3 defeated",
+    "texture": "ca08fd6c-91e5-44a6-bbba-c79641c3f4dc",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      280,
+      200
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      280,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

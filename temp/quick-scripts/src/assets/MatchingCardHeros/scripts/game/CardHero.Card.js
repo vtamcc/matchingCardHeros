@@ -58,7 +58,6 @@ var Card = /** @class */ (function (_super) {
         if (this.isClicked)
             return;
         this.isClicked = true;
-        console.log("id ", this.idCard);
         this.flipCard();
         CardHero_GameView_1.default.instance.addSelectedCard(this);
         CardHero_GameView_1.default.instance.countClick++;
@@ -105,11 +104,9 @@ var Card = /** @class */ (function (_super) {
             .call(function () {
             if (!_this.nCardBack.active) {
                 _this.setCards(true);
-                console.log("vao if");
             }
             else {
                 _this.setCards(false);
-                console.log("vao else");
             }
         }).to(0.3, { scaleX: 1 }).start();
     };

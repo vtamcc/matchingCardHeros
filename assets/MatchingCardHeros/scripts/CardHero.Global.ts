@@ -9,6 +9,10 @@
 export class Global  {
     static totalGold = 0;
     static hpChar = 10;
-    static hpBagGuy = 10;
+    static hpMonster = 10;
+    static dameMonster = 1;
+    static dameCharSmall = 5;
+    static dameCharNormal = 10;
+    static dameCharBig = 15;
     //static dataAttack = [{id: 0,}]
 }

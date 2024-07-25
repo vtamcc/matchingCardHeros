@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "slime_1 attack",
+    "texture": "c80de2e4-ce66-45d7-af85-798c61a4fe04",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      280,
+      199
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      280,
+      199
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
