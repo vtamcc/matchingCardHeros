@@ -15,6 +15,7 @@ require('./assets/MatchingCardHeros/scripts/CardHero.Global');
 require('./assets/MatchingCardHeros/scripts/game/CardHero.Card');
 require('./assets/MatchingCardHeros/scripts/game/CardHero.Char');
 require('./assets/MatchingCardHeros/scripts/game/CardHero.GameView');
+require('./assets/MatchingCardHeros/scripts/game/CardHero.Monster');
 
                     }
                     if (nodeEnv) {

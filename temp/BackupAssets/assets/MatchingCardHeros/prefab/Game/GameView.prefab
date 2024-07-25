@@ -24,17 +24,17 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 77
-      },
-      {
-        "__id__": 78
-      },
-      {
         "__id__": 79
+      },
+      {
+        "__id__": 80
+      },
+      {
+        "__id__": 81
       }
     ],
     "_prefab": {
-      "__id__": 80
+      "__id__": 82
     },
     "_opacity": 255,
     "_color": {
@@ -117,19 +117,22 @@
       },
       {
         "__id__": 47
+      },
+      {
+        "__id__": 74
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 74
+        "__id__": 76
       },
       {
-        "__id__": 75
+        "__id__": 77
       }
     ],
     "_prefab": {
-      "__id__": 76
+      "__id__": 78
     },
     "_opacity": 255,
     "_color": {
@@ -2689,6 +2692,77 @@
     "sync": false
   },
   {
+    "__type__": "cc.Node",
+    "_name": "Monster",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [],
+    "_prefab": {
+      "__id__": 75
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 0,
+      "height": 0
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_trs": {
+      "__type__": "TypedArray",
+      "ctor": "Float64Array",
+      "array": [
+        205.669,
+        -60,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "_eulerAngles": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_is3DNode": false,
+    "_groupIndex": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "6a268e25-bfef-4aa8-bbe2-a2a43aee9ca5"
+    },
+    "fileId": "03/cd2GrhFzremwvewOKwc",
+    "sync": false
+  },
+  {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
@@ -2796,6 +2870,9 @@
     "prfCard": {
       "__uuid__": "95bb5361-eaf9-4e3d-b125-a7101a35053d"
     },
+    "prfMonster": {
+      "__uuid__": "b29eb593-795e-4223-a504-1050038fd926"
+    },
     "listSpfCards": [
       {
         "__uuid__": "022114d9-3729-4853-a0c0-2ab863d74c11"
@@ -2837,6 +2914,9 @@
         "__uuid__": "d2edd582-79b7-4855-9b8f-8108a9719d08"
       }
     ],
+    "nMonters": {
+      "__id__": 74
+    },
     "nTableCards": {
       "__id__": 32
     },
@@ -2855,6 +2935,14 @@
     "lbDameMonster": {
       "__id__": 44
     },
+    "listMonster": [
+      {
+        "__uuid__": "cf9445ff-83d1-4b88-bb46-ac5144325b95"
+      },
+      {
+        "__uuid__": "23619868-384f-4c96-84a0-2de3d0e5edd7"
+      }
+    ],
     "charArchers": {
       "__id__": 53
     },

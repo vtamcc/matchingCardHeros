@@ -8,6 +8,7 @@
 import { Global } from "../CardHero.Global";
 import Card from "./CardHero.Card";
 import Char from "./CardHero.Char";
+import Monster from "./CardHero.Monster";
 
 const { ccclass, property } = cc._decorator;
 
@@ -16,8 +17,12 @@ export default class GameView extends cc.Component {
     public static instance: GameView = null;
     @property(cc.Prefab)
     prfCard: cc.Prefab = null;
+    @property(cc.Prefab)
+    prfMonster: cc.Prefab = null;
     @property(cc.SpriteFrame)
     listSpfCards: cc.SpriteFrame[] = [];
+    @property(cc.Node)
+    nMonters: cc.Node = null;
     @property(cc.Node)
     nTableCards: cc.Node = null;
     @property(cc.Label)
@@ -30,6 +35,8 @@ export default class GameView extends cc.Component {
     nMaskLoadGame: cc.Node = null;
     @property(cc.Node)
     lbDameMonster: cc.Node = null;
+    @property(cc.SpriteFrame)
+    listMonster: cc.SpriteFrame[] = [];
     isClick = false;
     countClick = 0;
     listIdCard = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12];
@@ -41,6 +48,8 @@ export default class GameView extends cc.Component {
     charFighter: Char = null;
     @property(Char)
     charMagic: Char = null;
+
+    idMonster = 0;
     rows = 5;
     cols = 5;
     spacing = 10;
@@ -57,9 +66,10 @@ export default class GameView extends cc.Component {
             this.loadCards();
 
         }, 1)
-
+        this.createMonster();
         this.updateHpChar();
         this.updateHpBagGuy();
+
     }
 
     maskLoadGame() {
@@ -95,6 +105,21 @@ export default class GameView extends cc.Component {
 
     }
 
+    createMonster() {
+       let monter = cc.instantiate(this.prfMonster).getComponent(Monster)
+       monter.setMonster(this.idMonster);
+       
+       this.nMonters.addChild(monter.node);
+    //    this.idMonster++;
+    }
+
+   
+    attackMonster(dame) {
+        let monster = cc.instantiate(this.prfMonster).getComponent(Monster);
+        if (monster) {
+            monster.receiveDamage(dame)
+        }
+    }
     gameOver() {
         if (Global.hpChar == 0) {
             console.log("Thua con me may roiiiiiiii");
@@ -147,6 +172,7 @@ export default class GameView extends cc.Component {
         this.selectedCards = [];
     }
 
+   
     selectAttack(id, isDoubleDame: boolean) {
         switch (id) {
             case 0:
@@ -163,67 +189,50 @@ export default class GameView extends cc.Component {
             case 2:
                 console.log("Cung nho ban ");
                 Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
-                console.log("dame small ", Global.dameCharSmall);
-                Global.hpMonster -= Global.dameCharSmall;
                 this.charArchers.charAttack();
-                this.updateHpBagGuy();
+                this.attackMonster(Global.dameCharSmall);
                 break
             case 3:
                 console.log("Cung Tb ban ");
                 Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
-                Global.hpMonster -= Global.dameCharNormal;
+                this.attackMonster(Global.dameCharNormal)
                 this.charArchers.charAttack();
-                this.updateHpBagGuy();
                 break
             case 4:
-                console.log("Cung To ban ");
                 this.charArchers.charAttack();
                 Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
-                Global.hpMonster -= Global.dameCharBig;
-                this.updateHpBagGuy();
+                this.attackMonster(Global.dameCharBig);
                 break
             case 5:
-                console.log("KIem danh ");
                 Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
-                console.log("dame small ", Global.dameCharSmall);
                 Global.hpMonster -= Global.dameCharSmall;
                 this.charFighter.charAttack();
-                this.updateHpBagGuy();
                 break
             case 6:
-                console.log("KIem danh ");
                 Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
-                Global.hpMonster -= Global.dameCharNormal;
                 this.charFighter.charAttack();
-                this.updateHpBagGuy();
+                this.attackMonster(Global.dameCharNormal);
                 break
             case 7:
                 console.log("KIem danh ");
                 Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
-                Global.hpMonster -= Global.dameCharBig;
                 this.charFighter.charAttack();
-                this.updateHpBagGuy();
+                this.attackMonster(Global.dameCharBig)
                 break
             case 8:
-                console.log("KIem danh ");
                 Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
-                Global.hpMonster -= Global.dameCharSmall;
-                console.log("Phap Su ");
+                this.attackMonster(Global.dameCharSmall)
                 this.charMagic.charAttack();
                 break;
             case 9:
                 Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
-                Global.hpMonster -= Global.dameCharNormal;
-                console.log("Phap Su ");
+                this.attackMonster(Global.dameCharNormal)
                 this.charMagic.charAttack();
-                this.updateHpBagGuy();
                 break
             case 10:
                 Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
-                Global.hpMonster -= Global.dameCharBig;
-                console.log("Phap Su ");
                 this.charMagic.charAttack();
-                this.updateHpBagGuy();
+                this.attackMonster(Global.dameCharBig)
                 break
             default:
                 break;

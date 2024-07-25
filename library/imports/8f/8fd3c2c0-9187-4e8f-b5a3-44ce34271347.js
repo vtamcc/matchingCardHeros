@@ -32,19 +32,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var CardHero_Global_1 = require("../CardHero.Global");
 var CardHero_Card_1 = require("./CardHero.Card");
 var CardHero_Char_1 = require("./CardHero.Char");
+var CardHero_Monster_1 = require("./CardHero.Monster");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var GameView = /** @class */ (function (_super) {
     __extends(GameView, _super);
     function GameView() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.prfCard = null;
+        _this.prfMonster = null;
         _this.listSpfCards = [];
+        _this.nMonters = null;
         _this.nTableCards = null;
         _this.lbHpChar = null;
         _this.lbHpMonster = null;
         _this.nMaskClick = null;
         _this.nMaskLoadGame = null;
         _this.lbDameMonster = null;
+        _this.listMonster = [];
         _this.isClick = false;
         _this.countClick = 0;
         _this.listIdCard = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12];
@@ -53,6 +57,7 @@ var GameView = /** @class */ (function (_super) {
         _this.charArchers = null;
         _this.charFighter = null;
         _this.charMagic = null;
+        _this.idMonster = 0;
         _this.rows = 5;
         _this.cols = 5;
         _this.spacing = 10;
@@ -72,6 +77,7 @@ var GameView = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.loadCards();
         }, 1);
+        this.createMonster();
         this.updateHpChar();
         this.updateHpBagGuy();
     };
@@ -102,6 +108,18 @@ var GameView = /** @class */ (function (_super) {
                 this.dataCard[i][j] = card;
                 idIndex++;
             }
+        }
+    };
+    GameView.prototype.createMonster = function () {
+        var monter = cc.instantiate(this.prfMonster).getComponent(CardHero_Monster_1.default);
+        monter.setMonster(this.idMonster);
+        this.nMonters.addChild(monter.node);
+        //    this.idMonster++;
+    };
+    GameView.prototype.attackMonster = function (dame) {
+        var monster = cc.instantiate(this.prfMonster).getComponent(CardHero_Monster_1.default);
+        if (monster) {
+            monster.receiveDamage(dame);
         }
     };
     GameView.prototype.gameOver = function () {
@@ -170,67 +188,50 @@ var GameView = /** @class */ (function (_super) {
             case 2:
                 console.log("Cung nho ban ");
                 CardHero_Global_1.Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
-                console.log("dame small ", CardHero_Global_1.Global.dameCharSmall);
-                CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharSmall;
                 this.charArchers.charAttack();
-                this.updateHpBagGuy();
+                this.attackMonster(CardHero_Global_1.Global.dameCharSmall);
                 break;
             case 3:
                 console.log("Cung Tb ban ");
                 CardHero_Global_1.Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
-                CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharNormal;
+                this.attackMonster(CardHero_Global_1.Global.dameCharNormal);
                 this.charArchers.charAttack();
-                this.updateHpBagGuy();
                 break;
             case 4:
-                console.log("Cung To ban ");
                 this.charArchers.charAttack();
                 CardHero_Global_1.Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
-                CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharBig;
-                this.updateHpBagGuy();
+                this.attackMonster(CardHero_Global_1.Global.dameCharBig);
                 break;
             case 5:
-                console.log("KIem danh ");
                 CardHero_Global_1.Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
-                console.log("dame small ", CardHero_Global_1.Global.dameCharSmall);
                 CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharSmall;
                 this.charFighter.charAttack();
-                this.updateHpBagGuy();
                 break;
             case 6:
-                console.log("KIem danh ");
                 CardHero_Global_1.Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
-                CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharNormal;
                 this.charFighter.charAttack();
-                this.updateHpBagGuy();
+                this.attackMonster(CardHero_Global_1.Global.dameCharNormal);
                 break;
             case 7:
                 console.log("KIem danh ");
                 CardHero_Global_1.Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
-                CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharBig;
                 this.charFighter.charAttack();
-                this.updateHpBagGuy();
+                this.attackMonster(CardHero_Global_1.Global.dameCharBig);
                 break;
             case 8:
-                console.log("KIem danh ");
                 CardHero_Global_1.Global.dameCharSmall *= (isDoubleDame) ? 2 : 1;
-                CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharSmall;
-                console.log("Phap Su ");
+                this.attackMonster(CardHero_Global_1.Global.dameCharSmall);
                 this.charMagic.charAttack();
                 break;
             case 9:
                 CardHero_Global_1.Global.dameCharNormal *= (isDoubleDame) ? 2 : 1;
-                CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharNormal;
-                console.log("Phap Su ");
+                this.attackMonster(CardHero_Global_1.Global.dameCharNormal);
                 this.charMagic.charAttack();
-                this.updateHpBagGuy();
                 break;
             case 10:
                 CardHero_Global_1.Global.dameCharBig *= (isDoubleDame) ? 2 : 1;
-                CardHero_Global_1.Global.hpMonster -= CardHero_Global_1.Global.dameCharBig;
-                console.log("Phap Su ");
                 this.charMagic.charAttack();
-                this.updateHpBagGuy();
+                this.attackMonster(CardHero_Global_1.Global.dameCharBig);
                 break;
             default:
                 break;
@@ -261,8 +262,14 @@ var GameView = /** @class */ (function (_super) {
         property(cc.Prefab)
     ], GameView.prototype, "prfCard", void 0);
     __decorate([
+        property(cc.Prefab)
+    ], GameView.prototype, "prfMonster", void 0);
+    __decorate([
         property(cc.SpriteFrame)
     ], GameView.prototype, "listSpfCards", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameView.prototype, "nMonters", void 0);
     __decorate([
         property(cc.Node)
     ], GameView.prototype, "nTableCards", void 0);
@@ -281,6 +288,9 @@ var GameView = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], GameView.prototype, "lbDameMonster", void 0);
+    __decorate([
+        property(cc.SpriteFrame)
+    ], GameView.prototype, "listMonster", void 0);
     __decorate([
         property(CardHero_Char_1.default)
     ], GameView.prototype, "charArchers", void 0);
