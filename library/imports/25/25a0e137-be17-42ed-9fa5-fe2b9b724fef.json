@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "btn_pause-sheet0",
+    "name": "btn_pause-",
     "texture": "cc294df4-ffb7-455c-aaa5-804011d7775e",
     "atlas": "",
     "rect": [

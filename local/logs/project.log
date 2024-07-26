@@ -1,256 +1,76 @@
-2024-07-25T01:49:29.952Z - success: protocol editor-framework registered
-2024-07-25T01:49:29.953Z - success: protocol app registered
-2024-07-25T01:49:29.953Z - success: protocol theme registered
-2024-07-25T01:49:29.954Z - success: protocol packages registered
-2024-07-25T01:49:29.982Z - normal: Load ~/.CocosCreator/settings.json
-2024-07-25T01:49:30.013Z - success: protocol uuid registerred
-2024-07-25T01:49:30.013Z - success: protocol db registerred
-2024-07-25T01:49:30.014Z - success: protocol thumbnail registerred
-2024-07-25T01:49:30.094Z - normal: Initializing Asset Database
-2024-07-25T01:49:30.096Z - normal: checking language setting...
-2024-07-25T01:49:30.096Z - normal: Language: en
-2024-07-25T01:49:30.099Z - success: protocol unpack registerred
-2024-07-25T01:49:30.099Z - success: protocol disable-commonjs registerred
-2024-07-25T01:49:31.461Z - normal: connected!
-2024-07-25T01:49:32.195Z - normal: Check project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
-2024-07-25T01:49:32.200Z - normal: Initializing project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
-2024-07-25T01:49:32.430Z - success: adapters loaded
-2024-07-25T01:49:32.435Z - success: asset-db-debugger loaded
-2024-07-25T01:49:32.509Z - success: fb-audience-network loaded
-2024-07-25T01:49:32.557Z - success: fb-live-stream loaded
-2024-07-25T01:49:32.564Z - success: google-play-instant loaded
-2024-07-25T01:49:32.565Z - success: jsb-adapter loaded
-2024-07-25T01:49:32.586Z - success: package-manager loaded
-2024-07-25T01:49:32.588Z - success: runtime-adapters loaded
-2024-07-25T01:49:32.590Z - success: runtime-dev-tools loaded
-2024-07-25T01:49:32.592Z - success: ui-kit-preview-extra loaded
-2024-07-25T01:49:32.594Z - success: ui-kit-preview loaded
-2024-07-25T01:49:33.429Z - success: alipay-minigame loaded
-2024-07-25T01:49:33.445Z - success: assets loaded
-2024-07-25T01:49:33.449Z - success: baidugame-opendata loaded
-2024-07-25T01:49:33.451Z - success: baidugame loaded
-2024-07-25T01:49:33.454Z - success: builder loaded
-2024-07-25T01:49:33.460Z - success: bytedance-opendata loaded
-2024-07-25T01:49:33.462Z - success: bytedance loaded
-2024-07-25T01:49:33.467Z - success: channel-upload-tools loaded
-2024-07-25T01:49:33.628Z - success: cloud-function loaded
-2024-07-25T01:49:33.871Z - success: cocos-services loaded
-2024-07-25T01:49:33.878Z - success: console loaded
-2024-07-25T01:49:33.881Z - success: curve-editor loaded
-2024-07-25T01:49:33.890Z - success: fb-instant-games loaded
-2024-07-25T01:49:33.893Z - success: game-window loaded
-2024-07-25T01:49:33.894Z - success: google-instant-games loaded
-2024-07-25T01:49:33.899Z - success: hierarchy loaded
-2024-07-25T01:49:33.901Z - success: huawei-agc loaded
-2024-07-25T01:49:33.904Z - success: huawei-runtime loaded
-2024-07-25T01:49:33.908Z - success: inspector loaded
-2024-07-25T01:49:33.931Z - success: cpk-publish loaded
-2024-07-25T01:49:33.934Z - success: keystore loaded
-2024-07-25T01:49:33.964Z - success: link-sure-runtime loaded
-2024-07-25T01:49:33.976Z - success: node-library loaded
-2024-07-25T01:49:33.977Z - success: open-recent-items loaded
-2024-07-25T01:49:33.980Z - success: oppo-runtime loaded
-2024-07-25T01:49:33.982Z - success: package-asset loaded
-2024-07-25T01:49:33.982Z - success: preferences loaded
-2024-07-25T01:49:33.987Z - success: project-importer loaded
-2024-07-25T01:49:33.990Z - success: project-settings loaded
-2024-07-25T01:49:34.004Z - success: qtt-runtime loaded
-2024-07-25T01:49:34.007Z - success: scene loaded
-2024-07-25T01:49:34.009Z - success: simulator-debugger loaded
-2024-07-25T01:49:34.010Z - success: sprite-editor loaded
-2024-07-25T01:49:34.081Z - success: store loaded
-2024-07-25T01:49:34.083Z - success: taobao-creativeapp loaded
-2024-07-25T01:49:34.086Z - success: timeline loaded
-2024-07-25T01:49:34.093Z - success: vivo-runtime loaded
-2024-07-25T01:49:34.096Z - success: wechatgame-opendata loaded
-2024-07-25T01:49:34.101Z - success: wechatgame loaded
-2024-07-25T01:49:34.105Z - success: xiaomi-runtime loaded
-2024-07-25T01:49:34.159Z - success: im-plugin loaded
-2024-07-25T01:49:34.161Z - success: preview server running at http://localhost:7456
-2024-07-25T01:49:36.174Z - normal: Initializing Cocos2d
-2024-07-25T01:49:36.451Z - normal: Initializing engine extends
-2024-07-25T01:49:37.365Z - info: Cocos Service load base data!
-2024-07-25T01:49:37.882Z - normal: Loading packages
-2024-07-25T01:49:37.885Z - normal: Watching packages
-2024-07-25T01:49:38.113Z - normal: Run Application
-2024-07-25T01:49:42.872Z - success: cloud-function unloaded
-2024-07-25T02:53:23.615Z - error: Error: Parsing file /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/temp/quick-scripts/src/assets/MatchingCardHeros/scripts/game/CardHero.GameView.js: Unexpected token (202:12)
-    at Deps.parseDeps (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/module-deps/index.js:481:28)
-    at getDeps (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/module-deps/index.js:414:40)
-    at /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/module-deps/index.js:398:32
-    at ConcatStream.<anonymous> (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/concat-stream/index.js:36:43)
-    at ConcatStream.emit (events.js:327:22)
-    at ConcatStream.emit (domain.js:483:12)
-    at finishMaybe (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_writable.js:475:14)
-    at endWritable (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_writable.js:485:3)
-    at ConcatStream.end (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_writable.js:455:41)
-    at DestroyableTransform.onend (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/readable-stream/lib/_stream_readable.js:577:10)
-    at m._parseEntry (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor/share/quick-compile/index.ccc:1:6393)
-    at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)
-    at async Promise.all (index 0)
-    at async m._compileScripts (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor/share/quick-compile/index.ccc:1:3491)
-2024-07-25T02:53:23.979Z - failed: load script [./game/CardHero.GameView] failed : /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/temp/quick-scripts/dst/assets/MatchingCardHeros/scripts/game/CardHero.GameView.js:202
-            ;
-            ^
-
-SyntaxError: Unexpected token ';'
-    at new Script (vm.js:88:7)
-    at createScript (vm.js:261:10)
-    at Object.runInThisContext (vm.js:309:10)
-    at wrapSafe (internal/modules/cjs/loader.js:1047:15)
-    at Module._compile (internal/modules/cjs/loader.js:1108:27)
-    at Object.f (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor-framework/lib/share/require.js:1:1993)
-    at Module.load (internal/modules/cjs/loader.js:992:32)
-    at Module._load (internal/modules/cjs/loader.js:885:14)
-    at Function.f._load (electron/js2c/asar_bundle.js:5:12734)
-    at Module.require [as __require] (internal/modules/cjs/loader.js:1032:19)
-2024-07-25T02:53:23.982Z - failed: load script [./CardHero.GameView] failed : /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/temp/quick-scripts/dst/assets/MatchingCardHeros/scripts/game/CardHero.GameView.js:202
-            ;
-            ^
-
-SyntaxError: Unexpected token ';'
-    at new Script (vm.js:88:7)
-    at createScript (vm.js:261:10)
-    at Object.runInThisContext (vm.js:309:10)
-    at wrapSafe (internal/modules/cjs/loader.js:1047:15)
-    at Module._compile (internal/modules/cjs/loader.js:1108:27)
-    at Object.f (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor-framework/lib/share/require.js:1:1993)
-    at Module.load (internal/modules/cjs/loader.js:992:32)
-    at Module._load (internal/modules/cjs/loader.js:885:14)
-    at Function.f._load (electron/js2c/asar_bundle.js:5:12734)
-    at Module.require [as __require] (internal/modules/cjs/loader.js:1032:19)
-2024-07-25T02:53:23.983Z - failed: load script [./assets/MatchingCardHeros/scripts/game/CardHero.GameView] failed : /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/temp/quick-scripts/dst/assets/MatchingCardHeros/scripts/game/CardHero.GameView.js:202
-            ;
-            ^
-
-SyntaxError: Unexpected token ';'
-    at new Script (vm.js:88:7)
-    at createScript (vm.js:261:10)
-    at Object.runInThisContext (vm.js:309:10)
-    at wrapSafe (internal/modules/cjs/loader.js:1047:15)
-    at Module._compile (internal/modules/cjs/loader.js:1108:27)
-    at Object.f (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor-framework/lib/share/require.js:1:1993)
-    at Module.load (internal/modules/cjs/loader.js:992:32)
-    at Module._load (internal/modules/cjs/loader.js:885:14)
-    at Function.f._load (electron/js2c/asar_bundle.js:5:12734)
-    at Module.require [as __require] (internal/modules/cjs/loader.js:1032:19)
-2024-07-25T02:53:24.067Z - warn: Script attached to "GameView" is missing or invalid. Detailed information:
-Node path: "GameView"
-Script UUID: "8fd3c2c0-9187-4e8f-b5a3-44ce34271347"
-Class ID: "8fd3cLAkYdOj7WjRM40JxNH"
-
-2024-07-25T07:12:59.799Z - error: Error: Parsing file /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/temp/quick-scripts/src/assets/MatchingCardHeros/scripts/game/CardHero.Char.js: Unexpected token (69:20)
-    at Deps.parseDeps (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/module-deps/index.js:481:28)
-    at getDeps (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/module-deps/index.js:414:40)
-    at /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/module-deps/index.js:398:32
-    at ConcatStream.<anonymous> (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/concat-stream/index.js:36:43)
-    at ConcatStream.emit (events.js:327:22)
-    at ConcatStream.emit (domain.js:483:12)
-    at finishMaybe (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_writable.js:475:14)
-    at endWritable (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_writable.js:485:3)
-    at ConcatStream.end (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/concat-stream/node_modules/readable-stream/lib/_stream_writable.js:455:41)
-    at DestroyableTransform.onend (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/node_modules/readable-stream/lib/_stream_readable.js:577:10)
-    at m._parseEntry (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor/share/quick-compile/index.ccc:1:6393)
-    at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:97:5)
-    at async Promise.all (index 0)
-    at async m._compileScripts (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor/share/quick-compile/index.ccc:1:3491)
-2024-07-25T07:13:00.151Z - failed: load script [./CardHero.Char] failed : /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/temp/quick-scripts/dst/assets/MatchingCardHeros/scripts/game/CardHero.Char.js:69
-                    ;
-                    ^
-
-SyntaxError: Unexpected token ';'
-    at new Script (vm.js:88:7)
-    at createScript (vm.js:261:10)
-    at Object.runInThisContext (vm.js:309:10)
-    at wrapSafe (internal/modules/cjs/loader.js:1047:15)
-    at Module._compile (internal/modules/cjs/loader.js:1108:27)
-    at Object.f (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor-framework/lib/share/require.js:1:1993)
-    at Module.load (internal/modules/cjs/loader.js:992:32)
-    at Module._load (internal/modules/cjs/loader.js:885:14)
-    at Function.f._load (electron/js2c/asar_bundle.js:5:12734)
-    at Module.require [as __require] (internal/modules/cjs/loader.js:1032:19)
-2024-07-25T07:13:00.152Z - failed: load script [./assets/MatchingCardHeros/scripts/game/CardHero.Char] failed : /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/temp/quick-scripts/dst/assets/MatchingCardHeros/scripts/game/CardHero.Char.js:69
-                    ;
-                    ^
-
-SyntaxError: Unexpected token ';'
-    at new Script (vm.js:88:7)
-    at createScript (vm.js:261:10)
-    at Object.runInThisContext (vm.js:309:10)
-    at wrapSafe (internal/modules/cjs/loader.js:1047:15)
-    at Module._compile (internal/modules/cjs/loader.js:1108:27)
-    at Object.f (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor-framework/lib/share/require.js:1:1993)
-    at Module.load (internal/modules/cjs/loader.js:992:32)
-    at Module._load (internal/modules/cjs/loader.js:885:14)
-    at Function.f._load (electron/js2c/asar_bundle.js:5:12734)
-    at Module.require [as __require] (internal/modules/cjs/loader.js:1032:19)
-2024-07-25T07:13:00.212Z - warn: Script attached to "char_1" is missing or invalid. Detailed information:
-Node path: "GameView/bg/listChar/char_1"
-Script UUID: "ac3ad3a6-eb81-4a62-9273-493f8e58b3ad"
-Class ID: "ac3adOm64FKYpJzST+OWLOt"
-
-2024-07-25T07:13:00.215Z - warn: Script attached to "char_2" is missing or invalid. Detailed information:
-Node path: "GameView/bg/listChar/char_2"
-Script UUID: "ac3ad3a6-eb81-4a62-9273-493f8e58b3ad"
-Class ID: "ac3adOm64FKYpJzST+OWLOt"
-
-2024-07-25T07:13:00.217Z - warn: Script attached to "char_3" is missing or invalid. Detailed information:
-Node path: "GameView/bg/listChar/char_3"
-Script UUID: "ac3ad3a6-eb81-4a62-9273-493f8e58b3ad"
-Class ID: "ac3adOm64FKYpJzST+OWLOt"
-
-2024-07-25T07:13:00.237Z - warn: Script attached to "char" is missing or invalid. Detailed information:
-Node path: "char"
-Script UUID: "ac3ad3a6-eb81-4a62-9273-493f8e58b3ad"
-Class ID: "ac3adOm64FKYpJzST+OWLOt"
-
-2024-07-25T07:14:27.897Z - warn: Please specifiy a default value for "Char.idChar" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-25T07:15:12.234Z - warn: Please specifiy a default value for "Char.idChar" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-25T07:18:07.243Z - warn: Please specifiy a default value for "Char.idChar" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-25T07:20:49.907Z - warn: Please specifiy a default value for "Char.idChar" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-25T07:22:09.131Z - warn: Please specifiy a default value for "Char.idChar" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-25T07:22:39.018Z - warn: Please specifiy a default value for "Char.idChar" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
+2024-07-26T03:51:35.058Z - success: protocol editor-framework registered
+2024-07-26T03:51:35.059Z - success: protocol app registered
+2024-07-26T03:51:35.059Z - success: protocol theme registered
+2024-07-26T03:51:35.059Z - success: protocol packages registered
+2024-07-26T03:51:35.086Z - normal: Load ~/.CocosCreator/settings.json
+2024-07-26T03:51:35.123Z - success: protocol uuid registerred
+2024-07-26T03:51:35.124Z - success: protocol db registerred
+2024-07-26T03:51:35.124Z - success: protocol thumbnail registerred
+2024-07-26T03:51:35.200Z - normal: Initializing Asset Database
+2024-07-26T03:51:35.202Z - normal: checking language setting...
+2024-07-26T03:51:35.202Z - normal: Language: en
+2024-07-26T03:51:35.205Z - success: protocol unpack registerred
+2024-07-26T03:51:35.205Z - success: protocol disable-commonjs registerred
+2024-07-26T03:51:36.851Z - normal: connected!
+2024-07-26T03:51:37.130Z - normal: Check project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-07-26T03:51:37.136Z - normal: Initializing project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-07-26T03:51:37.358Z - success: adapters loaded
+2024-07-26T03:51:37.363Z - success: asset-db-debugger loaded
+2024-07-26T03:51:37.432Z - success: fb-audience-network loaded
+2024-07-26T03:51:37.480Z - success: fb-live-stream loaded
+2024-07-26T03:51:37.487Z - success: google-play-instant loaded
+2024-07-26T03:51:37.488Z - success: jsb-adapter loaded
+2024-07-26T03:51:37.509Z - success: package-manager loaded
+2024-07-26T03:51:37.510Z - success: runtime-adapters loaded
+2024-07-26T03:51:37.513Z - success: runtime-dev-tools loaded
+2024-07-26T03:51:37.515Z - success: ui-kit-preview-extra loaded
+2024-07-26T03:51:37.517Z - success: ui-kit-preview loaded
+2024-07-26T03:51:38.343Z - success: alipay-minigame loaded
+2024-07-26T03:51:38.358Z - success: assets loaded
+2024-07-26T03:51:38.362Z - success: baidugame-opendata loaded
+2024-07-26T03:51:38.364Z - success: baidugame loaded
+2024-07-26T03:51:38.367Z - success: builder loaded
+2024-07-26T03:51:38.373Z - success: bytedance-opendata loaded
+2024-07-26T03:51:38.375Z - success: bytedance loaded
+2024-07-26T03:51:38.380Z - success: channel-upload-tools loaded
+2024-07-26T03:51:38.531Z - success: cloud-function loaded
+2024-07-26T03:51:38.759Z - success: cocos-services loaded
+2024-07-26T03:51:38.766Z - success: console loaded
+2024-07-26T03:51:38.768Z - success: curve-editor loaded
+2024-07-26T03:51:38.776Z - success: fb-instant-games loaded
+2024-07-26T03:51:38.779Z - success: game-window loaded
+2024-07-26T03:51:38.780Z - success: google-instant-games loaded
+2024-07-26T03:51:38.785Z - success: hierarchy loaded
+2024-07-26T03:51:38.787Z - success: huawei-agc loaded
+2024-07-26T03:51:38.790Z - success: huawei-runtime loaded
+2024-07-26T03:51:38.794Z - success: inspector loaded
+2024-07-26T03:51:38.809Z - success: cpk-publish loaded
+2024-07-26T03:51:38.810Z - success: keystore loaded
+2024-07-26T03:51:38.826Z - success: link-sure-runtime loaded
+2024-07-26T03:51:38.836Z - success: node-library loaded
+2024-07-26T03:51:38.837Z - success: open-recent-items loaded
+2024-07-26T03:51:38.840Z - success: oppo-runtime loaded
+2024-07-26T03:51:38.842Z - success: package-asset loaded
+2024-07-26T03:51:38.842Z - success: preferences loaded
+2024-07-26T03:51:38.846Z - success: project-importer loaded
+2024-07-26T03:51:38.849Z - success: project-settings loaded
+2024-07-26T03:51:38.869Z - success: qtt-runtime loaded
+2024-07-26T03:51:38.876Z - success: scene loaded
+2024-07-26T03:51:38.877Z - success: simulator-debugger loaded
+2024-07-26T03:51:38.878Z - success: sprite-editor loaded
+2024-07-26T03:51:38.959Z - success: store loaded
+2024-07-26T03:51:38.961Z - success: taobao-creativeapp loaded
+2024-07-26T03:51:38.965Z - success: timeline loaded
+2024-07-26T03:51:38.971Z - success: vivo-runtime loaded
+2024-07-26T03:51:38.974Z - success: wechatgame-opendata loaded
+2024-07-26T03:51:38.980Z - success: wechatgame loaded
+2024-07-26T03:51:38.984Z - success: xiaomi-runtime loaded
+2024-07-26T03:51:39.035Z - success: im-plugin loaded
+2024-07-26T03:51:39.037Z - success: preview server running at http://localhost:7456
+2024-07-26T03:51:40.632Z - info: Cocos Service load base data!
+2024-07-26T03:51:41.153Z - normal: Initializing Cocos2d
+2024-07-26T03:51:41.426Z - normal: Initializing engine extends
+2024-07-26T03:51:46.065Z - normal: Loading packages
+2024-07-26T03:51:46.068Z - normal: Watching packages
+2024-07-26T03:51:46.289Z - normal: Run Application
+2024-07-26T03:51:51.094Z - success: cloud-function unloaded

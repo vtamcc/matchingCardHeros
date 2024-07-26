@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gui_losewin-sheet0 copy",
+    "texture": "73c6bcd5-934f-45ec-b341-0fd11f2ab16c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      419,
+      72
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      419,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

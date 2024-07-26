@@ -48,7 +48,7 @@ var GameView = /** @class */ (function (_super) {
         _this.nMaskClick = null;
         _this.nMaskLoadGame = null;
         _this.lbDameMonster = null;
-        _this.listMonster = [];
+        _this.listSpfMonster = [];
         _this.isClick = false;
         _this.countClick = 0;
         _this.listIdCard = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12];
@@ -57,6 +57,10 @@ var GameView = /** @class */ (function (_super) {
         _this.charArchers = null;
         _this.charFighter = null;
         _this.charMagic = null;
+        _this.lbDameChar = null;
+        _this.prfGameOver = null;
+        _this.prfPause = null;
+        _this.listMonsters = [];
         _this.idMonster = 0;
         _this.rows = 5;
         _this.cols = 5;
@@ -77,7 +81,7 @@ var GameView = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.loadCards();
         }, 1);
-        this.createMonster();
+        this.createMonster(0, 10, 1);
         this.updateHpChar();
         this.updateHpBagGuy();
     };
@@ -110,22 +114,31 @@ var GameView = /** @class */ (function (_super) {
             }
         }
     };
-    GameView.prototype.createMonster = function () {
+    GameView.prototype.createMonster = function (id, hp, dame) {
         var monter = cc.instantiate(this.prfMonster).getComponent(CardHero_Monster_1.default);
-        monter.setMonster(this.idMonster);
+        monter.setMonster(id, hp, dame);
         this.nMonters.addChild(monter.node);
-        //    this.idMonster++;
+        this.listMonsters.push(monter);
+        //   this.idMonster++;
     };
     GameView.prototype.attackMonster = function (dame) {
-        var monster = cc.instantiate(this.prfMonster).getComponent(CardHero_Monster_1.default);
-        if (monster) {
-            monster.receiveDamage(dame);
+        if (this.listMonsters.length > 0) {
+            var monster_1 = this.listMonsters[0];
+            if (monster_1 && monster_1.node) {
+                monster_1.receiveDamage(dame);
+                this.listMonsters = this.listMonsters.filter(function (m) { return m !== monster_1; });
+            }
         }
     };
     GameView.prototype.gameOver = function () {
         if (CardHero_Global_1.Global.hpChar == 0) {
-            console.log("Thua con me may roiiiiiiii");
+            var prfGameOver = cc.instantiate(this.prfGameOver);
+            this.node.addChild(prfGameOver);
         }
+    };
+    GameView.prototype.onClickPause = function () {
+        var prfPause = cc.instantiate(this.prfPause);
+        this.node.addChild(prfPause);
     };
     GameView.prototype.shuffleArray = function (array) {
         var _a;
@@ -160,7 +173,7 @@ var GameView = /** @class */ (function (_super) {
             secondCard.node.destroy();
         }
         else {
-            this.effectDameBagGuy();
+            this.effectDameBagGuy(this.lbDameMonster, CardHero_Global_1.Global.dameMonster);
             CardHero_Global_1.Global.hpChar--;
             this.updateHpChar();
             firstCard.flipCard();
@@ -239,15 +252,14 @@ var GameView = /** @class */ (function (_super) {
     };
     GameView.prototype.start = function () {
     };
-    GameView.prototype.effectDameBagGuy = function () {
-        var _this = this;
-        this.lbDameMonster.active = true;
-        this.lbDameMonster.getComponent(cc.Label).string = "-" + CardHero_Global_1.Global.dameMonster;
-        cc.tween(this.lbDameMonster)
+    GameView.prototype.effectDameBagGuy = function (node, dame) {
+        node.active = true;
+        node.getComponent(cc.Label).string = "-" + dame;
+        cc.tween(node)
             .to(0.8, { y: 200 })
             .call(function () {
-            _this.lbDameMonster.active = false;
-            _this.lbDameMonster.y = -70;
+            node.active = false;
+            node.y = -70;
         }).start();
     };
     GameView.prototype.updateHpChar = function () {
@@ -290,7 +302,7 @@ var GameView = /** @class */ (function (_super) {
     ], GameView.prototype, "lbDameMonster", void 0);
     __decorate([
         property(cc.SpriteFrame)
-    ], GameView.prototype, "listMonster", void 0);
+    ], GameView.prototype, "listSpfMonster", void 0);
     __decorate([
         property(CardHero_Char_1.default)
     ], GameView.prototype, "charArchers", void 0);
@@ -300,6 +312,15 @@ var GameView = /** @class */ (function (_super) {
     __decorate([
         property(CardHero_Char_1.default)
     ], GameView.prototype, "charMagic", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameView.prototype, "lbDameChar", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], GameView.prototype, "prfGameOver", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], GameView.prototype, "prfPause", void 0);
     GameView = GameView_1 = __decorate([
         ccclass
     ], GameView);

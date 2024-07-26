@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "gui_shopbanner-sheet0",
+    "texture": "ca37d943-7256-4d0c-96c0-259a3eb92be5",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      267,
+      115
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      269,
+      117
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

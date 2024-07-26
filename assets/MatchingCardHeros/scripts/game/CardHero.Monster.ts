@@ -8,7 +8,7 @@
 import { Global } from "../CardHero.Global";
 import GameView from "./CardHero.GameView";
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class Monster extends cc.Component {
@@ -18,38 +18,55 @@ export default class Monster extends cc.Component {
     dame = 1;
     monsterId = 0;
     // LIFE-CYCLE CALLBACKS:
-    test: cc.Tween;
-    onLoad () {
+    jumpTween: cc.Tween = null;
+    onLoad() {
         this.setMonsterJump();
     }
-    setMonster(id) {
-        this.nMonster.getComponent(cc.Sprite).spriteFrame = GameView.instance.listMonster[id];
+    setMonster(id, hp, dame) {
+        this.monsterId = id;
+        this.node.getComponent(cc.Sprite).spriteFrame = GameView.instance.listSpfMonster[id];
+        Global.hpMonster = hp;
+        this.dame = dame;
+        GameView.instance.updateHpBagGuy();
     }
 
     receiveDamage(dame) {
         Global.hpMonster -= dame;
+        GameView.instance.effectDameBagGuy(GameView.instance.lbDameChar,dame);
         GameView.instance.updateHpBagGuy();
-        if(Global.hpMonster <=0) {
-          
-           this.onDeath();
-           console.log("destroy"); 
-        }    
+        if (Global.hpMonster <= 0) {
+            Global.hpMonster = 0;
+            GameView.instance.updateHpBagGuy();
+            this.onDeath();
+        }
     }
 
     onDeath() {
-        this.node.destroy();
-        //GameView.instance.createMonster();
-    }
+        // Dừng mọi hành động trên node của quái
+        // this.node.destroy();
+        this.node.stopAllActions();
+        this.scheduleOnce(() => {
+            this.node.destroy();
+            let newHp = Global.hpMonster + 15; // Tăng HP mới
+            let newDame = this.dame + 1; // Tăng dame mới
+            GameView.instance.createMonster(this.monsterId + 1, newHp, newDame);
+            console.log("mau", Global.hpMonster);
+        },2)
+      
+        // Delay of 2 seconds
 
+    }
     setMonsterJump() {
         const jumpUp = cc.tween().to(0.5, { y: 100 }, { easing: 'sineOut' });
-        const jumpDown = cc.tween().to(0.5, { y: 0 }, { easing: 'sineIn' });
+        const jumpDown = cc.tween().to(0.3, { y: 0 },{ easing: 'sineIn' });
         const jumpSequence = cc.tween().sequence(jumpUp, jumpDown);
         const repeatJump = cc.tween().repeatForever(jumpSequence);
-        
+
         cc.tween(this.node).then(repeatJump).start();
     }
-    start () {
+
+
+    start() {
 
     }
 

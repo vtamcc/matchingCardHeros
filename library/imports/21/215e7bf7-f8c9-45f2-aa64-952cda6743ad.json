@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "buttonsquare_beige-sheet0 copy 3",
+    "texture": "8afe781d-13c4-423a-a3c7-bd8e4a601166",
+    "atlas": "",
+    "rect": [
+      0,
+      1,
+      133,
+      133
+    ],
+    "offset": [
+      -0.5,
+      -0.5
+    ],
+    "originalSize": [
+      134,
+      134
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

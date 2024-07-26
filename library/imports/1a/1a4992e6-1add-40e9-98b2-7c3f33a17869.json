@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "btn_menugame-sheet0 copy 2",
+    "texture": "07f5607f-e7b0-40f9-90e1-5376441f1549",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      99,
+      102
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      99,
+      102
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
