@@ -11,10 +11,14 @@ const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class GameManager extends cc.Component {
-
+    public static instance: GameManager = null;
     @property(cc.Prefab)
     prfGameView: cc.Prefab = null;
-    onLoad () {}
+    @property(cc.Prefab)
+    prfGameLevel: cc.Prefab = null;
+    onLoad () {
+        GameManager.instance = this;
+    }
 
     start () {
 
@@ -23,6 +27,11 @@ export default class GameManager extends cc.Component {
     onClickPlay() {
         let gameView = cc.instantiate(this.prfGameView).getComponent(GameView)
         this.node.addChild(gameView.node);
+    }
+
+    onClickLevel() {
+        let levelView = cc.instantiate(this.prfGameLevel);
+        this.node.addChild(levelView);
     }
 
     // update (dt) {}

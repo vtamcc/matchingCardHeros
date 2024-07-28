@@ -9,6 +9,8 @@ import { Global } from "../CardHero.Global";
 import Card from "./CardHero.Card";
 import Char from "./CardHero.Char";
 import Monster from "./CardHero.Monster";
+import GameOver from "./popup/CardHero.GameOver";
+import Pause from "./popup/CardHero.Pause";
 
 const { ccclass, property } = cc._decorator;
 
@@ -57,6 +59,13 @@ export default class GameView extends cc.Component {
 
     @property(cc.Prefab)
     prfPause: cc.Prefab = null;
+
+    @property(cc.Node)
+    nShield: cc.Node = null;
+    @property(cc.Label)
+    lbShield: cc.Label = null;
+    @property(cc.Node)
+    nDameMonsterMiss: cc.Node = null;
     listMonsters = [];
     idMonster = 0;
     rows = 5;
@@ -128,21 +137,34 @@ export default class GameView extends cc.Component {
             let [monster] = this.listMonsters;
             if (monster && monster.node) {
                 monster.receiveDamage(dame);
-                this.listMonsters = this.listMonsters.filter(m => m !== monster);
+                if (Global.hpMonster <= 0) {
+                    this.listMonsters = this.listMonsters.filter(m => m !== monster);
+                    console.log("Monster ", this.listMonsters);
+                }
             }
         }
     }
     gameOver() {
-
         if (Global.hpChar == 0) {
-            let prfGameOver = cc.instantiate(this.prfGameOver)
-            this.node.addChild(prfGameOver);
+            let prfGameOver = cc.instantiate(this.prfGameOver).getComponent(GameOver)
+            this.node.addChild(prfGameOver.node);
         }
     }
 
     onClickPause() {
-        let prfPause = cc.instantiate(this.prfPause)
-        this.node.addChild(prfPause);
+        let prfPause = cc.instantiate(this.prfPause).getComponent(Pause)
+        this.node.addChild(prfPause.node);
+        this.nTableCards.children.forEach(element => {
+            element.active = false;
+        });
+        cc.director.pause();
+    }
+
+    onClickResume() {
+        cc.director.resume();
+        this.nTableCards.children.forEach(element => {
+            element.active = true;
+        });
     }
     shuffleArray(array: number[]): number[] {
         for (let i = array.length - 1; i > 0; i--) {
@@ -164,12 +186,18 @@ export default class GameView extends cc.Component {
 
     checkMatch() {
         let [firstCard, secondCard] = this.selectedCards;
-        let doubleDame = false;
-        if (firstCard.idCard === 12 || secondCard.idCard === 12) {
-            doubleDame = true;
-            let multiplierCard = (firstCard.idCard === 12) ? secondCard : firstCard;
-            console.log("Id x2 ", multiplierCard.idCard);
-            this.selectAttack(multiplierCard.idCard, true)
+
+        if (firstCard.idCard === 0 && secondCard.idCard === 0) {
+            Global.shield = 3;
+            this.nShield.active = true;
+            console.log("Shield Activated: ", Global.shield);
+            this.updateShield();
+            firstCard.node.destroy();
+            secondCard.node.destroy();
+        } else if (firstCard.idCard === 12 || secondCard.idCard === 12) {
+            let doubleDame = true;
+            let multiplierCard = firstCard.idCard === 12 ? secondCard : firstCard;
+            this.selectAttack(multiplierCard.idCard, doubleDame);
             firstCard.node.destroy();
             secondCard.node.destroy();
         } else if (firstCard.idCard === secondCard.idCard) {
@@ -177,16 +205,25 @@ export default class GameView extends cc.Component {
             firstCard.node.destroy();
             secondCard.node.destroy();
         } else {
-            this.effectDameBagGuy(this.lbDameMonster, Global.dameMonster);
-            Global.hpChar--;
-            this.updateHpChar();
+
+            if (Global.shield > 0) {
+                Global.shield--;
+                this.updateShield();
+                this.effectDameBagGuyMiss(this.nDameMonsterMiss);
+                console.log("Shield: ", Global.shield);
+            } if (Global.shield == 0) {
+                this.nShield.active = false;
+                Global.hpChar--;
+                this.effectDameBagGuy(this.lbDameMonster, Global.dameMonster);
+                this.updateHpChar();
+                this.gameOver();
+            }
+
             firstCard.flipCard();
             secondCard.flipCard();
             firstCard.isClicked = false;
             secondCard.isClicked = false;
-            this.gameOver();
         }
-
 
         this.selectedCards = [];
     }
@@ -196,14 +233,24 @@ export default class GameView extends cc.Component {
         switch (id) {
             case 0:
                 console.log("Giap ne ");
+                if (Global.shield === 0) {
+                    Global.shield = 3;
+                }
+                Global.shield *= isDoubleDame ? 2 : 1;
+                this.nShield.active = true;
+                this.updateShield();
                 break
             case 1:
                 console.log("Mau ne ");
-                if (Global.hpChar >= 10) return;
-                else {
+                // if (Global.hpChar >= 10) return;
+                // else {
+                if (isDoubleDame) {
+                    Global.hpChar *= 2;
+                } else {
                     Global.hpChar += 5;
-                    this.updateHpChar();
                 }
+                this.updateHpChar();
+                //}
                 break
             case 2:
                 console.log("Cung nho ban ");
@@ -271,6 +318,22 @@ export default class GameView extends cc.Component {
                 node.y = -70;
             }).start();
     }
+
+    effectDameBagGuyMiss(node: cc.Node) {
+        if (Global.shield > 0) {
+            node.active = true;
+            //node.getComponent(cc.Label).string = "-" + dame;
+            cc.tween(node)
+                .to(0.8, { y: 200 })
+                .call(() => {
+                    node.active = false;
+                    node.y = -70;
+                }).start();
+        } if (Global.shield == 0) {
+            node.active = false;
+        }
+
+    }
     updateHpChar() {
         this.lbHpChar.string = Global.hpChar + ' ';
     }
@@ -279,6 +342,28 @@ export default class GameView extends cc.Component {
         this.lbHpMonster.string = Global.hpMonster + ' ';
     }
 
+    updateShield() {
+        this.lbShield.string = Global.shield + ' ';
+    }
+    onClickRestart() {
+        Global.hpChar = 10;
+        Global.hpMonster = 10;
+        this.updateHpChar();
+        this.updateHpBagGuy();
+        this.updateShield();
+        this.nTableCards.removeAllChildren();
+        this.nMonters.removeAllChildren();
+        this.selectedCards = [];
+        this.listMonsters = [];
 
+        // Shuffle and reload cards
+        this.listIdCard = this.shuffleArray(this.listIdCard);
+        this.loadCards();
+
+        // Create a new monster
+        this.createMonster(0, 10, 1);
+
+        console.log("Game restarted");
+    }
     // update (dt) {}
 }

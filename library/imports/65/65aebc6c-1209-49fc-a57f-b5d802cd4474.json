@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "gui_playershield-sheet0",
+    "name": "shield",
     "texture": "7175cd05-d3c8-4d20-80d7-7dc5f6065600",
     "atlas": "",
     "rect": [

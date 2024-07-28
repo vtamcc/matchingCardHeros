@@ -36,20 +36,33 @@ var GameManager = /** @class */ (function (_super) {
     function GameManager() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.prfGameView = null;
+        _this.prfGameLevel = null;
         return _this;
         // update (dt) {}
     }
-    GameManager.prototype.onLoad = function () { };
+    GameManager_1 = GameManager;
+    GameManager.prototype.onLoad = function () {
+        GameManager_1.instance = this;
+    };
     GameManager.prototype.start = function () {
     };
     GameManager.prototype.onClickPlay = function () {
         var gameView = cc.instantiate(this.prfGameView).getComponent(CardHero_GameView_1.default);
         this.node.addChild(gameView.node);
     };
+    GameManager.prototype.onClickLevel = function () {
+        var levelView = cc.instantiate(this.prfGameLevel);
+        this.node.addChild(levelView);
+    };
+    var GameManager_1;
+    GameManager.instance = null;
     __decorate([
         property(cc.Prefab)
     ], GameManager.prototype, "prfGameView", void 0);
-    GameManager = __decorate([
+    __decorate([
+        property(cc.Prefab)
+    ], GameManager.prototype, "prfGameLevel", void 0);
+    GameManager = GameManager_1 = __decorate([
         ccclass
     ], GameManager);
     return GameManager;

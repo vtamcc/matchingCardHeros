@@ -33,6 +33,8 @@ var CardHero_Global_1 = require("../CardHero.Global");
 var CardHero_Card_1 = require("./CardHero.Card");
 var CardHero_Char_1 = require("./CardHero.Char");
 var CardHero_Monster_1 = require("./CardHero.Monster");
+var CardHero_GameOver_1 = require("./popup/CardHero.GameOver");
+var CardHero_Pause_1 = require("./popup/CardHero.Pause");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var GameView = /** @class */ (function (_super) {
     __extends(GameView, _super);
@@ -60,6 +62,9 @@ var GameView = /** @class */ (function (_super) {
         _this.lbDameChar = null;
         _this.prfGameOver = null;
         _this.prfPause = null;
+        _this.nShield = null;
+        _this.lbShield = null;
+        _this.nDameMonsterMiss = null;
         _this.listMonsters = [];
         _this.idMonster = 0;
         _this.rows = 5;
@@ -126,19 +131,32 @@ var GameView = /** @class */ (function (_super) {
             var monster_1 = this.listMonsters[0];
             if (monster_1 && monster_1.node) {
                 monster_1.receiveDamage(dame);
-                this.listMonsters = this.listMonsters.filter(function (m) { return m !== monster_1; });
+                if (CardHero_Global_1.Global.hpMonster <= 0) {
+                    this.listMonsters = this.listMonsters.filter(function (m) { return m !== monster_1; });
+                    console.log("Monster ", this.listMonsters);
+                }
             }
         }
     };
     GameView.prototype.gameOver = function () {
         if (CardHero_Global_1.Global.hpChar == 0) {
-            var prfGameOver = cc.instantiate(this.prfGameOver);
-            this.node.addChild(prfGameOver);
+            var prfGameOver = cc.instantiate(this.prfGameOver).getComponent(CardHero_GameOver_1.default);
+            this.node.addChild(prfGameOver.node);
         }
     };
     GameView.prototype.onClickPause = function () {
-        var prfPause = cc.instantiate(this.prfPause);
-        this.node.addChild(prfPause);
+        var prfPause = cc.instantiate(this.prfPause).getComponent(CardHero_Pause_1.default);
+        this.node.addChild(prfPause.node);
+        this.nTableCards.children.forEach(function (element) {
+            element.active = false;
+        });
+        cc.director.pause();
+    };
+    GameView.prototype.onClickResume = function () {
+        cc.director.resume();
+        this.nTableCards.children.forEach(function (element) {
+            element.active = true;
+        });
     };
     GameView.prototype.shuffleArray = function (array) {
         var _a;
@@ -158,12 +176,18 @@ var GameView = /** @class */ (function (_super) {
     };
     GameView.prototype.checkMatch = function () {
         var _a = this.selectedCards, firstCard = _a[0], secondCard = _a[1];
-        var doubleDame = false;
-        if (firstCard.idCard === 12 || secondCard.idCard === 12) {
-            doubleDame = true;
-            var multiplierCard = (firstCard.idCard === 12) ? secondCard : firstCard;
-            console.log("Id x2 ", multiplierCard.idCard);
-            this.selectAttack(multiplierCard.idCard, true);
+        if (firstCard.idCard === 0 && secondCard.idCard === 0) {
+            CardHero_Global_1.Global.shield = 3;
+            this.nShield.active = true;
+            console.log("Shield Activated: ", CardHero_Global_1.Global.shield);
+            this.updateShield();
+            firstCard.node.destroy();
+            secondCard.node.destroy();
+        }
+        else if (firstCard.idCard === 12 || secondCard.idCard === 12) {
+            var doubleDame = true;
+            var multiplierCard = firstCard.idCard === 12 ? secondCard : firstCard;
+            this.selectAttack(multiplierCard.idCard, doubleDame);
             firstCard.node.destroy();
             secondCard.node.destroy();
         }
@@ -173,14 +197,23 @@ var GameView = /** @class */ (function (_super) {
             secondCard.node.destroy();
         }
         else {
-            this.effectDameBagGuy(this.lbDameMonster, CardHero_Global_1.Global.dameMonster);
-            CardHero_Global_1.Global.hpChar--;
-            this.updateHpChar();
+            if (CardHero_Global_1.Global.shield > 0) {
+                CardHero_Global_1.Global.shield--;
+                this.updateShield();
+                this.effectDameBagGuyMiss(this.nDameMonsterMiss);
+                console.log("Shield: ", CardHero_Global_1.Global.shield);
+            }
+            if (CardHero_Global_1.Global.shield == 0) {
+                this.nShield.active = false;
+                CardHero_Global_1.Global.hpChar--;
+                this.effectDameBagGuy(this.lbDameMonster, CardHero_Global_1.Global.dameMonster);
+                this.updateHpChar();
+                this.gameOver();
+            }
             firstCard.flipCard();
             secondCard.flipCard();
             firstCard.isClicked = false;
             secondCard.isClicked = false;
-            this.gameOver();
         }
         this.selectedCards = [];
     };
@@ -188,15 +221,25 @@ var GameView = /** @class */ (function (_super) {
         switch (id) {
             case 0:
                 console.log("Giap ne ");
+                if (CardHero_Global_1.Global.shield === 0) {
+                    CardHero_Global_1.Global.shield = 3;
+                }
+                CardHero_Global_1.Global.shield *= isDoubleDame ? 2 : 1;
+                this.nShield.active = true;
+                this.updateShield();
                 break;
             case 1:
                 console.log("Mau ne ");
-                if (CardHero_Global_1.Global.hpChar >= 10)
-                    return;
+                // if (Global.hpChar >= 10) return;
+                // else {
+                if (isDoubleDame) {
+                    CardHero_Global_1.Global.hpChar *= 2;
+                }
                 else {
                     CardHero_Global_1.Global.hpChar += 5;
-                    this.updateHpChar();
                 }
+                this.updateHpChar();
+                //}
                 break;
             case 2:
                 console.log("Cung nho ban ");
@@ -262,11 +305,46 @@ var GameView = /** @class */ (function (_super) {
             node.y = -70;
         }).start();
     };
+    GameView.prototype.effectDameBagGuyMiss = function (node) {
+        if (CardHero_Global_1.Global.shield > 0) {
+            node.active = true;
+            //node.getComponent(cc.Label).string = "-" + dame;
+            cc.tween(node)
+                .to(0.8, { y: 200 })
+                .call(function () {
+                node.active = false;
+                node.y = -70;
+            }).start();
+        }
+        if (CardHero_Global_1.Global.shield == 0) {
+            node.active = false;
+        }
+    };
     GameView.prototype.updateHpChar = function () {
         this.lbHpChar.string = CardHero_Global_1.Global.hpChar + ' ';
     };
     GameView.prototype.updateHpBagGuy = function () {
         this.lbHpMonster.string = CardHero_Global_1.Global.hpMonster + ' ';
+    };
+    GameView.prototype.updateShield = function () {
+        this.lbShield.string = CardHero_Global_1.Global.shield + ' ';
+    };
+    GameView.prototype.onClickRestart = function () {
+        CardHero_Global_1.Global.hpChar = 10;
+        CardHero_Global_1.Global.hpMonster = 10;
+        this.updateHpChar();
+        this.updateHpBagGuy();
+        this.updateShield();
+        this.nTableCards.removeAllChildren();
+        this.nMonters.removeAllChildren();
+        this.selectedCards = [];
+        this.listMonsters = [];
+        // Shuffle and reload cards
+        this.listIdCard = this.shuffleArray(this.listIdCard);
+        this.loadCards();
+        // Create a new monster
+        this.createMonster(0, 10, 1);
+        console.log("Game restarted");
     };
     var GameView_1;
     GameView.instance = null;
@@ -321,6 +399,15 @@ var GameView = /** @class */ (function (_super) {
     __decorate([
         property(cc.Prefab)
     ], GameView.prototype, "prfPause", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameView.prototype, "nShield", void 0);
+    __decorate([
+        property(cc.Label)
+    ], GameView.prototype, "lbShield", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameView.prototype, "nDameMonsterMiss", void 0);
     GameView = GameView_1 = __decorate([
         ccclass
     ], GameView);

@@ -7,9 +7,10 @@
 
 
 export class Global  {
-    static totalGold = 0;
+    static totalGold = 5;
     static hpChar = 10;
     static hpMonster = 10;
+    static shield = 0;
     static dameMonster = 1;
     static dameCharSmall = 5;
     static dameCharNormal = 10;

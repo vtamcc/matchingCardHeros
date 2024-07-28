@@ -12,7 +12,7 @@
   "height": 140,
   "platformSettings": {},
   "subMetas": {
-    "gui_playershield-sheet0": {
+    "shield": {
       "ver": "1.0.6",
       "uuid": "65aebc6c-1209-49fc-a57f-b5d802cd4474",
       "importer": "sprite-frame",

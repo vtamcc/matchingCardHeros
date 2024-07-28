@@ -481,7 +481,7 @@
     },
     "component": "",
     "_componentId": "e5a465If8ZDQIaV07VsCqlJ",
-    "handler": "onClickPlay",
+    "handler": "onClickLevel",
     "customEventData": ""
   },
   {
@@ -758,6 +758,9 @@
     "_enabled": true,
     "prfGameView": {
       "__uuid__": "6a268e25-bfef-4aa8-bbe2-a2a43aee9ca5"
+    },
+    "prfGameLevel": {
+      "__uuid__": "ddc705db-d27b-41ee-86ef-00fc48a7107d"
     },
     "_id": "ab6DHyWj1Lhoacyw66eVUP"
   }
