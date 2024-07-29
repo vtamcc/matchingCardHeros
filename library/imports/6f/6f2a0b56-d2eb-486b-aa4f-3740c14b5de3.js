@@ -35,15 +35,18 @@ var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var Level = /** @class */ (function (_super) {
     __extends(Level, _super);
     function Level() {
-        // LIFE-CYCLE CALLBACKS:
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.prfShopView = null;
         _this.lbGold = null;
         return _this;
         // update (dt) {}
     }
+    Level_1 = Level;
     Level.prototype.onLoad = function () {
+        Level_1.instance = this;
+        CardHero_Global_1.Global.totalGold = parseInt(cc.sys.localStorage.getItem("totalGold"), CardHero_Global_1.Global.totalGold) || CardHero_Global_1.Global.totalGold;
         this.updateGold();
+        console.log("Tien ", CardHero_Global_1.Global.totalGold);
     };
     Level.prototype.onClickPlay = function () {
         CardHero_GameManager_1.default.instance.onClickPlay();
@@ -54,16 +57,23 @@ var Level = /** @class */ (function (_super) {
     };
     Level.prototype.updateGold = function () {
         this.lbGold.string = '$' + CardHero_Global_1.Global.totalGold + ' ';
+        cc.sys.localStorage.setItem("totalGold", CardHero_Global_1.Global.totalGold);
+    };
+    Level.prototype.clickRemoveCache = function () {
+        cc.sys.localStorage.clear();
     };
     Level.prototype.start = function () {
     };
+    var Level_1;
+    // LIFE-CYCLE CALLBACKS:
+    Level.instance = null;
     __decorate([
         property(cc.Prefab)
     ], Level.prototype, "prfShopView", void 0);
     __decorate([
         property(cc.Label)
     ], Level.prototype, "lbGold", void 0);
-    Level = __decorate([
+    Level = Level_1 = __decorate([
         ccclass
     ], Level);
     return Level;

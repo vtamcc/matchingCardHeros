@@ -355,7 +355,7 @@
         1,
         1,
         1,
-        1
+        0
       ]
     },
     "_eulerAngles": {
@@ -414,7 +414,7 @@
     "_normalMaterial": null,
     "_grayMaterial": null,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.1,
     "clickEvents": [
       {
         "__id__": 9
@@ -422,8 +422,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 0,
-    "transition": 0,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -472,7 +472,9 @@
     "_N$hoverSprite": null,
     "hoverSprite": null,
     "_N$disabledSprite": null,
-    "_N$target": null,
+    "_N$target": {
+      "__id__": 6
+    },
     "_id": "95nPPRAMtDr6r/0nAuLn3q"
   },
   {
@@ -723,6 +725,22 @@
     "_id": "59Cd0ovbdF4byw5sbjJDx7"
   },
   {
+    "__type__": "e5a465If8ZDQIaV07VsCqlJ",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "prfGameView": {
+      "__uuid__": "6a268e25-bfef-4aa8-bbe2-a2a43aee9ca5"
+    },
+    "prfGameLevel": {
+      "__uuid__": "ddc705db-d27b-41ee-86ef-00fc48a7107d"
+    },
+    "_id": "4fZT9Py7lP16xCi4bpwqmt"
+  },
+  {
     "__type__": "cc.Widget",
     "_name": "",
     "_objFlags": 0,
@@ -748,21 +766,5 @@
     "_originalWidth": 0,
     "_originalHeight": 0,
     "_id": "29zXboiXFBKoIV4PQ2liTe"
-  },
-  {
-    "__type__": "e5a465If8ZDQIaV07VsCqlJ",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 2
-    },
-    "_enabled": true,
-    "prfGameView": {
-      "__uuid__": "6a268e25-bfef-4aa8-bbe2-a2a43aee9ca5"
-    },
-    "prfGameLevel": {
-      "__uuid__": "ddc705db-d27b-41ee-86ef-00fc48a7107d"
-    },
-    "_id": "ab6DHyWj1Lhoacyw66eVUP"
   }
 ]

@@ -63,9 +63,11 @@ var Card = /** @class */ (function (_super) {
         CardHero_GameView_1.default.instance.countClick++;
         if (CardHero_GameView_1.default.instance.countClick == 2) {
             CardHero_GameView_1.default.instance.nMaskClick.active = true;
+            console.log("bat ne ");
             this.scheduleOnce(function () {
                 CardHero_GameView_1.default.instance.nMaskClick.active = false;
-            }, 0.6);
+                console.log("Tat ne ");
+            }, 0.58);
             CardHero_GameView_1.default.instance.countClick = 0;
         }
     };

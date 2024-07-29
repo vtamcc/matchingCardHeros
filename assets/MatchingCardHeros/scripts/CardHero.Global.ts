@@ -7,7 +7,7 @@
 
 
 export class Global  {
-    static totalGold = 5;
+    static totalGold = 2;
     static hpChar = 10;
     static hpMonster = 10;
     static shield = 0;
@@ -15,5 +15,8 @@ export class Global  {
     static dameCharSmall = 5;
     static dameCharNormal = 10;
     static dameCharBig = 15;
+    // static priceItemHp = 1;
+    // static priceItemAttack = 1;
+    static priceItem = [1,1]
     //static dataAttack = [{id: 0,}]
 }

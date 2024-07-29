@@ -16,13 +16,16 @@ export default class Level extends cc.Component {
 
    
     // LIFE-CYCLE CALLBACKS:
-
+    public static instance: Level = null;
     @property(cc.Prefab)
     prfShopView: cc.Prefab = null;
     @property(cc.Label)
     lbGold: cc.Label = null;
     onLoad () {
+        Level.instance = this;
+        Global.totalGold = parseInt(cc.sys.localStorage.getItem("totalGold"),Global.totalGold) || Global.totalGold;
         this.updateGold();
+        console.log("Tien ", Global.totalGold);
     }
 
     onClickPlay() {
@@ -36,7 +39,13 @@ export default class Level extends cc.Component {
     
     updateGold() {
         this.lbGold.string = '$' +  Global.totalGold + ' ';
+        cc.sys.localStorage.setItem("totalGold", Global.totalGold);
     }
+    
+    clickRemoveCache() {
+        cc.sys.localStorage.clear();
+    }
+
     start () {
 
     }

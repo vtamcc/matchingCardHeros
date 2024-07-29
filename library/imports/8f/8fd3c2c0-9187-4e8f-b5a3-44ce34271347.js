@@ -90,12 +90,15 @@ var GameView = /** @class */ (function (_super) {
         this.updateHpChar();
         this.updateHpBagGuy();
     };
+    GameView.prototype.onDestroy = function () {
+        GameView_1.instance = null;
+    };
     GameView.prototype.maskLoadGame = function () {
         var _this = this;
         this.nMaskLoadGame.active = true;
         this.scheduleOnce(function () {
             _this.nMaskLoadGame.active = false;
-        }, 5);
+        }, 7);
     };
     GameView.prototype.loadCards = function () {
         // for(let i = 0; i < 25; i++) {
@@ -170,7 +173,7 @@ var GameView = /** @class */ (function (_super) {
         if (this.selectedCards.length < 2) {
             this.selectedCards.push(card);
             if (this.selectedCards.length === 2) {
-                this.scheduleOnce(this.checkMatch.bind(this), 0.8);
+                this.scheduleOnce(this.checkMatch.bind(this), 0.6);
             }
         }
     };
@@ -345,6 +348,11 @@ var GameView = /** @class */ (function (_super) {
         // Create a new monster
         this.createMonster(0, 10, 1);
         console.log("Game restarted");
+    };
+    GameView.prototype.destroyGame = function () {
+        console.log("destroyyy ");
+        this.node.stopAllActions();
+        this.node.destroy();
     };
     var GameView_1;
     GameView.instance = null;

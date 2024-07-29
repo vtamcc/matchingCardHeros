@@ -29,6 +29,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var CardHero_Global_1 = require("../../../CardHero.Global");
+var CardHero_ItemShop_1 = require("./CardHero.ItemShop");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var ShopView = /** @class */ (function (_super) {
     __extends(ShopView, _super);
@@ -36,31 +38,76 @@ var ShopView = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.prfItem = null;
         _this.nLayout = null;
+        _this.listSpfItem = [];
+        _this.lbPriceHp = null;
+        _this.lbPriceAttack = null;
+        _this.itemPrices = [1, 1];
         return _this;
         // update (dt) {}
     }
+    ShopView_1 = ShopView;
     // LIFE-CYCLE CALLBACKS:
     ShopView.prototype.onLoad = function () {
+        ShopView_1.instance = this;
         this.loadItem();
+        this.updatePriceHp();
+        this.updatePriceAttack();
     };
     ShopView.prototype.onClickClose = function () {
         this.node.destroy();
     };
     ShopView.prototype.loadItem = function () {
-        for (var i = 0; i < 2; i++) {
-            var item = cc.instantiate(this.prfItem);
-            this.nLayout.addChild(item);
+        for (var i = 0; i < CardHero_Global_1.Global.priceItem.length; i++) {
+            var item = cc.instantiate(this.prfItem).getComponent(CardHero_ItemShop_1.default);
+            var savedItem = this.getSavedItemState(i);
+            if (savedItem) {
+                item.setData(i, savedItem.price);
+            }
+            else {
+                item.setData(i, CardHero_Global_1.Global.priceItem[i]);
+            }
+            this.nLayout.addChild(item.node);
         }
+    };
+    ShopView.prototype.getSavedItemState = function (id) {
+        var itemState = cc.sys.localStorage.getItem("item_" + id);
+        return itemState ? JSON.parse(itemState) : null;
+    };
+    ShopView.prototype.updateAllItems = function () {
+        console.log("Updating all items...");
+        this.nLayout.children.forEach(function (itemNode) {
+            var itemComponent = itemNode.getComponent(CardHero_ItemShop_1.default);
+            console.log("Updating item:", itemComponent.idItem);
+            itemComponent.updatePrice(); // Cập nhật giá trước khi kiểm tra
+            itemComponent.checkBuy();
+        });
+    };
+    ShopView.prototype.updatePriceHp = function () {
+        this.lbPriceHp.string = '$ ' + CardHero_Global_1.Global.priceItem[0];
+    };
+    ShopView.prototype.updatePriceAttack = function () {
+        this.lbPriceAttack.string = '$ ' + CardHero_Global_1.Global.priceItem[1];
     };
     ShopView.prototype.start = function () {
     };
+    var ShopView_1;
+    ShopView.instance = null;
     __decorate([
         property(cc.Prefab)
     ], ShopView.prototype, "prfItem", void 0);
     __decorate([
         property(cc.Node)
     ], ShopView.prototype, "nLayout", void 0);
-    ShopView = __decorate([
+    __decorate([
+        property(cc.SpriteFrame)
+    ], ShopView.prototype, "listSpfItem", void 0);
+    __decorate([
+        property(cc.Label)
+    ], ShopView.prototype, "lbPriceHp", void 0);
+    __decorate([
+        property(cc.Label)
+    ], ShopView.prototype, "lbPriceAttack", void 0);
+    ShopView = ShopView_1 = __decorate([
         ccclass
     ], ShopView);
     return ShopView;

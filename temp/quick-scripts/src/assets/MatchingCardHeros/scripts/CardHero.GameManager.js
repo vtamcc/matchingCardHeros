@@ -30,6 +30,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var CardHero_GameView_1 = require("./game/CardHero.GameView");
+var CardHero_LevelView_1 = require("./game/CardHero.LevelView");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var GameManager = /** @class */ (function (_super) {
     __extends(GameManager, _super);
@@ -47,12 +48,14 @@ var GameManager = /** @class */ (function (_super) {
     GameManager.prototype.start = function () {
     };
     GameManager.prototype.onClickPlay = function () {
+        // if(GameView.instance != null)
+        //     GameView.instance = null
         var gameView = cc.instantiate(this.prfGameView).getComponent(CardHero_GameView_1.default);
         this.node.addChild(gameView.node);
     };
     GameManager.prototype.onClickLevel = function () {
-        var levelView = cc.instantiate(this.prfGameLevel);
-        this.node.addChild(levelView);
+        var levelView = cc.instantiate(this.prfGameLevel).getComponent(CardHero_LevelView_1.default);
+        this.node.addChild(levelView.node);
     };
     var GameManager_1;
     GameManager.instance = null;

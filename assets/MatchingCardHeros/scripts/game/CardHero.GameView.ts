@@ -90,11 +90,15 @@ export default class GameView extends cc.Component {
 
     }
 
+    onDestroy() {
+        GameView.instance = null
+    }
+
     maskLoadGame() {
         this.nMaskLoadGame.active = true;
         this.scheduleOnce(() => {
             this.nMaskLoadGame.active = false;
-        }, 5)
+        }, 7)
     }
 
     loadCards() {
@@ -178,7 +182,7 @@ export default class GameView extends cc.Component {
         if (this.selectedCards.length < 2) {
             this.selectedCards.push(card);
             if (this.selectedCards.length === 2) {
-                this.scheduleOnce(this.checkMatch.bind(this), 0.8);
+                this.scheduleOnce(this.checkMatch.bind(this), 0.6);
             }
         }
     }
@@ -364,6 +368,12 @@ export default class GameView extends cc.Component {
         this.createMonster(0, 10, 1);
 
         console.log("Game restarted");
+    }
+
+    destroyGame() {
+        console.log("destroyyy ")
+        this.node.stopAllActions()
+        this.node.destroy();
     }
     // update (dt) {}
 }
