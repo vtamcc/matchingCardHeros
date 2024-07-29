@@ -39,10 +39,8 @@ export default class Card extends cc.Component {
         GameView.instance.countClick++;
         if(GameView.instance.countClick == 2) {
             GameView.instance.nMaskClick.active = true;
-            console.log("bat ne ");
             this.scheduleOnce(() => {
                 GameView.instance.nMaskClick.active = false;
-                console.log("Tat ne ");
             },0.58)
             GameView.instance.countClick = 0;
         }

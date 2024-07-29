@@ -795,7 +795,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
+      "width": 104.7,
       "height": 75.6
     },
     "_anchorPoint": {
@@ -807,7 +807,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        100,
+        139.285,
         0,
         0,
         0,
@@ -847,8 +847,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "",
-    "_N$string": "",
+    "_string": "100",
+    "_N$string": "100",
     "_fontSize": 60,
     "_lineHeight": 60,
     "_enableWrapText": true,

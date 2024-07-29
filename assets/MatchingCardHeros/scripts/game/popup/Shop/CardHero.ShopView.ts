@@ -43,28 +43,28 @@ export default class ShopView extends cc.Component {
     loadItem() {
         for (let i = 0; i < Global.priceItem.length; i++) {
             let item = cc.instantiate(this.prfItem).getComponent(ItemShop);
-            let savedItem = this.getSavedItemState(i);
-            if (savedItem) {
-                item.setData(i, savedItem.price);
-            } else {
-                item.setData(i, Global.priceItem[i]);
-            }
+            item.setData(i, Global.priceItem[i]);
             this.nLayout.addChild(item.node);
         }
     }
 
     getSavedItemState(id) {
-        const itemState = cc.sys.localStorage.getItem(`item_${id}`);
+        let itemState = cc.sys.localStorage.getItem(`item_${id}`);
         return itemState ? JSON.parse(itemState) : null;
     }
 
+    updatePrices() {
+        this.lbPriceHp.string = '$ ' + Global.priceItem[0];
+        this.lbPriceAttack.string = '$ ' + Global.priceItem[1];
+    }
 
     updateAllItems() {
         console.log("Updating all items...");
         this.nLayout.children.forEach((itemNode) => {
             let itemComponent = itemNode.getComponent(ItemShop);
             console.log("Updating item:", itemComponent.idItem);
-            itemComponent.updatePrice(); // Cập nhật giá trước khi kiểm tra
+            itemComponent.loadItemState();
+            itemComponent.updatePrice();
             itemComponent.checkBuy();
         });
     }

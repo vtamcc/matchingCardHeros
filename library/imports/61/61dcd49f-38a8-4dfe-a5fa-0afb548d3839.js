@@ -43,20 +43,19 @@ var ItemShop = /** @class */ (function (_super) {
     ItemShop.prototype.onLoad = function () { };
     ItemShop.prototype.setData = function (id, price) {
         this.idItem = id;
-        this.price = price; // Đặt giá của item tại đây
+        this.price = price;
+        this.loadItemState();
         this.nItem.getComponent(cc.Sprite).spriteFrame = CardHero_ShopView_1.default.instance.listSpfItem[id];
         this.updatePrice();
         this.checkBuy();
     };
     ItemShop.prototype.updatePrice = function () {
-        // Cập nhật giá của item
         this.price = CardHero_Global_1.Global.priceItem[this.idItem];
-        console.log("Price updated for item " + this.idItem + ": " + this.price);
     };
     ItemShop.prototype.checkBuy = function () {
         if (CardHero_Global_1.Global.totalGold >= this.price) {
             this.nMask.active = false;
-            console.log("Tien", this.price);
+            console.log("xzzzzzzz", this.price);
         }
         else {
             this.nMask.active = true;
@@ -64,35 +63,49 @@ var ItemShop = /** @class */ (function (_super) {
     };
     ItemShop.prototype.clickBuy = function () {
         if (CardHero_Global_1.Global.totalGold >= this.price) {
+            CardHero_Global_1.Global.totalGold -= this.price;
             if (this.idItem == 0) {
-                CardHero_Global_1.Global.totalGold -= CardHero_Global_1.Global.priceItem[this.idItem];
-                CardHero_Global_1.Global.priceItem[this.idItem]++;
-                CardHero_ShopView_1.default.instance.updatePriceHp();
-                console.log(this.idItem);
+                CardHero_Global_1.Global.hpChar += 5;
+                cc.sys.localStorage.setItem("hpChar", CardHero_Global_1.Global.hpChar);
+                console.log("HpChar increased to: " + CardHero_Global_1.Global.hpChar);
             }
             else if (this.idItem == 1) {
-                CardHero_Global_1.Global.totalGold -= CardHero_Global_1.Global.priceItem[this.idItem];
-                CardHero_Global_1.Global.priceItem[this.idItem]++;
-                CardHero_ShopView_1.default.instance.updatePriceAttack();
+                CardHero_Global_1.Global.dameCharSmall += 3;
+                CardHero_Global_1.Global.dameCharNormal += 3;
+                CardHero_Global_1.Global.dameCharBig += 3;
+                cc.sys.localStorage.setItem("dameCharSmall", CardHero_Global_1.Global.dameCharSmall);
+                cc.sys.localStorage.setItem("dameCharNormal", CardHero_Global_1.Global.dameCharNormal);
+                cc.sys.localStorage.setItem("dameCharBig", CardHero_Global_1.Global.dameCharBig);
+                console.log("Damage increased to: Small: " + CardHero_Global_1.Global.dameCharSmall + ", Normal: " + CardHero_Global_1.Global.dameCharNormal + ", Big: " + CardHero_Global_1.Global.dameCharBig);
             }
-            console.log("Gold after purchase:", CardHero_Global_1.Global.totalGold);
-            this.checkBuy();
+            CardHero_Global_1.Global.priceItem[this.idItem]++;
             this.saveItemState(); // Save item state after purchase
+            console.log("Bought item " + this.idItem + ", new price: " + CardHero_Global_1.Global.priceItem[this.idItem] + ", remaining gold: " + CardHero_Global_1.Global.totalGold);
             CardHero_ShopView_1.default.instance.updateAllItems(); // Update all items
+            CardHero_ShopView_1.default.instance.updatePrices();
             CardHero_LevelView_1.default.instance.updateGold(); // Update the displayed gold amount
-            this.updatePrice(); // Cập nhật giá sau khi mua
+            this.updatePrice(); // Update the price after purchase
         }
         else {
             console.log("Not enough gold!");
-            this.nMask.active = true;
         }
     };
     ItemShop.prototype.saveItemState = function () {
         var itemState = {
             id: this.idItem,
-            price: this.price
+            price: CardHero_Global_1.Global.priceItem[this.idItem]
         };
         cc.sys.localStorage.setItem("item_" + this.idItem, JSON.stringify(itemState));
+        console.log("Item " + this.idItem + " state saved:", itemState);
+    };
+    ItemShop.prototype.loadItemState = function () {
+        var itemState = cc.sys.localStorage.getItem("item_" + this.idItem);
+        if (itemState) {
+            var parsedState = JSON.parse(itemState);
+            CardHero_Global_1.Global.priceItem[this.idItem] = parsedState.price;
+            this.price = parsedState.price;
+            console.log("Loaded price for item " + this.idItem + ": " + this.price);
+        }
     };
     ItemShop.prototype.start = function () { };
     __decorate([

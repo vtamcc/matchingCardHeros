@@ -14,7 +14,7 @@ exports.Global = void 0;
 var Global = /** @class */ (function () {
     function Global() {
     }
-    Global.totalGold = 2;
+    Global.totalGold = 10;
     Global.hpChar = 10;
     Global.hpMonster = 10;
     Global.shield = 0;

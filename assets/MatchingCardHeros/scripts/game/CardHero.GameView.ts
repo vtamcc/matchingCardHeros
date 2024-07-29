@@ -77,6 +77,11 @@ export default class GameView extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
+
+        Global.dameCharSmall = parseInt(cc.sys.localStorage.getItem("dameCharSmall")) || Global.dameCharSmall;
+        Global.dameCharNormal = parseInt(cc.sys.localStorage.getItem("dameCharNormal")) || Global.dameCharNormal;
+        Global.dameCharBig = parseInt(cc.sys.localStorage.getItem("dameCharBig")) || Global.dameCharBig;
+        Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || Global.hpChar;
         GameView.instance = this;
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.maskLoadGame();

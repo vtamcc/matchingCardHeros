@@ -80,6 +80,10 @@ var GameView = /** @class */ (function (_super) {
     // LIFE-CYCLE CALLBACKS:
     GameView.prototype.onLoad = function () {
         var _this = this;
+        CardHero_Global_1.Global.dameCharSmall = parseInt(cc.sys.localStorage.getItem("dameCharSmall")) || CardHero_Global_1.Global.dameCharSmall;
+        CardHero_Global_1.Global.dameCharNormal = parseInt(cc.sys.localStorage.getItem("dameCharNormal")) || CardHero_Global_1.Global.dameCharNormal;
+        CardHero_Global_1.Global.dameCharBig = parseInt(cc.sys.localStorage.getItem("dameCharBig")) || CardHero_Global_1.Global.dameCharBig;
+        CardHero_Global_1.Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || CardHero_Global_1.Global.hpChar;
         GameView_1.instance = this;
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.maskLoadGame();

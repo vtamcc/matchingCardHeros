@@ -59,13 +59,7 @@ var ShopView = /** @class */ (function (_super) {
     ShopView.prototype.loadItem = function () {
         for (var i = 0; i < CardHero_Global_1.Global.priceItem.length; i++) {
             var item = cc.instantiate(this.prfItem).getComponent(CardHero_ItemShop_1.default);
-            var savedItem = this.getSavedItemState(i);
-            if (savedItem) {
-                item.setData(i, savedItem.price);
-            }
-            else {
-                item.setData(i, CardHero_Global_1.Global.priceItem[i]);
-            }
+            item.setData(i, CardHero_Global_1.Global.priceItem[i]);
             this.nLayout.addChild(item.node);
         }
     };
@@ -73,12 +67,17 @@ var ShopView = /** @class */ (function (_super) {
         var itemState = cc.sys.localStorage.getItem("item_" + id);
         return itemState ? JSON.parse(itemState) : null;
     };
+    ShopView.prototype.updatePrices = function () {
+        this.lbPriceHp.string = '$ ' + CardHero_Global_1.Global.priceItem[0];
+        this.lbPriceAttack.string = '$ ' + CardHero_Global_1.Global.priceItem[1];
+    };
     ShopView.prototype.updateAllItems = function () {
         console.log("Updating all items...");
         this.nLayout.children.forEach(function (itemNode) {
             var itemComponent = itemNode.getComponent(CardHero_ItemShop_1.default);
             console.log("Updating item:", itemComponent.idItem);
-            itemComponent.updatePrice(); // Cập nhật giá trước khi kiểm tra
+            itemComponent.loadItemState();
+            itemComponent.updatePrice();
             itemComponent.checkBuy();
         });
     };
