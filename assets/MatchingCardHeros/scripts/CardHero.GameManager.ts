@@ -5,6 +5,7 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
+import { Global } from "./CardHero.Global";
 import GameView from "./game/CardHero.GameView";
 import Level from "./game/CardHero.LevelView";
 
@@ -25,12 +26,17 @@ export default class GameManager extends cc.Component {
 
     }
 
-    onClickPlay() {
+    onClickPlay(level: number) {
         // if(GameView.instance != null)
         //     GameView.instance = null
         
-        let gameView = cc.instantiate(this.prfGameView).getComponent(GameView)
+        // let gameView = cc.instantiate(this.prfGameView).getComponent(GameView)
+        // this.node.addChild(gameView.node);
+        Global.selectedLevel = level;
+        cc.sys.localStorage.setItem('selectedLevel', level.toString());
+        let gameView = cc.instantiate(this.prfGameView).getComponent(GameView);
         this.node.addChild(gameView.node);
+        
     }
 
     onClickLevel() {

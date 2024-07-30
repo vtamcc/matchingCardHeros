@@ -66,6 +66,7 @@ export default class GameView extends cc.Component {
     lbShield: cc.Label = null;
     @property(cc.Node)
     nDameMonsterMiss: cc.Node = null;
+
     listMonsters = [];
     idMonster = 0;
     rows = 5;
@@ -74,10 +75,13 @@ export default class GameView extends cc.Component {
     private startX: number = -337;
     private startY: number = 210;
     private tileWidth: number = 135;
+    selectedLevel: number = 0;
+    monstersDefeated = 0;
+    private currentMonsterIndex: number = -1;
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-
+        this.selectedLevel = parseInt(cc.sys.localStorage.getItem('selectedLevel')) || 0;
         Global.dameCharSmall = parseInt(cc.sys.localStorage.getItem("dameCharSmall")) || Global.dameCharSmall;
         Global.dameCharNormal = parseInt(cc.sys.localStorage.getItem("dameCharNormal")) || Global.dameCharNormal;
         Global.dameCharBig = parseInt(cc.sys.localStorage.getItem("dameCharBig")) || Global.dameCharBig;
@@ -89,7 +93,7 @@ export default class GameView extends cc.Component {
             this.loadCards();
 
         }, 1)
-        this.createMonster(0, 10, 1);
+        this.spawnMonster(); 
         this.updateHpChar();
         this.updateHpBagGuy();
 
@@ -107,11 +111,6 @@ export default class GameView extends cc.Component {
     }
 
     loadCards() {
-        // for(let i = 0; i < 25; i++) {
-        //     let card = cc.instantiate(this.prfCard).getComponent(Card)
-        //     card.setData(this.listIdCard[i])
-        //     this.nTableCards.addChild(card.node);
-        // }
         let idIndex = 0;
 
         for (let i = 0; i < this.rows; i++) {
@@ -131,13 +130,24 @@ export default class GameView extends cc.Component {
         }
 
     }
+    spawnMonster() {
+        const levelInfo = Global.levelData[this.selectedLevel];
+        console.log("level ",levelInfo);
+        if (this.currentMonsterIndex < levelInfo.monsters) {
+            this.currentMonsterIndex++;
+            this.createMonster(this.currentMonsterIndex, levelInfo.hp, levelInfo.dame);
+            console.log("Quai vat dau tien ", this.currentMonsterIndex);
+        } else {
+            this.completeLevel();
+        }
+
+    }
 
     createMonster(id: number, hp: number, dame: number) {
-        let monter = cc.instantiate(this.prfMonster).getComponent(Monster)
-        monter.setMonster(id, hp, dame);
-        this.nMonters.addChild(monter.node);
-        this.listMonsters.push(monter);
-        //   this.idMonster++;
+        let monster = cc.instantiate(this.prfMonster).getComponent(Monster);
+        monster.setMonster(id, hp, dame);
+        this.nMonters.addChild(monster.node);
+        this.listMonsters.push(monster);
     }
 
 
@@ -148,11 +158,53 @@ export default class GameView extends cc.Component {
                 monster.receiveDamage(dame);
                 if (Global.hpMonster <= 0) {
                     this.listMonsters = this.listMonsters.filter(m => m !== monster);
+                    this.monstersDefeated++;
+                    this.scheduleOnce(() => {
+                        this.spawnMonster(); 
+                    },0.8)
+                    
                     console.log("Monster ", this.listMonsters);
                 }
             }
         }
     }
+
+    completeLevel() {
+        cc.sys.localStorage.setItem(`level_${this.selectedLevel}_completed`, 'true');
+        console.log(`Level ${this.selectedLevel} marked as completed`);
+        
+        // Tăng level và chuyển sang level tiếp theo
+        Global.levelCount++;
+        cc.sys.localStorage.setItem('levelCount', Global.levelCount.toString());
+        this.selectedLevel++;
+        if (this.selectedLevel > 14) { // Giả sử có 15 level
+            this.selectedLevel = 14; // Giữ nguyên ở level cuối nếu đã hoàn thành tất cả các level
+        }
+        cc.sys.localStorage.setItem('selectedLevel', this.selectedLevel.toString());
+
+        // Tải lại trò chơi với level mới
+        this.loadNextLevel();
+    }
+
+    loadNextLevel() {
+        // Thiết lập lại trạng thái cần thiết cho level mới
+        this.monstersDefeated = 0;
+        this.currentMonsterIndex = -1;
+        this.nTableCards.removeAllChildren();
+        this.nMonters.removeAllChildren();
+        this.selectedCards = [];
+        this.listMonsters = [];
+
+        this.listIdCard = this.shuffleArray(this.listIdCard);
+        this.loadCards();
+        this.spawnMonster(); 
+        this.updateHpChar();
+        this.updateHpBagGuy();
+        this.maskLoadGame();
+        console.log(`Loaded Level ${this.selectedLevel}`);
+    }
+
+
     gameOver() {
         if (Global.hpChar == 0) {
             let prfGameOver = cc.instantiate(this.prfGameOver).getComponent(GameOver)
@@ -166,11 +218,9 @@ export default class GameView extends cc.Component {
         this.nTableCards.children.forEach(element => {
             element.active = false;
         });
-        cc.director.pause();
     }
 
     onClickResume() {
-        cc.director.resume();
         this.nTableCards.children.forEach(element => {
             element.active = true;
         });
@@ -364,20 +414,14 @@ export default class GameView extends cc.Component {
         this.nMonters.removeAllChildren();
         this.selectedCards = [];
         this.listMonsters = [];
-
-        // Shuffle and reload cards
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.loadCards();
-
-        // Create a new monster
         this.createMonster(0, 10, 1);
-
         console.log("Game restarted");
     }
 
     destroyGame() {
         console.log("destroyyy ")
-        this.node.stopAllActions()
         this.node.destroy();
     }
     // update (dt) {}

@@ -29,8 +29,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var CardHero_GameManager_1 = require("../CardHero.GameManager");
 var CardHero_Global_1 = require("../CardHero.Global");
+var CardHero_ItemLevel_1 = require("./CardHero.ItemLevel");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var Level = /** @class */ (function (_super) {
     __extends(Level, _super);
@@ -38,6 +38,14 @@ var Level = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.prfShopView = null;
         _this.lbGold = null;
+        _this.nLayout = null;
+        _this.levelOrder = [
+            [0, 1, 2],
+            [5, 4, 3],
+            [6, 7, 8],
+            [11, 10, 9],
+            [12, 13, 14]
+        ];
         return _this;
         // update (dt) {}
     }
@@ -45,11 +53,11 @@ var Level = /** @class */ (function (_super) {
     Level.prototype.onLoad = function () {
         Level_1.instance = this;
         CardHero_Global_1.Global.totalGold = parseInt(cc.sys.localStorage.getItem("totalGold"), CardHero_Global_1.Global.totalGold) || CardHero_Global_1.Global.totalGold;
+        CardHero_Global_1.Global.levelCount = parseInt(cc.sys.localStorage.getItem("levelCount")) || 0;
+        console.log("LevelCount", CardHero_Global_1.Global.levelCount);
         this.updateGold();
+        this.loadItemLevel();
         console.log("Tien ", CardHero_Global_1.Global.totalGold);
-    };
-    Level.prototype.onClickPlay = function () {
-        CardHero_GameManager_1.default.instance.onClickPlay();
     };
     Level.prototype.onClickShopView = function () {
         var shopView = cc.instantiate(this.prfShopView);
@@ -62,6 +70,19 @@ var Level = /** @class */ (function (_super) {
     Level.prototype.clickRemoveCache = function () {
         cc.sys.localStorage.clear();
     };
+    Level.prototype.loadItemLevel = function () {
+        for (var row = 0; row < this.levelOrder.length; row++) {
+            for (var col = 0; col < this.levelOrder[row].length; col++) {
+                var id = this.levelOrder[row][col];
+                var item = cc.instantiate(this.prfItemLevel).getComponent(CardHero_ItemLevel_1.default);
+                var completed = cc.sys.localStorage.getItem("level_" + id + "_completed") === 'true';
+                console.log("Completed", completed);
+                var isUnlocked = id === 0 || cc.sys.localStorage.getItem("level_" + id + "_completed") === 'true';
+                item.setData(id, true, true, isUnlocked);
+                this.nLayout.addChild(item.node);
+            }
+        }
+    };
     Level.prototype.start = function () {
     };
     var Level_1;
@@ -73,6 +94,12 @@ var Level = /** @class */ (function (_super) {
     __decorate([
         property(cc.Label)
     ], Level.prototype, "lbGold", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], Level.prototype, "prfItemLevel", void 0);
+    __decorate([
+        property(cc.Node)
+    ], Level.prototype, "nLayout", void 0);
     Level = Level_1 = __decorate([
         ccclass
     ], Level);

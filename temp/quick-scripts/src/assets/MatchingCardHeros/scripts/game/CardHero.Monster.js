@@ -66,16 +66,12 @@ var Monster = /** @class */ (function (_super) {
     };
     Monster.prototype.onDeath = function () {
         var _this = this;
-        // Dừng mọi hành động trên node của quái
-        // this.node.destroy();
         this.node.stopAllActions();
         this.scheduleOnce(function () {
             _this.node.destroy();
-            var newHp = CardHero_Global_1.Global.hpMonster + 15; // Tăng HP mới
-            var newDame = _this.dame + 1; // Tăng dame mới
-            CardHero_GameView_1.default.instance.createMonster(_this.monsterId + 1, newHp, newDame);
+            CardHero_GameView_1.default.instance.monstersDefeated++;
             console.log("mau", CardHero_Global_1.Global.hpMonster);
-        }, 2);
+        }, 0.3);
         // Delay of 2 seconds
     };
     Monster.prototype.setMonsterJump = function () {

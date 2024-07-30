@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "096a2175-4dc1-442d-b419-2614b2bcdf51",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 147,
+  "height": 145,
+  "platformSettings": {},
+  "subMetas": {
+    "m_leveldoor-sheet0": {
+      "ver": "1.0.6",
+      "uuid": "915339e2-cc11-440b-87c0-11044bbd8f7c",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "096a2175-4dc1-442d-b419-2614b2bcdf51",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 146,
+      "height": 145,
+      "rawWidth": 147,
+      "rawHeight": 145,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

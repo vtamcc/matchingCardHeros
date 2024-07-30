@@ -29,7 +29,7 @@ export default class Pause extends cc.Component {
     }
 
     clickHome() {
-        // this.node.destroy();
+        this.node.destroy();
         GameView.instance.destroyGame();
     }
 

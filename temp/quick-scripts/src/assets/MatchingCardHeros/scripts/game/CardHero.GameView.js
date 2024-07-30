@@ -73,6 +73,9 @@ var GameView = /** @class */ (function (_super) {
         _this.startX = -337;
         _this.startY = 210;
         _this.tileWidth = 135;
+        _this.selectedLevel = 0;
+        _this.monstersDefeated = 0;
+        _this.currentMonsterIndex = -1;
         return _this;
         // update (dt) {}
     }
@@ -80,6 +83,7 @@ var GameView = /** @class */ (function (_super) {
     // LIFE-CYCLE CALLBACKS:
     GameView.prototype.onLoad = function () {
         var _this = this;
+        this.selectedLevel = parseInt(cc.sys.localStorage.getItem('selectedLevel')) || 0;
         CardHero_Global_1.Global.dameCharSmall = parseInt(cc.sys.localStorage.getItem("dameCharSmall")) || CardHero_Global_1.Global.dameCharSmall;
         CardHero_Global_1.Global.dameCharNormal = parseInt(cc.sys.localStorage.getItem("dameCharNormal")) || CardHero_Global_1.Global.dameCharNormal;
         CardHero_Global_1.Global.dameCharBig = parseInt(cc.sys.localStorage.getItem("dameCharBig")) || CardHero_Global_1.Global.dameCharBig;
@@ -90,7 +94,7 @@ var GameView = /** @class */ (function (_super) {
         this.scheduleOnce(function () {
             _this.loadCards();
         }, 1);
-        this.createMonster(0, 10, 1);
+        this.spawnMonster();
         this.updateHpChar();
         this.updateHpBagGuy();
     };
@@ -105,11 +109,6 @@ var GameView = /** @class */ (function (_super) {
         }, 7);
     };
     GameView.prototype.loadCards = function () {
-        // for(let i = 0; i < 25; i++) {
-        //     let card = cc.instantiate(this.prfCard).getComponent(Card)
-        //     card.setData(this.listIdCard[i])
-        //     this.nTableCards.addChild(card.node);
-        // }
         var idIndex = 0;
         for (var i = 0; i < this.rows; i++) {
             this.dataCard[i] = [];
@@ -126,24 +125,70 @@ var GameView = /** @class */ (function (_super) {
             }
         }
     };
+    GameView.prototype.spawnMonster = function () {
+        var levelInfo = CardHero_Global_1.Global.levelData[this.selectedLevel];
+        console.log("level ", levelInfo);
+        if (this.currentMonsterIndex < levelInfo.monsters) {
+            this.currentMonsterIndex++;
+            this.createMonster(this.currentMonsterIndex, levelInfo.hp, levelInfo.dame);
+            console.log("Quai vat dau tien ", this.currentMonsterIndex);
+        }
+        else {
+            this.completeLevel();
+        }
+    };
     GameView.prototype.createMonster = function (id, hp, dame) {
-        var monter = cc.instantiate(this.prfMonster).getComponent(CardHero_Monster_1.default);
-        monter.setMonster(id, hp, dame);
-        this.nMonters.addChild(monter.node);
-        this.listMonsters.push(monter);
-        //   this.idMonster++;
+        var monster = cc.instantiate(this.prfMonster).getComponent(CardHero_Monster_1.default);
+        monster.setMonster(id, hp, dame);
+        this.nMonters.addChild(monster.node);
+        this.listMonsters.push(monster);
     };
     GameView.prototype.attackMonster = function (dame) {
+        var _this = this;
         if (this.listMonsters.length > 0) {
             var monster_1 = this.listMonsters[0];
             if (monster_1 && monster_1.node) {
                 monster_1.receiveDamage(dame);
                 if (CardHero_Global_1.Global.hpMonster <= 0) {
                     this.listMonsters = this.listMonsters.filter(function (m) { return m !== monster_1; });
+                    this.monstersDefeated++;
+                    this.scheduleOnce(function () {
+                        _this.spawnMonster();
+                    }, 0.8);
                     console.log("Monster ", this.listMonsters);
                 }
             }
         }
+    };
+    GameView.prototype.completeLevel = function () {
+        cc.sys.localStorage.setItem("level_" + this.selectedLevel + "_completed", 'true');
+        console.log("Level " + this.selectedLevel + " marked as completed");
+        // Tăng level và chuyển sang level tiếp theo
+        CardHero_Global_1.Global.levelCount++;
+        cc.sys.localStorage.setItem('levelCount', CardHero_Global_1.Global.levelCount.toString());
+        this.selectedLevel++;
+        if (this.selectedLevel > 14) { // Giả sử có 15 level
+            this.selectedLevel = 14; // Giữ nguyên ở level cuối nếu đã hoàn thành tất cả các level
+        }
+        cc.sys.localStorage.setItem('selectedLevel', this.selectedLevel.toString());
+        // Tải lại trò chơi với level mới
+        this.loadNextLevel();
+    };
+    GameView.prototype.loadNextLevel = function () {
+        // Thiết lập lại trạng thái cần thiết cho level mới
+        this.monstersDefeated = 0;
+        this.currentMonsterIndex = -1;
+        this.nTableCards.removeAllChildren();
+        this.nMonters.removeAllChildren();
+        this.selectedCards = [];
+        this.listMonsters = [];
+        this.listIdCard = this.shuffleArray(this.listIdCard);
+        this.loadCards();
+        this.spawnMonster();
+        this.updateHpChar();
+        this.updateHpBagGuy();
+        this.maskLoadGame();
+        console.log("Loaded Level " + this.selectedLevel);
     };
     GameView.prototype.gameOver = function () {
         if (CardHero_Global_1.Global.hpChar == 0) {
@@ -157,10 +202,8 @@ var GameView = /** @class */ (function (_super) {
         this.nTableCards.children.forEach(function (element) {
             element.active = false;
         });
-        cc.director.pause();
     };
     GameView.prototype.onClickResume = function () {
-        cc.director.resume();
         this.nTableCards.children.forEach(function (element) {
             element.active = true;
         });
@@ -346,16 +389,13 @@ var GameView = /** @class */ (function (_super) {
         this.nMonters.removeAllChildren();
         this.selectedCards = [];
         this.listMonsters = [];
-        // Shuffle and reload cards
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.loadCards();
-        // Create a new monster
         this.createMonster(0, 10, 1);
         console.log("Game restarted");
     };
     GameView.prototype.destroyGame = function () {
         console.log("destroyyy ");
-        this.node.stopAllActions();
         this.node.destroy();
     };
     var GameView_1;

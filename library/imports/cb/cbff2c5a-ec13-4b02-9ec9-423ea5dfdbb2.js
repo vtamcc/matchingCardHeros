@@ -48,7 +48,7 @@ var Pause = /** @class */ (function (_super) {
         this.node.destroy();
     };
     Pause.prototype.clickHome = function () {
-        // this.node.destroy();
+        this.node.destroy();
         CardHero_GameView_1.default.instance.destroyGame();
     };
     Pause.prototype.start = function () {

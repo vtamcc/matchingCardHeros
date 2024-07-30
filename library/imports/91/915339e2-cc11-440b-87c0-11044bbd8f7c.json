@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "m_leveldoor-sheet0",
+    "texture": "096a2175-4dc1-442d-b419-2614b2bcdf51",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      146,
+      145
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      147,
+      145
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

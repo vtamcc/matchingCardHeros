@@ -42,16 +42,12 @@ export default class Monster extends cc.Component {
     }
 
     onDeath() {
-        // Dừng mọi hành động trên node của quái
-        // this.node.destroy();
         this.node.stopAllActions();
         this.scheduleOnce(() => {
             this.node.destroy();
-            let newHp = Global.hpMonster + 15; // Tăng HP mới
-            let newDame = this.dame + 1; // Tăng dame mới
-            GameView.instance.createMonster(this.monsterId + 1, newHp, newDame);
+            GameView.instance.monstersDefeated++;
             console.log("mau", Global.hpMonster);
-        },2)
+        },0.3)
       
         // Delay of 2 seconds
 
@@ -64,7 +60,6 @@ export default class Monster extends cc.Component {
 
         cc.tween(this.node).then(repeatJump).start();
     }
-
 
     start() {
 

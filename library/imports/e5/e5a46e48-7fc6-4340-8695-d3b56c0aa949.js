@@ -29,6 +29,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var CardHero_Global_1 = require("./CardHero.Global");
 var CardHero_GameView_1 = require("./game/CardHero.GameView");
 var CardHero_LevelView_1 = require("./game/CardHero.LevelView");
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
@@ -47,9 +48,13 @@ var GameManager = /** @class */ (function (_super) {
     };
     GameManager.prototype.start = function () {
     };
-    GameManager.prototype.onClickPlay = function () {
+    GameManager.prototype.onClickPlay = function (level) {
         // if(GameView.instance != null)
         //     GameView.instance = null
+        // let gameView = cc.instantiate(this.prfGameView).getComponent(GameView)
+        // this.node.addChild(gameView.node);
+        CardHero_Global_1.Global.selectedLevel = level;
+        cc.sys.localStorage.setItem('selectedLevel', level.toString());
         var gameView = cc.instantiate(this.prfGameView).getComponent(CardHero_GameView_1.default);
         this.node.addChild(gameView.node);
     };
