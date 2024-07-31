@@ -22,9 +22,10 @@ export class Global  {
     static levelData = [
         { dame: 1, hp: 10, monsters: 1 }, // Level 1
         { dame: 7, hp: 15, monsters: 1 }, // Level 2
-        { dame: 10, hp: 20, monsters: 2 }, // Level 3
-        { dame: 12, hp: 25, monsters: 6 }, // Level 4
-        { dame: 20, hp: 50, monsters: 1, isBoss: true }, // Level 5 - Boss
+        { dame: 10, hp: 20, monsters: 1 }, // Level 3
+        { dame: 12, hp: 25, monsters: 1 },
+        { dame: 12, hp: 20, monsters: 1 }, // Level 4
+        { dame: 20, hp: 50, monsters: 0, isBoss: true }, // Level 5 - Boss
         { dame: 8, hp: 18, monsters: 4 }, // Level 6
         { dame: 9, hp: 22, monsters: 5 }, // Level 7
         { dame: 11, hp: 28, monsters: 6 }, // Level 8
@@ -35,6 +36,17 @@ export class Global  {
         { dame: 25, hp: 50, monsters: 11 }, // Level 13
         { dame: 30, hp: 100, monsters: 1, isBoss: true } // Level 14 - Boss
     ];
+
+
+    static levelMonsterSprites = {
+        0: [0, 1], // Level 0 uses sprites 0, 1, 2
+        1: [1,2], // Level 1 uses sprites 3, 4, 5
+        2: [0,2], // Level 2 uses sprites 6, 7, 8
+        3: [1,2,], // Level 3 uses sprites 9, 10, 11
+        4: [2,3], // Level 4 uses sprites 12, 13, 14
+        5: [4], // Level 5 uses sprites 15, 16, 17
+        // Add more levels as needed
+    };
     static selectedLevel = 0;
     static levelCount = 0; 
     //static dataAttack = [{id: 0,}]

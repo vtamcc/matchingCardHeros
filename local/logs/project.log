@@ -1,80 +1,79 @@
-2024-07-30T01:43:37.780Z - success: protocol editor-framework registered
-2024-07-30T01:43:37.782Z - success: protocol app registered
-2024-07-30T01:43:37.782Z - success: protocol theme registered
-2024-07-30T01:43:37.782Z - success: protocol packages registered
-2024-07-30T01:43:37.811Z - normal: Load ~/.CocosCreator/settings.json
-2024-07-30T01:43:37.849Z - success: protocol uuid registerred
-2024-07-30T01:43:37.849Z - success: protocol db registerred
-2024-07-30T01:43:37.849Z - success: protocol thumbnail registerred
-2024-07-30T01:43:37.934Z - normal: Initializing Asset Database
-2024-07-30T01:43:37.936Z - normal: checking language setting...
-2024-07-30T01:43:37.936Z - normal: Language: en
-2024-07-30T01:43:37.939Z - success: protocol unpack registerred
-2024-07-30T01:43:37.939Z - success: protocol disable-commonjs registerred
-2024-07-30T01:43:39.383Z - normal: connected!
-2024-07-30T01:43:39.593Z - normal: Check project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
-2024-07-30T01:43:39.599Z - normal: Initializing project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
-2024-07-30T01:43:39.845Z - success: adapters loaded
-2024-07-30T01:43:39.850Z - success: asset-db-debugger loaded
-2024-07-30T01:43:39.930Z - success: fb-audience-network loaded
-2024-07-30T01:43:39.983Z - success: fb-live-stream loaded
-2024-07-30T01:43:39.987Z - success: google-play-instant loaded
-2024-07-30T01:43:39.987Z - success: jsb-adapter loaded
-2024-07-30T01:43:40.012Z - success: package-manager loaded
-2024-07-30T01:43:40.013Z - success: runtime-adapters loaded
-2024-07-30T01:43:40.016Z - success: runtime-dev-tools loaded
-2024-07-30T01:43:40.018Z - success: ui-kit-preview-extra loaded
-2024-07-30T01:43:40.021Z - success: ui-kit-preview loaded
-2024-07-30T01:43:40.871Z - success: alipay-minigame loaded
-2024-07-30T01:43:40.889Z - success: assets loaded
-2024-07-30T01:43:40.892Z - success: baidugame-opendata loaded
-2024-07-30T01:43:40.894Z - success: baidugame loaded
-2024-07-30T01:43:40.898Z - success: builder loaded
-2024-07-30T01:43:40.901Z - success: bytedance-opendata loaded
-2024-07-30T01:43:40.903Z - success: bytedance loaded
-2024-07-30T01:43:40.908Z - success: channel-upload-tools loaded
-2024-07-30T01:43:41.059Z - success: cloud-function loaded
-2024-07-30T01:43:41.273Z - success: cocos-services loaded
-2024-07-30T01:43:41.279Z - success: console loaded
-2024-07-30T01:43:41.282Z - success: curve-editor loaded
-2024-07-30T01:43:41.290Z - success: fb-instant-games loaded
-2024-07-30T01:43:41.293Z - success: game-window loaded
-2024-07-30T01:43:41.294Z - success: google-instant-games loaded
-2024-07-30T01:43:41.300Z - success: hierarchy loaded
-2024-07-30T01:43:41.302Z - success: huawei-agc loaded
-2024-07-30T01:43:41.306Z - success: huawei-runtime loaded
-2024-07-30T01:43:41.309Z - success: inspector loaded
-2024-07-30T01:43:41.332Z - success: cpk-publish loaded
-2024-07-30T01:43:41.334Z - success: keystore loaded
-2024-07-30T01:43:41.362Z - success: link-sure-runtime loaded
-2024-07-30T01:43:41.373Z - success: node-library loaded
-2024-07-30T01:43:41.374Z - success: open-recent-items loaded
-2024-07-30T01:43:41.377Z - success: oppo-runtime loaded
-2024-07-30T01:43:41.379Z - success: package-asset loaded
-2024-07-30T01:43:41.380Z - success: preferences loaded
-2024-07-30T01:43:41.384Z - success: project-importer loaded
-2024-07-30T01:43:41.387Z - success: project-settings loaded
-2024-07-30T01:43:41.400Z - success: qtt-runtime loaded
-2024-07-30T01:43:41.404Z - success: scene loaded
-2024-07-30T01:43:41.405Z - success: simulator-debugger loaded
-2024-07-30T01:43:41.406Z - success: sprite-editor loaded
-2024-07-30T01:43:41.478Z - success: store loaded
-2024-07-30T01:43:41.480Z - success: taobao-creativeapp loaded
-2024-07-30T01:43:41.483Z - success: timeline loaded
-2024-07-30T01:43:41.490Z - success: vivo-runtime loaded
-2024-07-30T01:43:41.493Z - success: wechatgame-opendata loaded
-2024-07-30T01:43:41.498Z - success: wechatgame loaded
-2024-07-30T01:43:41.502Z - success: xiaomi-runtime loaded
-2024-07-30T01:43:41.558Z - success: im-plugin loaded
-2024-07-30T01:43:41.559Z - success: preview server running at http://localhost:7456
-2024-07-30T01:43:43.180Z - info: Cocos Service load base data!
-2024-07-30T01:43:43.615Z - normal: Initializing Cocos2d
-2024-07-30T01:43:43.889Z - normal: Initializing engine extends
-2024-07-30T01:43:49.053Z - normal: Loading packages
-2024-07-30T01:43:49.057Z - normal: Watching packages
-2024-07-30T01:43:49.272Z - normal: Run Application
-2024-07-30T01:43:54.757Z - success: cloud-function unloaded
-2024-07-30T02:48:10.132Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:04:48.507Z - success: protocol editor-framework registered
+2024-07-31T02:04:48.509Z - success: protocol app registered
+2024-07-31T02:04:48.509Z - success: protocol theme registered
+2024-07-31T02:04:48.509Z - success: protocol packages registered
+2024-07-31T02:04:48.533Z - normal: Load ~/.CocosCreator/settings.json
+2024-07-31T02:04:48.570Z - success: protocol uuid registerred
+2024-07-31T02:04:48.570Z - success: protocol db registerred
+2024-07-31T02:04:48.571Z - success: protocol thumbnail registerred
+2024-07-31T02:04:48.653Z - normal: Initializing Asset Database
+2024-07-31T02:04:48.655Z - normal: checking language setting...
+2024-07-31T02:04:48.655Z - normal: Language: en
+2024-07-31T02:04:48.658Z - success: protocol unpack registerred
+2024-07-31T02:04:48.658Z - success: protocol disable-commonjs registerred
+2024-07-31T02:04:50.310Z - normal: connected!
+2024-07-31T02:04:51.428Z - normal: Check project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-07-31T02:04:51.433Z - normal: Initializing project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-07-31T02:04:51.654Z - success: adapters loaded
+2024-07-31T02:04:51.658Z - success: asset-db-debugger loaded
+2024-07-31T02:04:51.736Z - success: fb-audience-network loaded
+2024-07-31T02:04:51.787Z - success: fb-live-stream loaded
+2024-07-31T02:04:51.794Z - success: google-play-instant loaded
+2024-07-31T02:04:51.794Z - success: jsb-adapter loaded
+2024-07-31T02:04:51.819Z - success: package-manager loaded
+2024-07-31T02:04:51.820Z - success: runtime-adapters loaded
+2024-07-31T02:04:51.822Z - success: runtime-dev-tools loaded
+2024-07-31T02:04:51.824Z - success: ui-kit-preview-extra loaded
+2024-07-31T02:04:51.826Z - success: ui-kit-preview loaded
+2024-07-31T02:04:52.681Z - success: alipay-minigame loaded
+2024-07-31T02:04:52.699Z - success: assets loaded
+2024-07-31T02:04:52.702Z - success: baidugame-opendata loaded
+2024-07-31T02:04:52.704Z - success: baidugame loaded
+2024-07-31T02:04:52.708Z - success: builder loaded
+2024-07-31T02:04:52.714Z - success: bytedance-opendata loaded
+2024-07-31T02:04:52.716Z - success: bytedance loaded
+2024-07-31T02:04:52.721Z - success: channel-upload-tools loaded
+2024-07-31T02:04:52.879Z - success: cloud-function loaded
+2024-07-31T02:04:53.108Z - success: cocos-services loaded
+2024-07-31T02:04:53.114Z - success: console loaded
+2024-07-31T02:04:53.117Z - success: curve-editor loaded
+2024-07-31T02:04:53.125Z - success: fb-instant-games loaded
+2024-07-31T02:04:53.128Z - success: game-window loaded
+2024-07-31T02:04:53.129Z - success: google-instant-games loaded
+2024-07-31T02:04:53.134Z - success: hierarchy loaded
+2024-07-31T02:04:53.136Z - success: huawei-agc loaded
+2024-07-31T02:04:53.140Z - success: huawei-runtime loaded
+2024-07-31T02:04:53.149Z - success: inspector loaded
+2024-07-31T02:04:53.171Z - success: cpk-publish loaded
+2024-07-31T02:04:53.173Z - success: keystore loaded
+2024-07-31T02:04:53.200Z - success: link-sure-runtime loaded
+2024-07-31T02:04:53.212Z - success: node-library loaded
+2024-07-31T02:04:53.213Z - success: open-recent-items loaded
+2024-07-31T02:04:53.216Z - success: oppo-runtime loaded
+2024-07-31T02:04:53.218Z - success: package-asset loaded
+2024-07-31T02:04:53.219Z - success: preferences loaded
+2024-07-31T02:04:53.223Z - success: project-importer loaded
+2024-07-31T02:04:53.226Z - success: project-settings loaded
+2024-07-31T02:04:53.240Z - success: qtt-runtime loaded
+2024-07-31T02:04:53.245Z - success: scene loaded
+2024-07-31T02:04:53.246Z - success: simulator-debugger loaded
+2024-07-31T02:04:53.247Z - success: sprite-editor loaded
+2024-07-31T02:04:53.319Z - success: store loaded
+2024-07-31T02:04:53.321Z - success: taobao-creativeapp loaded
+2024-07-31T02:04:53.324Z - success: timeline loaded
+2024-07-31T02:04:53.331Z - success: vivo-runtime loaded
+2024-07-31T02:04:53.334Z - success: wechatgame-opendata loaded
+2024-07-31T02:04:53.340Z - success: wechatgame loaded
+2024-07-31T02:04:53.343Z - success: xiaomi-runtime loaded
+2024-07-31T02:04:53.398Z - success: im-plugin loaded
+2024-07-31T02:04:53.399Z - success: preview server running at http://localhost:7456
+2024-07-31T02:04:54.873Z - info: Cocos Service load base data!
+2024-07-31T02:04:55.489Z - normal: Initializing Cocos2d
+2024-07-31T02:04:55.728Z - normal: Initializing engine extends
+2024-07-31T02:04:56.762Z - normal: Loading packages
+2024-07-31T02:04:56.765Z - normal: Watching packages
+2024-07-31T02:04:56.995Z - normal: Run Application
+2024-07-31T02:05:01.347Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -82,7 +81,8 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T02:52:18.249Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:05:01.968Z - success: cloud-function unloaded
+2024-07-31T02:12:38.804Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -90,7 +90,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T02:58:01.312Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:13:36.275Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -98,7 +98,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T02:59:26.497Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:17:39.114Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -106,7 +106,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T03:04:52.163Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:21:40.232Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -114,7 +114,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T03:05:09.847Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:23:08.065Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -122,7 +122,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T03:07:44.474Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:26:27.780Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -130,7 +130,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T03:42:34.830Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:37:43.083Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -138,7 +138,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T03:47:09.842Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:45:10.061Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -146,7 +146,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T03:47:23.117Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:46:25.188Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -154,7 +154,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T03:47:55.053Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:47:08.279Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -162,7 +162,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T04:22:39.648Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:47:47.133Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -170,7 +170,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T06:56:13.719Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:49:00.722Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -178,7 +178,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T06:59:18.951Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:50:22.055Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -186,7 +186,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:00:15.225Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T02:50:39.757Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -194,7 +194,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:01:16.579Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:03:05.181Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -202,7 +202,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:11:59.172Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:05:26.921Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -210,7 +210,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:12:32.481Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:11:46.279Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -218,7 +218,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:13:18.882Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:14:12.202Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -226,7 +226,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:13:53.144Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:14:43.205Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -234,7 +234,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:32:36.217Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:18:56.145Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -242,7 +242,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:32:53.554Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:22:05.612Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -250,7 +250,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:35:59.087Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:23:30.790Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -258,7 +258,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:37:41.235Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:33:34.863Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -266,7 +266,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:43:47.337Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:33:45.317Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -274,7 +274,7 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:49:43.325Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
+2024-07-31T03:34:53.571Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
  
 // Before:
 @property(...)
@@ -282,371 +282,4 @@ myProp;
 // After:
 @property(...)
 myProp = 0;
-2024-07-30T07:53:21.523Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:01:00.882Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:01:39.816Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:03:52.871Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:06:03.215Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:07:37.385Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:09:48.268Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:23:25.236Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:24:31.342Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:41:31.404Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:47:12.816Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:47:34.487Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:47:55.807Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:49:39.831Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T08:53:36.648Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:19:20.245Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:23:05.528Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:23:37.357Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:23:53.735Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:26:58.869Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:27:26.233Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:27:33.289Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:28:07.907Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:28:56.578Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:30:14.737Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:33:06.223Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:41:44.124Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:50:40.760Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:55:37.564Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T09:56:07.975Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:09:01.071Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:13:46.524Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:16:16.270Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:16:44.791Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:17:28.522Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:18:16.923Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:19:05.868Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:19:21.371Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:21:06.031Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:32:37.697Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:34:53.081Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:38:34.828Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:41:16.029Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:41:34.848Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:42:51.246Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-30T10:57:57.808Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
+2024-07-31T06:26:49.932Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@main:128690

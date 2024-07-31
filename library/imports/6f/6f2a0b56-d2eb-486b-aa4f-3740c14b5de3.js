@@ -38,6 +38,7 @@ var Level = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.prfShopView = null;
         _this.lbGold = null;
+        _this.prfItemLevel = null;
         _this.nLayout = null;
         _this.levelOrder = [
             [0, 1, 2],
@@ -76,12 +77,26 @@ var Level = /** @class */ (function (_super) {
                 var id = this.levelOrder[row][col];
                 var item = cc.instantiate(this.prfItemLevel).getComponent(CardHero_ItemLevel_1.default);
                 var completed = cc.sys.localStorage.getItem("level_" + id + "_completed") === 'true';
+                var isUnlocked = cc.sys.localStorage.getItem("level_" + id + "_unlocked") === 'true' || id === 0;
+                var flag = cc.sys.localStorage.getItem("level_" + id + "_flag") === 'true' || false;
+                var isBoss = cc.sys.localStorage.getItem("level_" + id + "_isBoss") === 'true' || false;
+                console.log("isBoss", isBoss);
                 console.log("Completed", completed);
-                var isUnlocked = id === 0 || cc.sys.localStorage.getItem("level_" + id + "_completed") === 'true';
-                item.setData(id, true, true, isUnlocked);
+                item.setData(id, true, isBoss, isUnlocked, flag);
                 this.nLayout.addChild(item.node);
             }
         }
+    };
+    Level.prototype.updateLevelStatus = function (levelId) {
+        this.nLayout.children.forEach(function (itemNode) {
+            var itemComponent = itemNode.getComponent(CardHero_ItemLevel_1.default);
+            if (itemComponent.idLevel === levelId) {
+                var completed = cc.sys.localStorage.getItem("level_" + levelId + "_completed") === 'true';
+                var isUnlocked = cc.sys.localStorage.getItem("level_" + levelId + "_unlocked") === 'true' || levelId == 0;
+                var flag = cc.sys.localStorage.getItem("level_" + levelId + "_flag") === 'true' || false;
+                itemComponent.setData(levelId, completed, true, isUnlocked, flag);
+            }
+        });
     };
     Level.prototype.start = function () {
     };

@@ -28,9 +28,10 @@ var Global = /** @class */ (function () {
     Global.levelData = [
         { dame: 1, hp: 10, monsters: 1 },
         { dame: 7, hp: 15, monsters: 1 },
-        { dame: 10, hp: 20, monsters: 2 },
-        { dame: 12, hp: 25, monsters: 6 },
-        { dame: 20, hp: 50, monsters: 1, isBoss: true },
+        { dame: 10, hp: 20, monsters: 1 },
+        { dame: 12, hp: 25, monsters: 1 },
+        { dame: 12, hp: 20, monsters: 1 },
+        { dame: 20, hp: 50, monsters: 0, isBoss: true },
         { dame: 8, hp: 18, monsters: 4 },
         { dame: 9, hp: 22, monsters: 5 },
         { dame: 11, hp: 28, monsters: 6 },
@@ -41,6 +42,14 @@ var Global = /** @class */ (function () {
         { dame: 25, hp: 50, monsters: 11 },
         { dame: 30, hp: 100, monsters: 1, isBoss: true } // Level 14 - Boss
     ];
+    Global.levelMonsterSprites = {
+        0: [0, 1],
+        1: [1, 2],
+        2: [0, 2],
+        3: [1, 2,],
+        4: [2, 3],
+        5: [4],
+    };
     Global.selectedLevel = 0;
     Global.levelCount = 0;
     return Global;

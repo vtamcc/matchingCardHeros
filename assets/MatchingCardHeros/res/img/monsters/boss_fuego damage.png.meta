@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "f630e8e7-e932-40ec-8586-e43dbc8a5735",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 251,
+  "height": 189,
+  "platformSettings": {},
+  "subMetas": {
+    "boss_fuego damage": {
+      "ver": "1.0.6",
+      "uuid": "02acc2a2-1d58-4a7e-913d-3752fd6f39d8",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "f630e8e7-e932-40ec-8586-e43dbc8a5735",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 251,
+      "height": 189,
+      "rawWidth": 251,
+      "rawHeight": 189,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

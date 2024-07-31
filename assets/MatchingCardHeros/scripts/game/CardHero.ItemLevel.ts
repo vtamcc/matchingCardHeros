@@ -8,7 +8,7 @@
 import GameManager from "../CardHero.GameManager";
 import { Global } from "../CardHero.Global";
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class ItemLevelView extends cc.Component {
@@ -27,39 +27,41 @@ export default class ItemLevelView extends cc.Component {
 
     @property(cc.Node)
     nFlag: cc.Node = null;
-    idLevel = 0;
+
+    idLevel:number = 0;
     // LIFE-CYCLE CALLBACKS:
-    
 
-    onLoad () {
-    }
-    setData(id: number, completed: boolean, isBoss: boolean,isUnlocked: boolean) {
 
-        this.idLevel= id;
+    // onLoad () {
+    // }
+
+    setData(id: number, completed: boolean, isBoss: boolean, isUnlocked: boolean,flag: boolean) {
+
+        this.idLevel = id;
         this.nBlock.active = completed;
         switch (id) {
             case 5:
             case 14:
                 this.nBossBock.active = completed;
                 break;
-        
+
             default:
                 break;
         }
-        this.nFlag.active = isUnlocked;
-        this.nLevelActive.active =  isUnlocked;
+        this.nFlag.active = flag;
+        this.nLevelActive.active = isUnlocked;
         this.node.getComponent(cc.Button).interactable = isUnlocked;
-        this.nBossActive.active = !isBoss;
-        
+        this.nBossActive.active = isBoss;
+
 
     }
 
     onClickPlay() {
         GameManager.instance.onClickPlay(this.idLevel);
-        console.log("Level ",this.idLevel);
+        console.log("Level ", this.idLevel);
     }
 
-    start () {
+    start() {
 
     }
 

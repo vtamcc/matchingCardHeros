@@ -45,9 +45,9 @@ var ItemLevelView = /** @class */ (function (_super) {
         // update (dt) {}
     }
     // LIFE-CYCLE CALLBACKS:
-    ItemLevelView.prototype.onLoad = function () {
-    };
-    ItemLevelView.prototype.setData = function (id, completed, isBoss, isUnlocked) {
+    // onLoad () {
+    // }
+    ItemLevelView.prototype.setData = function (id, completed, isBoss, isUnlocked, flag) {
         this.idLevel = id;
         this.nBlock.active = completed;
         switch (id) {
@@ -58,10 +58,10 @@ var ItemLevelView = /** @class */ (function (_super) {
             default:
                 break;
         }
-        this.nFlag.active = isUnlocked;
+        this.nFlag.active = flag;
         this.nLevelActive.active = isUnlocked;
         this.node.getComponent(cc.Button).interactable = isUnlocked;
-        this.nBossActive.active = !isBoss;
+        this.nBossActive.active = isBoss;
     };
     ItemLevelView.prototype.onClickPlay = function () {
         CardHero_GameManager_1.default.instance.onClickPlay(this.idLevel);

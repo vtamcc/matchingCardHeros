@@ -16,12 +16,46 @@ export default class GameOver extends cc.Component {
 
     // onLoad () {}
 
+    @property(cc.Node)
+    nYouWin: cc.Node = null;
+    @property(cc.Node)
+    nYouLose: cc.Node = null;
+
+    @property(cc.Node)
+    nStarWin_1: cc.Node = null;
+    @property(cc.Node)
+    nStarWin_2: cc.Node = null;
+    @property(cc.Node)
+    nStarWin_3: cc.Node = null;
+
+    @property(cc.Node)
+    nStarLose_1: cc.Node = null;
+
+    @property(cc.Node)
+    nStarLose_2: cc.Node = null;
+
+    @property(cc.Node)
+    nStarLose_3: cc.Node = null;
+
+    @property(cc.Node)
+    nBtnNext: cc.Node = null;
     start () {
 
     }
 
     clickRestart(){
         GameView.instance.onClickRestart();
+        this.node.destroy();
+    }
+
+    winGame(win: boolean) {
+        this.nYouWin.active = win;
+        this.nYouLose.active = !win;
+
+    }
+
+    nextLevel() {
+        GameView.instance.loadNextLevel();
         this.node.destroy();
     }
     // update (dt) {}

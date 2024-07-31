@@ -34,16 +34,62 @@ var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
 var GameOver = /** @class */ (function (_super) {
     __extends(GameOver, _super);
     function GameOver() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        // LIFE-CYCLE CALLBACKS:
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        // onLoad () {}
+        _this.nYouWin = null;
+        _this.nYouLose = null;
+        _this.nStarWin_1 = null;
+        _this.nStarWin_2 = null;
+        _this.nStarWin_3 = null;
+        _this.nStarLose_1 = null;
+        _this.nStarLose_2 = null;
+        _this.nStarLose_3 = null;
+        _this.nBtnNext = null;
+        return _this;
+        // update (dt) {}
     }
-    // LIFE-CYCLE CALLBACKS:
-    // onLoad () {}
     GameOver.prototype.start = function () {
     };
     GameOver.prototype.clickRestart = function () {
         CardHero_GameView_1.default.instance.onClickRestart();
         this.node.destroy();
     };
+    GameOver.prototype.winGame = function (win) {
+        this.nYouWin.active = win;
+        this.nYouLose.active = !win;
+    };
+    GameOver.prototype.nextLevel = function () {
+        CardHero_GameView_1.default.instance.loadNextLevel();
+        this.node.destroy();
+    };
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nYouWin", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nYouLose", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nStarWin_1", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nStarWin_2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nStarWin_3", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nStarLose_1", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nStarLose_2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nStarLose_3", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameOver.prototype, "nBtnNext", void 0);
     GameOver = __decorate([
         ccclass
     ], GameOver);

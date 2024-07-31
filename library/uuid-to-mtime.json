@@ -45,8 +45,8 @@
     "relativePath": "MatchingCardHeros/res/img/card"
   },
   "d69604d6-4831-4dd4-8313-08e73074176f": {
-    "asset": 1722217653809,
-    "meta": 1722303828106,
+    "asset": 1722391459067,
+    "meta": 1722391496282,
     "relativePath": "MatchingCardHeros/res/img/other"
   },
   "bca9653d-1804-4beb-aad3-b4b4c329e2fb": {
@@ -174,14 +174,9 @@
     "meta": 1722303828478,
     "relativePath": "MatchingCardHeros/res/img/button/btn_play-sheet0.png"
   },
-  "6a268e25-bfef-4aa8-bbe2-a2a43aee9ca5": {
-    "asset": 1722329616194,
-    "meta": 1722329616205,
-    "relativePath": "MatchingCardHeros/prefab/game/GameView.prefab"
-  },
   "25ec330c-f8f5-4286-852d-247ab985913b": {
-    "asset": 1722303801417,
-    "meta": 1722303828046,
+    "asset": 1722304699992,
+    "meta": 1722390460723,
     "relativePath": "MatchingCardHeros/prefab/game"
   },
   "7b393875-aec3-4273-89f4-56be3f8bb7f9": {
@@ -295,8 +290,8 @@
     "relativePath": "MatchingCardHeros/res/img/card/4.png"
   },
   "69b1a986-ed0c-48d0-88a8-5de03bf2917b": {
-    "asset": 1722303801418,
-    "meta": 1722303828091,
+    "asset": 1722305980199,
+    "meta": 1722390460724,
     "relativePath": "MatchingCardHeros/scripts/game"
   },
   "95bb5361-eaf9-4e3d-b125-a7101a35053d": {
@@ -375,8 +370,8 @@
     "relativePath": "MatchingCardHeros/res/img/other/gui_losewin-sheet0 copy.png"
   },
   "4b050bee-033b-464a-9dda-bca9192de9e8": {
-    "asset": 1722217653807,
-    "meta": 1722303828102,
+    "asset": 1722420255253,
+    "meta": 1722420255258,
     "relativePath": "MatchingCardHeros/prefab/popup/GameOver.prefab"
   },
   "89562cba-edba-4271-9209-c39d06677a3e": {
@@ -430,8 +425,8 @@
     "relativePath": "MatchingCardHeros/scripts/game/popup"
   },
   "ddc705db-d27b-41ee-86ef-00fc48a7107d": {
-    "asset": 1722322814810,
-    "meta": 1722322814820,
+    "asset": 1722396927918,
+    "meta": 1722396927931,
     "relativePath": "MatchingCardHeros/prefab/game/LevelView.prefab"
   },
   "e6918bd4-c832-4cb2-a38b-e39e27af2222": {
@@ -443,11 +438,6 @@
     "asset": 1722303801419,
     "meta": 1722303828623,
     "relativePath": "MatchingCardHeros/scripts/game/popup/Shop"
-  },
-  "de8d4ffb-b602-45d0-b586-8aee352b6bd3": {
-    "asset": 1722223097585,
-    "meta": 1722303828602,
-    "relativePath": "MatchingCardHeros/scripts/game/popup/CardHero.GameOver.ts"
   },
   "9836134e-b892-4283-b6b2-78b5acf3ed45": {
     "asset": 1627377544000,
@@ -1005,8 +995,8 @@
     "relativePath": "MatchingCardHeros/scripts/game/CardHero.Monster.ts"
   },
   "9e61c715-4c0d-45a4-b75e-61ad6454ffbe": {
-    "asset": 1722337077300,
-    "meta": 1722337077306,
+    "asset": 1722423398255,
+    "meta": 1722423398261,
     "relativePath": "MatchingCardHeros/prefab/game/ItemLevel.prefab"
   },
   "cbff2c5a-ec13-4b02-9ec9-423ea5dfdbb2": {
@@ -1014,29 +1004,54 @@
     "meta": 1722332503540,
     "relativePath": "MatchingCardHeros/scripts/game/popup/CardHero.Pause.ts"
   },
-  "6f2a0b56-d2eb-486b-aa4f-3740c14b5de3": {
-    "asset": 1722334695224,
-    "meta": 1722334696402,
-    "relativePath": "MatchingCardHeros/scripts/game/CardHero.LevelView.ts"
-  },
-  "03c11335-ec79-48b1-9fb4-94044cb27410": {
-    "asset": 1722336134946,
-    "meta": 1722336170547,
-    "relativePath": "MatchingCardHeros/scripts/CardHero.Global.ts"
-  },
-  "e5f39438-184f-4683-ad8c-d80907fe8624": {
-    "asset": 1722336169808,
-    "meta": 1722336170663,
-    "relativePath": "MatchingCardHeros/scripts/game/CardHero.ItemLevel.ts"
-  },
   "e5a46e48-7fc6-4340-8695-d3b56c0aa949": {
     "asset": 1722337033424,
     "meta": 1722337077050,
     "relativePath": "MatchingCardHeros/scripts/CardHero.GameManager.ts"
   },
+  "cadde238-b7ac-4dea-9289-3ad6ee890815": {
+    "asset": 1722391531951,
+    "meta": 1722391531966,
+    "relativePath": "MatchingCardHeros/res/img/other/youwin.png"
+  },
+  "de8d4ffb-b602-45d0-b586-8aee352b6bd3": {
+    "asset": 1722397910285,
+    "meta": 1722397912395,
+    "relativePath": "MatchingCardHeros/scripts/game/popup/CardHero.GameOver.ts"
+  },
+  "344d8e5c-8123-4b24-905f-59cb67fbbb62": {
+    "asset": 1722420436732,
+    "meta": 1722420436762,
+    "relativePath": "MatchingCardHeros/res/img/monsters/body attack.png"
+  },
+  "f630e8e7-e932-40ec-8586-e43dbc8a5735": {
+    "asset": 1722420441457,
+    "meta": 1722420441478,
+    "relativePath": "MatchingCardHeros/res/img/monsters/boss_fuego damage.png"
+  },
+  "6a268e25-bfef-4aa8-bbe2-a2a43aee9ca5": {
+    "asset": 1722422486273,
+    "meta": 1722422486278,
+    "relativePath": "MatchingCardHeros/prefab/game/GameView.prefab"
+  },
+  "03c11335-ec79-48b1-9fb4-94044cb27410": {
+    "asset": 1722421756140,
+    "meta": 1722421757393,
+    "relativePath": "MatchingCardHeros/scripts/CardHero.Global.ts"
+  },
   "8fd3c2c0-9187-4e8f-b5a3-44ce34271347": {
-    "asset": 1722337075697,
-    "meta": 1722337077170,
+    "asset": 1722422451905,
+    "meta": 1722422486037,
     "relativePath": "MatchingCardHeros/scripts/game/CardHero.GameView.ts"
+  },
+  "e5f39438-184f-4683-ad8c-d80907fe8624": {
+    "asset": 1722423117999,
+    "meta": 1722423119477,
+    "relativePath": "MatchingCardHeros/scripts/game/CardHero.ItemLevel.ts"
+  },
+  "6f2a0b56-d2eb-486b-aa4f-3740c14b5de3": {
+    "asset": 1722423360791,
+    "meta": 1722423361406,
+    "relativePath": "MatchingCardHeros/scripts/game/CardHero.LevelView.ts"
   }
 }

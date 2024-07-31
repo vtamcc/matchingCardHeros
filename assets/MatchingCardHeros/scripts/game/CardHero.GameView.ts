@@ -8,6 +8,7 @@
 import { Global } from "../CardHero.Global";
 import Card from "./CardHero.Card";
 import Char from "./CardHero.Char";
+import Level from "./CardHero.LevelView";
 import Monster from "./CardHero.Monster";
 import GameOver from "./popup/CardHero.GameOver";
 import Pause from "./popup/CardHero.Pause";
@@ -77,6 +78,9 @@ export default class GameView extends cc.Component {
     private tileWidth: number = 135;
     selectedLevel: number = 0;
     monstersDefeated = 0;
+
+    isCheck = false;
+    countMonsterDie = 0;
     private currentMonsterIndex: number = -1;
     // LIFE-CYCLE CALLBACKS:
 
@@ -135,7 +139,8 @@ export default class GameView extends cc.Component {
         console.log("level ",levelInfo);
         if (this.currentMonsterIndex < levelInfo.monsters) {
             this.currentMonsterIndex++;
-            this.createMonster(this.currentMonsterIndex, levelInfo.hp, levelInfo.dame);
+            let id = this.currentMonsterIndex
+            this.createMonster(id, levelInfo.hp, levelInfo.dame);
             console.log("Quai vat dau tien ", this.currentMonsterIndex);
         } else {
             this.completeLevel();
@@ -145,7 +150,9 @@ export default class GameView extends cc.Component {
 
     createMonster(id: number, hp: number, dame: number) {
         let monster = cc.instantiate(this.prfMonster).getComponent(Monster);
-        monster.setMonster(id, hp, dame);
+        let spriteIdList = Global.levelMonsterSprites[this.selectedLevel];
+        let spriteId = spriteIdList[id];
+        monster.setMonster(spriteId, hp, dame);
         this.nMonters.addChild(monster.node);
         this.listMonsters.push(monster);
     }
@@ -159,6 +166,8 @@ export default class GameView extends cc.Component {
                 if (Global.hpMonster <= 0) {
                     this.listMonsters = this.listMonsters.filter(m => m !== monster);
                     this.monstersDefeated++;
+                    this.countMonsterDie++;
+                    console.log("Montes die ", this.countMonsterDie);
                     this.scheduleOnce(() => {
                         this.spawnMonster(); 
                     },0.8)
@@ -170,26 +179,40 @@ export default class GameView extends cc.Component {
     }
 
     completeLevel() {
-        cc.sys.localStorage.setItem(`level_${this.selectedLevel}_completed`, 'true');
-        console.log(`Level ${this.selectedLevel} marked as completed`);
-        
-        // Tăng level và chuyển sang level tiếp theo
-        Global.levelCount++;
-        cc.sys.localStorage.setItem('levelCount', Global.levelCount.toString());
-        this.selectedLevel++;
-        if (this.selectedLevel > 14) { // Giả sử có 15 level
-            this.selectedLevel = 14; // Giữ nguyên ở level cuối nếu đã hoàn thành tất cả các level
+        let wasCompleted = cc.sys.localStorage.getItem(`level_${this.selectedLevel}_completed`) === 'true';
+        if (!wasCompleted) {
+            Global.totalGold += 1;
+            Level.instance.updateGold();
         }
-        cc.sys.localStorage.setItem('selectedLevel', this.selectedLevel.toString());
+        cc.sys.localStorage.setItem(`level_${this.selectedLevel}_completed`, 'true');
+        console.log(`Level ${this.selectedLevel} đã hoàn thành`);
+    
+        // Mở khóa level tiếp theo
+        let nextLevel = this.selectedLevel + 1;
+        if (nextLevel < Global.levelData.length) {
+            cc.sys.localStorage.setItem(`level_${nextLevel}_unlocked`, 'true');
+            Level.instance.updateLevelStatus(nextLevel);
+        }
+        console.log("level tiep theo la ", nextLevel);
 
+        if(nextLevel == 5) {
+            cc.sys.localStorage.setItem(`level_${nextLevel}_isBoss`, 'true');
+        }
+        // Lưu trạng thái lá cờ
+        cc.sys.localStorage.setItem(`level_${this.selectedLevel}_flag`, 'true');
+        Level.instance.updateLevelStatus(this.selectedLevel);
+    
+        // Gọi hàm gameOver với điều kiện chiến thắng
+        this.gameOver(true);
         // Tải lại trò chơi với level mới
-        this.loadNextLevel();
+        //this.loadNextLevel();
     }
 
     loadNextLevel() {
         // Thiết lập lại trạng thái cần thiết cho level mới
         this.monstersDefeated = 0;
         this.currentMonsterIndex = -1;
+        this.countMonsterDie = 0;
         this.nTableCards.removeAllChildren();
         this.nMonters.removeAllChildren();
         this.selectedCards = [];
@@ -205,11 +228,32 @@ export default class GameView extends cc.Component {
     }
 
 
-    gameOver() {
-        if (Global.hpChar == 0) {
-            let prfGameOver = cc.instantiate(this.prfGameOver).getComponent(GameOver)
-            this.node.addChild(prfGameOver.node);
+    gameOver(isWin: boolean) {
+        let prfGameOver = cc.instantiate(this.prfGameOver).getComponent(GameOver);
+        
+        if (isWin) {
+            prfGameOver.nStarWin_1.active = true;
+            prfGameOver.nStarWin_2.active = true;
+            prfGameOver.nStarWin_3.active = true;
+            prfGameOver.nBtnNext.getComponent(cc.Button).interactable = true;
+            prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = false;
+            prfGameOver.winGame(true);
+            prfGameOver.nBtnNext.on('click', () => {
+                this.selectedLevel++;
+                cc.sys.localStorage.setItem('selectedLevel', this.selectedLevel.toString());
+                this.loadNextLevel();
+            }, this);
+    
+            console.log("Level hoàn thành", this.selectedLevel);
+        } else {
+            prfGameOver.winGame(false);
+            prfGameOver.nBtnNext.getComponent(cc.Button).interactable = false;
+            prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = true;
         }
+        
+        this.node.addChild(prfGameOver.node);
+        console.log("Số quái vật trong level: ", Global.levelData[this.selectedLevel].monsters);
+        console.log("Số quái vật đã chết: ", this.countMonsterDie);
     }
 
     onClickPause() {
@@ -275,7 +319,10 @@ export default class GameView extends cc.Component {
                 Global.hpChar--;
                 this.effectDameBagGuy(this.lbDameMonster, Global.dameMonster);
                 this.updateHpChar();
-                this.gameOver();
+                if (Global.hpChar == 0) {
+                    this.gameOver(false); // Gọi hàm gameOver với điều kiện thua
+                    return;
+                }
             }
 
             firstCard.flipCard();
@@ -359,6 +406,13 @@ export default class GameView extends cc.Component {
                 this.charMagic.charAttack();
                 this.attackMonster(Global.dameCharBig)
                 break
+            case 11:
+                let totalDame = Global.dameCharSmall + Global.dameCharNormal  + Global.dameCharBig;
+                totalDame *= (isDoubleDame) ? 2 : 1;
+                this.charMagic.charAttack()
+                this.charFighter.charAttack();
+                this.charArchers.charAttack();
+                this.attackMonster(totalDame);
             default:
                 break;
         }
@@ -407,6 +461,7 @@ export default class GameView extends cc.Component {
     onClickRestart() {
         Global.hpChar = 10;
         Global.hpMonster = 10;
+        this.countMonsterDie = 0;
         this.updateHpChar();
         this.updateHpBagGuy();
         this.updateShield();

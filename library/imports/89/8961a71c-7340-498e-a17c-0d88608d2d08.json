@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "body attack",
+    "texture": "344d8e5c-8123-4b24-905f-59cb67fbbb62",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      476,
+      330
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      476,
+      330
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
