@@ -25,7 +25,6 @@ export default class Level extends cc.Component {
 
     @property(cc.Prefab)
     prfItemLevel: cc.Prefab = null;
-
     @property(cc.Node)
     nLayout: cc.Node = null;
     private levelOrder = [
@@ -35,10 +34,13 @@ export default class Level extends cc.Component {
         [11, 10, 9],
         [12, 13, 14]
     ];
+
+    private selectedLevel: number = null;
     onLoad () {
         Level.instance = this;
         Global.totalGold = parseInt(cc.sys.localStorage.getItem("totalGold"),Global.totalGold) || Global.totalGold;
         Global.levelCount = parseInt(cc.sys.localStorage.getItem("levelCount")) || 0;
+        Global.selectedLevel = parseInt(cc.sys.localStorage.getItem("levelGame")) || Global.selectedLevel;
         
         console.log("LevelCount",Global.levelCount);
         this.updateGold();
@@ -46,12 +48,16 @@ export default class Level extends cc.Component {
         console.log("Tien ", Global.totalGold);
     }
 
+   
 
     onClickShopView() {
         let shopView = cc.instantiate(this.prfShopView)
         this.node.addChild(shopView);
     }
     
+    onClickBack() {
+        this.node.destroy();
+    }
     updateGold() {
         this.lbGold.string = '$' +  Global.totalGold + ' ';
         cc.sys.localStorage.setItem("totalGold", Global.totalGold);
@@ -71,8 +77,8 @@ export default class Level extends cc.Component {
                 const flag = cc.sys.localStorage.getItem(`level_${id}_flag`) === 'true' || false;
                 const isBoss = cc.sys.localStorage.getItem(`level_${id}_isBoss`) === 'true' || false;
                 console.log("isBoss", isBoss);
-                console.log("Completed", completed);
-                item.setData(id, true,isBoss,isUnlocked,flag);
+                const flagBoss = cc.sys.localStorage.getItem(`level_${id}_flagBoss`) === 'true';
+                item.setData(id, true,isBoss,isUnlocked,flag, flagBoss);
                 this.nLayout.addChild(item.node);
             }
         }
@@ -85,11 +91,13 @@ export default class Level extends cc.Component {
                 const completed = cc.sys.localStorage.getItem(`level_${levelId}_completed`) === 'true';
                 const isUnlocked = cc.sys.localStorage.getItem(`level_${levelId}_unlocked`) === 'true' || levelId == 0;
                 const flag = cc.sys.localStorage.getItem(`level_${levelId}_flag`) === 'true' || false;
-               
-                itemComponent.setData(levelId, completed, true, isUnlocked,flag);
+                const isBoss = cc.sys.localStorage.getItem(`level_${levelId}_isBoss`) === 'true';
+                const flagBoss = cc.sys.localStorage.getItem(`level_${levelId}_flagBoss`) === 'true';
+                itemComponent.setData(levelId, completed, isBoss, isUnlocked,flag,flagBoss);
             }
         });
     }
+
     start () {
 
     }

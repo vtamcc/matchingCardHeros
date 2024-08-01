@@ -28,6 +28,8 @@ export default class ItemLevelView extends cc.Component {
     @property(cc.Node)
     nFlag: cc.Node = null;
 
+    @property(cc.Node)
+    nFlagBoss: cc.Node = null;
     idLevel:number = 0;
     // LIFE-CYCLE CALLBACKS:
 
@@ -35,7 +37,7 @@ export default class ItemLevelView extends cc.Component {
     // onLoad () {
     // }
 
-    setData(id: number, completed: boolean, isBoss: boolean, isUnlocked: boolean,flag: boolean) {
+    setData(id: number, completed: boolean, isBoss: boolean, isUnlocked: boolean,flag: boolean,flagBoss) {
 
         this.idLevel = id;
         this.nBlock.active = completed;
@@ -52,8 +54,14 @@ export default class ItemLevelView extends cc.Component {
         this.nLevelActive.active = isUnlocked;
         this.node.getComponent(cc.Button).interactable = isUnlocked;
         this.nBossActive.active = isBoss;
+        this.nFlagBoss.active = flagBoss;
+        if(isBoss) {
+            this.nFlag.active = false;
+            this.nLevelActive.active = false;
+            this.nBlock.active = false;
+        }
 
-
+        
     }
 
     onClickPlay() {

@@ -18,8 +18,22 @@ export default class GameManager extends cc.Component {
     prfGameView: cc.Prefab = null;
     @property(cc.Prefab)
     prfGameLevel: cc.Prefab = null;
+
+    @property(cc.Node)
+    nChar_1: cc.Node = null;
+    @property(cc.Node)
+    nChar_2: cc.Node = null;
+    @property(cc.Node)
+    nChar_3: cc.Node = null;
+
+    @property(cc.Node)
+    nPlay: cc.Node = null;
     onLoad () {
         GameManager.instance = this;
+        this.effectChar(this.nChar_1);
+        this.effectChar(this.nChar_2);
+        this.effectChar(this.nChar_3);
+        this.effectPlay();
     }
 
     start () {
@@ -44,5 +58,24 @@ export default class GameManager extends cc.Component {
         this.node.addChild(levelView.node);
     }
 
+    effectChar(node: cc.Node) {
+       cc.tween(node)
+       .repeatForever(
+        cc.tween()
+        .to(0.9,{angle: -1})
+        .to(0.8, {angle: 1})
+        .start()
+       ).start();
+    }
+
+    effectPlay() {
+        cc.tween(this.nPlay)
+        .repeatForever(
+           cc.tween()
+           .to(0.8,{scale:0.8})
+           .to(0.8,{scale: 1})
+           .start()
+        ).start();
+     }
     // update (dt) {}
 }

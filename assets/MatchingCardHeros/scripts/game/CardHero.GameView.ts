@@ -68,6 +68,8 @@ export default class GameView extends cc.Component {
     @property(cc.Node)
     nDameMonsterMiss: cc.Node = null;
 
+    @property(cc.Label)
+    lbLevel: cc.Label = null;
     listMonsters = [];
     idMonster = 0;
     rows = 5;
@@ -90,6 +92,15 @@ export default class GameView extends cc.Component {
         Global.dameCharNormal = parseInt(cc.sys.localStorage.getItem("dameCharNormal")) || Global.dameCharNormal;
         Global.dameCharBig = parseInt(cc.sys.localStorage.getItem("dameCharBig")) || Global.dameCharBig;
         Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || Global.hpChar;
+        if(parseInt(cc.sys.localStorage.getItem("hpChar"))) {
+            Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || Global.hpChar;
+            console.log("vao if")
+            this.updateHpChar();
+        }else {
+            Global.hpChar = 10;
+            this.updateHpChar();
+            console.log("vao else");
+        }
         GameView.instance = this;
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.maskLoadGame();
@@ -98,11 +109,14 @@ export default class GameView extends cc.Component {
 
         }, 1)
         this.spawnMonster(); 
-        this.updateHpChar();
         this.updateHpBagGuy();
+        this.updateLevelLb();
 
     }
 
+    updateLevelLb() {
+        this.lbLevel.string = `LVL ${this.selectedLevel + 1}`;
+    }
     onDestroy() {
         GameView.instance = null
     }
@@ -136,7 +150,7 @@ export default class GameView extends cc.Component {
     }
     spawnMonster() {
         const levelInfo = Global.levelData[this.selectedLevel];
-        console.log("level ",levelInfo);
+        console.log("level ",this.selectedLevel);
         if (this.currentMonsterIndex < levelInfo.monsters) {
             this.currentMonsterIndex++;
             let id = this.currentMonsterIndex
@@ -184,6 +198,8 @@ export default class GameView extends cc.Component {
             Global.totalGold += 1;
             Level.instance.updateGold();
         }
+
+        
         cc.sys.localStorage.setItem(`level_${this.selectedLevel}_completed`, 'true');
         console.log(`Level ${this.selectedLevel} đã hoàn thành`);
     
@@ -195,24 +211,41 @@ export default class GameView extends cc.Component {
         }
         console.log("level tiep theo la ", nextLevel);
 
-        if(nextLevel == 5) {
+        if(nextLevel == 5 || nextLevel == 14) {
             cc.sys.localStorage.setItem(`level_${nextLevel}_isBoss`, 'true');
+            Level.instance.updateLevelStatus(nextLevel);
+        }
+
+        if(this.selectedLevel == 5 || this.selectedLevel == 14) {
+            cc.sys.localStorage.setItem(`level_${this.selectedLevel}_flagBoss`, 'true');
+            console.log('co bosss', this.selectedLevel);
+            Level.instance.updateLevelStatus(this.selectedLevel);
+    
         }
         // Lưu trạng thái lá cờ
         cc.sys.localStorage.setItem(`level_${this.selectedLevel}_flag`, 'true');
         Level.instance.updateLevelStatus(this.selectedLevel);
     
-        // Gọi hàm gameOver với điều kiện chiến thắng
         this.gameOver(true);
-        // Tải lại trò chơi với level mới
-        //this.loadNextLevel();
+    
     }
 
     loadNextLevel() {
         // Thiết lập lại trạng thái cần thiết cho level mới
+        if(parseInt(cc.sys.localStorage.getItem("hpChar"))) {
+            Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || Global.hpChar;
+            console.log("vao if")
+            this.updateHpChar();
+        }else {
+            Global.hpChar = 10;
+            this.updateHpChar();
+            console.log("vao else");
+        }
+        Global.shield = 0;
         this.monstersDefeated = 0;
         this.currentMonsterIndex = -1;
         this.countMonsterDie = 0;
+        this.nShield.active =false;
         this.nTableCards.removeAllChildren();
         this.nMonters.removeAllChildren();
         this.selectedCards = [];
@@ -224,7 +257,9 @@ export default class GameView extends cc.Component {
         this.updateHpChar();
         this.updateHpBagGuy();
         this.maskLoadGame();
+
         console.log(`Loaded Level ${this.selectedLevel}`);
+        this.updateLevelLb();
     }
 
 
@@ -316,10 +351,10 @@ export default class GameView extends cc.Component {
                 console.log("Shield: ", Global.shield);
             } if (Global.shield == 0) {
                 this.nShield.active = false;
-                Global.hpChar--;
+                Global.hpChar -= Global.dameMonster;
                 this.effectDameBagGuy(this.lbDameMonster, Global.dameMonster);
                 this.updateHpChar();
-                if (Global.hpChar == 0) {
+                if (Global.hpChar <= 0) {
                     this.gameOver(false); // Gọi hàm gameOver với điều kiện thua
                     return;
                 }
@@ -459,12 +494,23 @@ export default class GameView extends cc.Component {
         this.lbShield.string = Global.shield + ' ';
     }
     onClickRestart() {
-        Global.hpChar = 10;
-        Global.hpMonster = 10;
+        if(parseInt(cc.sys.localStorage.getItem("hpChar"))) {
+            Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || Global.hpChar;
+            console.log("vao if")
+            this.updateHpChar();
+        }else {
+            Global.hpChar = 10;
+            this.updateHpChar();
+            console.log("vao else");
+        }
+        this.monstersDefeated = 0;
+        this.currentMonsterIndex = 0;
         this.countMonsterDie = 0;
+        console.log("quai chet resart", this.countMonsterDie);
         this.updateHpChar();
-        this.updateHpBagGuy();
+        //this.updateHpBagGuy();
         this.updateShield();
+        this.maskLoadGame();
         this.nTableCards.removeAllChildren();
         this.nMonters.removeAllChildren();
         this.selectedCards = [];
@@ -472,6 +518,7 @@ export default class GameView extends cc.Component {
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.loadCards();
         this.createMonster(0, 10, 1);
+        Global.shield = 0;
         console.log("Game restarted");
     }
 

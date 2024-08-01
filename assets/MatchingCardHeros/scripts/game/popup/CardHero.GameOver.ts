@@ -58,5 +58,10 @@ export default class GameOver extends cc.Component {
         GameView.instance.loadNextLevel();
         this.node.destroy();
     }
+
+    clickHome() {
+        this.node.destroy();
+        GameView.instance.destroyGame();
+    }
     // update (dt) {}
 }

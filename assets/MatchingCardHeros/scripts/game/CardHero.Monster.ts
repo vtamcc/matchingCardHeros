@@ -26,7 +26,7 @@ export default class Monster extends cc.Component {
         this.monsterId = id;
         this.node.getComponent(cc.Sprite).spriteFrame = GameView.instance.listSpfMonster[id];
         Global.hpMonster = hp;
-        this.dame = dame;
+        Global.dameMonster = dame;
         GameView.instance.updateHpBagGuy();
     }
 

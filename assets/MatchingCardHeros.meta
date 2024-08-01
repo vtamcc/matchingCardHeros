@@ -1,13 +1,21 @@
 {
   "ver": "1.1.3",
-  "uuid": "7f35d3e6-be5b-40f2-9bf3-f7f2dc0aa7be",
+  "uuid": "a07a569b-7071-4f04-b0be-6df8b7e11712",
   "importer": "folder",
-  "isBundle": false,
-  "bundleName": "",
+  "isBundle": true,
+  "bundleName": "MatchingCardHeros",
   "priority": 1,
-  "compressionType": {},
-  "optimizeHotUpdate": {},
-  "inlineSpriteFrames": {},
-  "isRemoteBundle": {},
+  "compressionType": {
+    "web-mobile": "merge_all_json"
+  },
+  "optimizeHotUpdate": {
+    "web-mobile": false
+  },
+  "inlineSpriteFrames": {
+    "web-mobile": false
+  },
+  "isRemoteBundle": {
+    "web-mobile": false
+  },
   "subMetas": {}
 }
