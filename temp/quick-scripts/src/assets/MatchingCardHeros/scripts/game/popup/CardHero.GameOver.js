@@ -63,6 +63,10 @@ var GameOver = /** @class */ (function (_super) {
         CardHero_GameView_1.default.instance.loadNextLevel();
         this.node.destroy();
     };
+    GameOver.prototype.clickHome = function () {
+        this.node.destroy();
+        CardHero_GameView_1.default.instance.destroyGame();
+    };
     __decorate([
         property(cc.Node)
     ], GameOver.prototype, "nYouWin", void 0);

@@ -39,12 +39,20 @@ var GameManager = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.prfGameView = null;
         _this.prfGameLevel = null;
+        _this.nChar_1 = null;
+        _this.nChar_2 = null;
+        _this.nChar_3 = null;
+        _this.nPlay = null;
         return _this;
         // update (dt) {}
     }
     GameManager_1 = GameManager;
     GameManager.prototype.onLoad = function () {
         GameManager_1.instance = this;
+        this.effectChar(this.nChar_1);
+        this.effectChar(this.nChar_2);
+        this.effectChar(this.nChar_3);
+        this.effectPlay();
     };
     GameManager.prototype.start = function () {
     };
@@ -62,6 +70,20 @@ var GameManager = /** @class */ (function (_super) {
         var levelView = cc.instantiate(this.prfGameLevel).getComponent(CardHero_LevelView_1.default);
         this.node.addChild(levelView.node);
     };
+    GameManager.prototype.effectChar = function (node) {
+        cc.tween(node)
+            .repeatForever(cc.tween()
+            .to(0.9, { angle: -1 })
+            .to(0.8, { angle: 1 })
+            .start()).start();
+    };
+    GameManager.prototype.effectPlay = function () {
+        cc.tween(this.nPlay)
+            .repeatForever(cc.tween()
+            .to(0.8, { scale: 0.8 })
+            .to(0.8, { scale: 1 })
+            .start()).start();
+    };
     var GameManager_1;
     GameManager.instance = null;
     __decorate([
@@ -70,6 +92,18 @@ var GameManager = /** @class */ (function (_super) {
     __decorate([
         property(cc.Prefab)
     ], GameManager.prototype, "prfGameLevel", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "nChar_1", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "nChar_2", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "nChar_3", void 0);
+    __decorate([
+        property(cc.Node)
+    ], GameManager.prototype, "nPlay", void 0);
     GameManager = GameManager_1 = __decorate([
         ccclass
     ], GameManager);

@@ -51,7 +51,7 @@ var Monster = /** @class */ (function (_super) {
         this.monsterId = id;
         this.node.getComponent(cc.Sprite).spriteFrame = CardHero_GameView_1.default.instance.listSpfMonster[id];
         CardHero_Global_1.Global.hpMonster = hp;
-        this.dame = dame;
+        CardHero_Global_1.Global.dameMonster = dame;
         CardHero_GameView_1.default.instance.updateHpBagGuy();
     };
     Monster.prototype.receiveDamage = function (dame) {

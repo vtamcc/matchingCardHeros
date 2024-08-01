@@ -298,8 +298,8 @@
         0,
         0,
         0,
-        0,
         1,
+        6.123233995736766e-17,
         1,
         1,
         1
@@ -309,7 +309,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 0
+      "z": 180
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -429,7 +429,7 @@
     },
     "component": "",
     "_componentId": "6f2a0tW0utIa6pPN0DBS13j",
-    "handler": "onClickPlay",
+    "handler": "onClickBack",
     "customEventData": ""
   },
   {

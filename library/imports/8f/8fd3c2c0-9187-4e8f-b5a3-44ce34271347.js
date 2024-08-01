@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '8fd3cLAkYdOj7WjRM40JxNH', 'CardHero.GameView');
-// MatchingCardHeros/scripts/game/CardHero.GameView.ts
+// scripts/game/CardHero.GameView.ts
 
 "use strict";
 // Learn TypeScript:
@@ -66,6 +66,7 @@ var GameView = /** @class */ (function (_super) {
         _this.nShield = null;
         _this.lbShield = null;
         _this.nDameMonsterMiss = null;
+        _this.lbLevel = null;
         _this.listMonsters = [];
         _this.idMonster = 0;
         _this.rows = 5;
@@ -91,6 +92,16 @@ var GameView = /** @class */ (function (_super) {
         CardHero_Global_1.Global.dameCharNormal = parseInt(cc.sys.localStorage.getItem("dameCharNormal")) || CardHero_Global_1.Global.dameCharNormal;
         CardHero_Global_1.Global.dameCharBig = parseInt(cc.sys.localStorage.getItem("dameCharBig")) || CardHero_Global_1.Global.dameCharBig;
         CardHero_Global_1.Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || CardHero_Global_1.Global.hpChar;
+        if (parseInt(cc.sys.localStorage.getItem("hpChar"))) {
+            CardHero_Global_1.Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || CardHero_Global_1.Global.hpChar;
+            console.log("vao if");
+            this.updateHpChar();
+        }
+        else {
+            CardHero_Global_1.Global.hpChar = 10;
+            this.updateHpChar();
+            console.log("vao else");
+        }
         GameView_1.instance = this;
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.maskLoadGame();
@@ -98,8 +109,11 @@ var GameView = /** @class */ (function (_super) {
             _this.loadCards();
         }, 1);
         this.spawnMonster();
-        this.updateHpChar();
         this.updateHpBagGuy();
+        this.updateLevelLb();
+    };
+    GameView.prototype.updateLevelLb = function () {
+        this.lbLevel.string = "LVL " + (this.selectedLevel + 1);
     };
     GameView.prototype.onDestroy = function () {
         GameView_1.instance = null;
@@ -130,7 +144,7 @@ var GameView = /** @class */ (function (_super) {
     };
     GameView.prototype.spawnMonster = function () {
         var levelInfo = CardHero_Global_1.Global.levelData[this.selectedLevel];
-        console.log("level ", levelInfo);
+        console.log("level ", this.selectedLevel);
         if (this.currentMonsterIndex < levelInfo.monsters) {
             this.currentMonsterIndex++;
             var id = this.currentMonsterIndex;
@@ -183,22 +197,37 @@ var GameView = /** @class */ (function (_super) {
             CardHero_LevelView_1.default.instance.updateLevelStatus(nextLevel);
         }
         console.log("level tiep theo la ", nextLevel);
-        if (nextLevel == 5) {
+        if (nextLevel == 5 || nextLevel == 14) {
             cc.sys.localStorage.setItem("level_" + nextLevel + "_isBoss", 'true');
+            CardHero_LevelView_1.default.instance.updateLevelStatus(nextLevel);
+        }
+        if (this.selectedLevel == 5 || this.selectedLevel == 14) {
+            cc.sys.localStorage.setItem("level_" + this.selectedLevel + "_flagBoss", 'true');
+            console.log('co bosss', this.selectedLevel);
+            CardHero_LevelView_1.default.instance.updateLevelStatus(this.selectedLevel);
         }
         // Lưu trạng thái lá cờ
         cc.sys.localStorage.setItem("level_" + this.selectedLevel + "_flag", 'true');
         CardHero_LevelView_1.default.instance.updateLevelStatus(this.selectedLevel);
-        // Gọi hàm gameOver với điều kiện chiến thắng
         this.gameOver(true);
-        // Tải lại trò chơi với level mới
-        //this.loadNextLevel();
     };
     GameView.prototype.loadNextLevel = function () {
         // Thiết lập lại trạng thái cần thiết cho level mới
+        if (parseInt(cc.sys.localStorage.getItem("hpChar"))) {
+            CardHero_Global_1.Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || CardHero_Global_1.Global.hpChar;
+            console.log("vao if");
+            this.updateHpChar();
+        }
+        else {
+            CardHero_Global_1.Global.hpChar = 10;
+            this.updateHpChar();
+            console.log("vao else");
+        }
+        CardHero_Global_1.Global.shield = 0;
         this.monstersDefeated = 0;
         this.currentMonsterIndex = -1;
         this.countMonsterDie = 0;
+        this.nShield.active = false;
         this.nTableCards.removeAllChildren();
         this.nMonters.removeAllChildren();
         this.selectedCards = [];
@@ -210,6 +239,7 @@ var GameView = /** @class */ (function (_super) {
         this.updateHpBagGuy();
         this.maskLoadGame();
         console.log("Loaded Level " + this.selectedLevel);
+        this.updateLevelLb();
     };
     GameView.prototype.gameOver = function (isWin) {
         var _this = this;
@@ -296,10 +326,10 @@ var GameView = /** @class */ (function (_super) {
             }
             if (CardHero_Global_1.Global.shield == 0) {
                 this.nShield.active = false;
-                CardHero_Global_1.Global.hpChar--;
+                CardHero_Global_1.Global.hpChar -= CardHero_Global_1.Global.dameMonster;
                 this.effectDameBagGuy(this.lbDameMonster, CardHero_Global_1.Global.dameMonster);
                 this.updateHpChar();
-                if (CardHero_Global_1.Global.hpChar == 0) {
+                if (CardHero_Global_1.Global.hpChar <= 0) {
                     this.gameOver(false); // Gọi hàm gameOver với điều kiện thua
                     return;
                 }
@@ -431,12 +461,24 @@ var GameView = /** @class */ (function (_super) {
         this.lbShield.string = CardHero_Global_1.Global.shield + ' ';
     };
     GameView.prototype.onClickRestart = function () {
-        CardHero_Global_1.Global.hpChar = 10;
-        CardHero_Global_1.Global.hpMonster = 10;
+        if (parseInt(cc.sys.localStorage.getItem("hpChar"))) {
+            CardHero_Global_1.Global.hpChar = parseInt(cc.sys.localStorage.getItem("hpChar")) || CardHero_Global_1.Global.hpChar;
+            console.log("vao if");
+            this.updateHpChar();
+        }
+        else {
+            CardHero_Global_1.Global.hpChar = 10;
+            this.updateHpChar();
+            console.log("vao else");
+        }
+        this.monstersDefeated = 0;
+        this.currentMonsterIndex = 0;
         this.countMonsterDie = 0;
+        console.log("quai chet resart", this.countMonsterDie);
         this.updateHpChar();
-        this.updateHpBagGuy();
+        //this.updateHpBagGuy();
         this.updateShield();
+        this.maskLoadGame();
         this.nTableCards.removeAllChildren();
         this.nMonters.removeAllChildren();
         this.selectedCards = [];
@@ -444,6 +486,7 @@ var GameView = /** @class */ (function (_super) {
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.loadCards();
         this.createMonster(0, 10, 1);
+        CardHero_Global_1.Global.shield = 0;
         console.log("Game restarted");
     };
     GameView.prototype.destroyGame = function () {
@@ -512,6 +555,9 @@ var GameView = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], GameView.prototype, "nDameMonsterMiss", void 0);
+    __decorate([
+        property(cc.Label)
+    ], GameView.prototype, "lbLevel", void 0);
     GameView = GameView_1 = __decorate([
         ccclass
     ], GameView);

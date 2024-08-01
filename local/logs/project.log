@@ -1,285 +1,496 @@
-2024-07-31T02:04:48.507Z - success: protocol editor-framework registered
-2024-07-31T02:04:48.509Z - success: protocol app registered
-2024-07-31T02:04:48.509Z - success: protocol theme registered
-2024-07-31T02:04:48.509Z - success: protocol packages registered
-2024-07-31T02:04:48.533Z - normal: Load ~/.CocosCreator/settings.json
-2024-07-31T02:04:48.570Z - success: protocol uuid registerred
-2024-07-31T02:04:48.570Z - success: protocol db registerred
-2024-07-31T02:04:48.571Z - success: protocol thumbnail registerred
-2024-07-31T02:04:48.653Z - normal: Initializing Asset Database
-2024-07-31T02:04:48.655Z - normal: checking language setting...
-2024-07-31T02:04:48.655Z - normal: Language: en
-2024-07-31T02:04:48.658Z - success: protocol unpack registerred
-2024-07-31T02:04:48.658Z - success: protocol disable-commonjs registerred
-2024-07-31T02:04:50.310Z - normal: connected!
-2024-07-31T02:04:51.428Z - normal: Check project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
-2024-07-31T02:04:51.433Z - normal: Initializing project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
-2024-07-31T02:04:51.654Z - success: adapters loaded
-2024-07-31T02:04:51.658Z - success: asset-db-debugger loaded
-2024-07-31T02:04:51.736Z - success: fb-audience-network loaded
-2024-07-31T02:04:51.787Z - success: fb-live-stream loaded
-2024-07-31T02:04:51.794Z - success: google-play-instant loaded
-2024-07-31T02:04:51.794Z - success: jsb-adapter loaded
-2024-07-31T02:04:51.819Z - success: package-manager loaded
-2024-07-31T02:04:51.820Z - success: runtime-adapters loaded
-2024-07-31T02:04:51.822Z - success: runtime-dev-tools loaded
-2024-07-31T02:04:51.824Z - success: ui-kit-preview-extra loaded
-2024-07-31T02:04:51.826Z - success: ui-kit-preview loaded
-2024-07-31T02:04:52.681Z - success: alipay-minigame loaded
-2024-07-31T02:04:52.699Z - success: assets loaded
-2024-07-31T02:04:52.702Z - success: baidugame-opendata loaded
-2024-07-31T02:04:52.704Z - success: baidugame loaded
-2024-07-31T02:04:52.708Z - success: builder loaded
-2024-07-31T02:04:52.714Z - success: bytedance-opendata loaded
-2024-07-31T02:04:52.716Z - success: bytedance loaded
-2024-07-31T02:04:52.721Z - success: channel-upload-tools loaded
-2024-07-31T02:04:52.879Z - success: cloud-function loaded
-2024-07-31T02:04:53.108Z - success: cocos-services loaded
-2024-07-31T02:04:53.114Z - success: console loaded
-2024-07-31T02:04:53.117Z - success: curve-editor loaded
-2024-07-31T02:04:53.125Z - success: fb-instant-games loaded
-2024-07-31T02:04:53.128Z - success: game-window loaded
-2024-07-31T02:04:53.129Z - success: google-instant-games loaded
-2024-07-31T02:04:53.134Z - success: hierarchy loaded
-2024-07-31T02:04:53.136Z - success: huawei-agc loaded
-2024-07-31T02:04:53.140Z - success: huawei-runtime loaded
-2024-07-31T02:04:53.149Z - success: inspector loaded
-2024-07-31T02:04:53.171Z - success: cpk-publish loaded
-2024-07-31T02:04:53.173Z - success: keystore loaded
-2024-07-31T02:04:53.200Z - success: link-sure-runtime loaded
-2024-07-31T02:04:53.212Z - success: node-library loaded
-2024-07-31T02:04:53.213Z - success: open-recent-items loaded
-2024-07-31T02:04:53.216Z - success: oppo-runtime loaded
-2024-07-31T02:04:53.218Z - success: package-asset loaded
-2024-07-31T02:04:53.219Z - success: preferences loaded
-2024-07-31T02:04:53.223Z - success: project-importer loaded
-2024-07-31T02:04:53.226Z - success: project-settings loaded
-2024-07-31T02:04:53.240Z - success: qtt-runtime loaded
-2024-07-31T02:04:53.245Z - success: scene loaded
-2024-07-31T02:04:53.246Z - success: simulator-debugger loaded
-2024-07-31T02:04:53.247Z - success: sprite-editor loaded
-2024-07-31T02:04:53.319Z - success: store loaded
-2024-07-31T02:04:53.321Z - success: taobao-creativeapp loaded
-2024-07-31T02:04:53.324Z - success: timeline loaded
-2024-07-31T02:04:53.331Z - success: vivo-runtime loaded
-2024-07-31T02:04:53.334Z - success: wechatgame-opendata loaded
-2024-07-31T02:04:53.340Z - success: wechatgame loaded
-2024-07-31T02:04:53.343Z - success: xiaomi-runtime loaded
-2024-07-31T02:04:53.398Z - success: im-plugin loaded
-2024-07-31T02:04:53.399Z - success: preview server running at http://localhost:7456
-2024-07-31T02:04:54.873Z - info: Cocos Service load base data!
-2024-07-31T02:04:55.489Z - normal: Initializing Cocos2d
-2024-07-31T02:04:55.728Z - normal: Initializing engine extends
-2024-07-31T02:04:56.762Z - normal: Loading packages
-2024-07-31T02:04:56.765Z - normal: Watching packages
-2024-07-31T02:04:56.995Z - normal: Run Application
-2024-07-31T02:05:01.347Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:05:01.968Z - success: cloud-function unloaded
-2024-07-31T02:12:38.804Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:13:36.275Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:17:39.114Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:21:40.232Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:23:08.065Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:26:27.780Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:37:43.083Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:45:10.061Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:46:25.188Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:47:08.279Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:47:47.133Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:49:00.722Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:50:22.055Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T02:50:39.757Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:03:05.181Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:05:26.921Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:11:46.279Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:14:12.202Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:14:43.205Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:18:56.145Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:22:05.612Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:23:30.790Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:33:34.863Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:33:45.317Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T03:34:53.571Z - warn: Please specifiy a default value for "Level.prfItemLevel" at its declaration:
- 
-// Before:
-@property(...)
-myProp;
-// After:
-@property(...)
-myProp = 0;
-2024-07-31T06:26:49.932Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@main:128690
+2024-08-01T09:26:22.692Z - success: protocol editor-framework registered
+2024-08-01T09:26:22.693Z - success: protocol app registered
+2024-08-01T09:26:22.693Z - success: protocol theme registered
+2024-08-01T09:26:22.694Z - success: protocol packages registered
+2024-08-01T09:26:22.719Z - normal: Load ~/.CocosCreator/settings.json
+2024-08-01T09:26:22.753Z - success: protocol uuid registerred
+2024-08-01T09:26:22.753Z - success: protocol db registerred
+2024-08-01T09:26:22.753Z - success: protocol thumbnail registerred
+2024-08-01T09:26:22.831Z - normal: Initializing Asset Database
+2024-08-01T09:26:22.834Z - normal: checking language setting...
+2024-08-01T09:26:22.834Z - normal: Language: en
+2024-08-01T09:26:22.836Z - success: protocol unpack registerred
+2024-08-01T09:26:22.837Z - success: protocol disable-commonjs registerred
+2024-08-01T09:26:24.501Z - normal: connected!
+2024-08-01T09:26:24.802Z - normal: Check project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T09:26:24.807Z - normal: Initializing project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T09:26:25.031Z - success: adapters loaded
+2024-08-01T09:26:25.035Z - success: asset-db-debugger loaded
+2024-08-01T09:26:25.107Z - success: fb-audience-network loaded
+2024-08-01T09:26:25.153Z - success: fb-live-stream loaded
+2024-08-01T09:26:25.158Z - success: google-play-instant loaded
+2024-08-01T09:26:25.159Z - success: jsb-adapter loaded
+2024-08-01T09:26:25.180Z - success: package-manager loaded
+2024-08-01T09:26:25.181Z - success: runtime-adapters loaded
+2024-08-01T09:26:25.182Z - success: runtime-dev-tools loaded
+2024-08-01T09:26:25.184Z - success: ui-kit-preview-extra loaded
+2024-08-01T09:26:25.186Z - success: ui-kit-preview loaded
+2024-08-01T09:26:26.001Z - success: alipay-minigame loaded
+2024-08-01T09:26:26.019Z - success: assets loaded
+2024-08-01T09:26:26.023Z - success: baidugame-opendata loaded
+2024-08-01T09:26:26.024Z - success: baidugame loaded
+2024-08-01T09:26:26.028Z - success: builder loaded
+2024-08-01T09:26:26.034Z - success: bytedance-opendata loaded
+2024-08-01T09:26:26.036Z - success: bytedance loaded
+2024-08-01T09:26:26.042Z - success: channel-upload-tools loaded
+2024-08-01T09:26:26.196Z - success: cloud-function loaded
+2024-08-01T09:26:26.417Z - success: cocos-services loaded
+2024-08-01T09:26:26.424Z - success: console loaded
+2024-08-01T09:26:26.426Z - success: curve-editor loaded
+2024-08-01T09:26:26.434Z - success: fb-instant-games loaded
+2024-08-01T09:26:26.437Z - success: game-window loaded
+2024-08-01T09:26:26.438Z - success: google-instant-games loaded
+2024-08-01T09:26:26.443Z - success: hierarchy loaded
+2024-08-01T09:26:26.445Z - success: huawei-agc loaded
+2024-08-01T09:26:26.449Z - success: huawei-runtime loaded
+2024-08-01T09:26:26.452Z - success: inspector loaded
+2024-08-01T09:26:26.474Z - success: cpk-publish loaded
+2024-08-01T09:26:26.476Z - success: keystore loaded
+2024-08-01T09:26:26.503Z - success: link-sure-runtime loaded
+2024-08-01T09:26:26.518Z - success: node-library loaded
+2024-08-01T09:26:26.519Z - success: open-recent-items loaded
+2024-08-01T09:26:26.523Z - success: oppo-runtime loaded
+2024-08-01T09:26:26.524Z - success: package-asset loaded
+2024-08-01T09:26:26.525Z - success: preferences loaded
+2024-08-01T09:26:26.529Z - success: project-importer loaded
+2024-08-01T09:26:26.533Z - success: project-settings loaded
+2024-08-01T09:26:26.547Z - success: qtt-runtime loaded
+2024-08-01T09:26:26.552Z - success: scene loaded
+2024-08-01T09:26:26.553Z - success: simulator-debugger loaded
+2024-08-01T09:26:26.554Z - success: sprite-editor loaded
+2024-08-01T09:26:26.634Z - success: store loaded
+2024-08-01T09:26:26.636Z - success: taobao-creativeapp loaded
+2024-08-01T09:26:26.641Z - success: timeline loaded
+2024-08-01T09:26:26.648Z - success: vivo-runtime loaded
+2024-08-01T09:26:26.651Z - success: wechatgame-opendata loaded
+2024-08-01T09:26:26.657Z - success: wechatgame loaded
+2024-08-01T09:26:26.661Z - success: xiaomi-runtime loaded
+2024-08-01T09:26:26.714Z - success: im-plugin loaded
+2024-08-01T09:26:26.718Z - success: bundle_instant loaded
+2024-08-01T09:26:26.719Z - success: preview server running at http://localhost:7456
+2024-08-01T09:26:28.406Z - info: Cocos Service load base data!
+2024-08-01T09:26:28.819Z - normal: Initializing Cocos2d
+2024-08-01T09:26:29.055Z - normal: Initializing engine extends
+2024-08-01T09:26:30.045Z - normal: Loading packages
+2024-08-01T09:26:30.048Z - normal: Watching packages
+2024-08-01T09:26:30.282Z - normal: Run Application
+2024-08-01T09:26:35.163Z - success: cloud-function unloaded
+2024-08-01T09:27:08.216Z - normal: Start building with options : {
+  "title": "MatchingCardHeros",
+  "packageName": "org.cocos2d.demo",
+  "startScene": "c1f37510-65f2-4d13-9b85-b1c311155868",
+  "excludeScenes": [],
+  "orientation": {
+    "landscapeRight": false,
+    "landscapeLeft": false,
+    "portrait": true,
+    "upsideDown": true
+  },
+  "webOrientation": "auto",
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mainCompressionType": "default",
+  "mainIsRemote": false,
+  "optimizeHotUpdate": false,
+  "md5Cache": true,
+  "encryptJs": false,
+  "xxteaKey": "3f1ea7ab-d2d7-48",
+  "zipCompressJs": true,
+  "fb-instant-games": {},
+  "android": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": ""
+  },
+  "ios": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "ios_enable_jit": true
+  },
+  "mac": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "win32": {
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "android-instant": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "pathPattern": "",
+    "scheme": "https",
+    "host": "",
+    "skipRecord": false,
+    "recordPath": ""
+  },
+  "appBundle": false,
+  "agreements": {},
+  "platform": "web-mobile",
+  "actualPlatform": "web-mobile",
+  "template": "default",
+  "buildPath": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build",
+  "debug": false,
+  "sourceMaps": false,
+  "embedWebDebugger": false,
+  "previewWidth": "1280",
+  "previewHeight": "720",
+  "useDebugKeystore": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "vsVersion": "auto",
+  "buildScriptsOnly": false,
+  "dest": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile",
+  "separateEngineMode": false,
+  "scenes": [
+    "c1f37510-65f2-4d13-9b85-b1c311155868",
+    "a4bcb048-de30-4f0e-9d2c-11b914568649"
+  ],
+  "excludedModules": [
+    "3D Physics/Builtin"
+  ],
+  "project": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros",
+  "projectName": "MatchingCardHeros",
+  "debugBuildWorker": false
+}
+2024-08-01T09:27:08.402Z - normal: Building /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T09:27:08.402Z - normal: Destination /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile
+2024-08-01T09:27:08.503Z - normal: Start spawn build-worker
+2024-08-01T09:27:10.905Z - normal: Finish spawn build-worker
+2024-08-01T09:27:10.906Z - normal: Delete /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/**/*
+2024-08-01T09:27:11.000Z - normal: Building 3D physics modules...
+2024-08-01T09:27:19.091Z - normal: Compiling /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T09:27:20.169Z - normal: Start init build-worker
+2024-08-01T09:27:21.419Z - normal: Finish init build-worker
+2024-08-01T09:27:21.419Z - normal: Start build-assets in worker
+2024-08-01T09:27:21.419Z - normal: 
+--- build-asset: {"root":"db://internal/resources","name":"internal","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/internal","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/internal","priority":11,"scenes":[],"compressionType":"merge_all_json"}
+
+2024-08-01T09:27:21.519Z - normal: 
+--- build-asset: {"root":null,"priority":7,"dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/main","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/main","name":"main","scenes":[],"compressionType":"default","optimizeHotUpdate":false,"inlineSpriteFrames":true,"isRemote":false}
+
+2024-08-01T09:27:21.532Z - normal: 
+--- build-asset: {"root":"db://assets/MatchingCardHeros","name":"MatchingCardHeros","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/MatchingCardHeros","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/MatchingCardHeros","priority":1,"scenes":["c1f37510-65f2-4d13-9b85-b1c311155868","a4bcb048-de30-4f0e-9d2c-11b914568649"],"compressionType":"merge_all_json","optimizeHotUpdate":false,"inlineSpriteFrames":false,"isRemote":false}
+
+2024-08-01T09:27:21.810Z - normal: Finish build-assets in worker
+2024-08-01T09:27:21.832Z - normal: Start building plugin scripts
+2024-08-01T09:27:21.841Z - normal: Generating main.js from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2024-08-01T09:27:21.847Z - normal: Generating html from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/web-mobile/template/index.html
+2024-08-01T09:27:21.976Z - normal: settings============= {"platform":"web-mobile","groupList":["default"],"collisionMatrix":[[true]],"hasResourcesBundle":false,"hasStartSceneBundle":false,"remoteBundles":[],"subpackages":[],"launchScene":"db://assets/MatchingCardHeros/MainBuild.fire","orientation":"","jsList":[],"bundleVers":{"internal":"1b082","MatchingCardHeros":"66fd6","main":"a3c5b"}}
+2024-08-01T09:27:21.977Z - normal: Built to "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile" successfully
+2024-08-01T09:59:31.875Z - error: scene not saved. Please build project after saveing project.
+    at /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor/builtin/builder/panel/builder.ccc:1:10805
+    at EventEmitter.<anonymous> (/Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/app.asar/editor-framework/lib/renderer/ipc.ccc:1:3633)
+    at EventEmitter.emit (events.js:315:20)
+    at Object.onMessage (electron/js2c/renderer_init.js:91:925)
+2024-08-01T09:59:41.116Z - normal: Start building with options : {
+  "title": "MatchingCardHeros",
+  "packageName": "org.cocos2d.demo",
+  "startScene": "c1f37510-65f2-4d13-9b85-b1c311155868",
+  "excludeScenes": [],
+  "orientation": {
+    "landscapeRight": false,
+    "landscapeLeft": false,
+    "portrait": true,
+    "upsideDown": true
+  },
+  "webOrientation": "auto",
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mainCompressionType": "default",
+  "mainIsRemote": false,
+  "optimizeHotUpdate": false,
+  "md5Cache": true,
+  "encryptJs": false,
+  "xxteaKey": "3f1ea7ab-d2d7-48",
+  "zipCompressJs": true,
+  "fb-instant-games": {},
+  "android": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": ""
+  },
+  "ios": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "ios_enable_jit": true
+  },
+  "mac": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "win32": {
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "android-instant": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "pathPattern": "",
+    "scheme": "https",
+    "host": "",
+    "skipRecord": false,
+    "recordPath": ""
+  },
+  "appBundle": false,
+  "agreements": {},
+  "platform": "web-mobile",
+  "actualPlatform": "web-mobile",
+  "template": "default",
+  "buildPath": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build",
+  "debug": false,
+  "sourceMaps": false,
+  "embedWebDebugger": false,
+  "previewWidth": "1280",
+  "previewHeight": "720",
+  "useDebugKeystore": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "vsVersion": "auto",
+  "buildScriptsOnly": false,
+  "dest": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile",
+  "separateEngineMode": false,
+  "scenes": [
+    "c1f37510-65f2-4d13-9b85-b1c311155868",
+    "a4bcb048-de30-4f0e-9d2c-11b914568649"
+  ],
+  "excludedModules": [
+    "3D Physics/Builtin"
+  ],
+  "project": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros",
+  "projectName": "MatchingCardHeros",
+  "debugBuildWorker": false
+}
+2024-08-01T09:59:41.117Z - normal: Building /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T09:59:41.117Z - normal: Destination /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile
+2024-08-01T09:59:41.118Z - normal: Start spawn build-worker
+2024-08-01T09:59:41.118Z - normal: Finish spawn build-worker
+2024-08-01T09:59:41.119Z - normal: Delete /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/**/*
+2024-08-01T09:59:41.184Z - normal: Building 3D physics modules...
+2024-08-01T09:59:48.030Z - normal: Compiling /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T09:59:49.130Z - normal: Start build-assets in worker
+2024-08-01T09:59:49.130Z - normal: 
+--- build-asset: {"root":"db://internal/resources","name":"internal","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/internal","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/internal","priority":11,"scenes":[],"compressionType":"merge_all_json"}
+
+2024-08-01T09:59:49.199Z - normal: 
+--- build-asset: {"root":null,"priority":7,"dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/main","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/main","name":"main","scenes":[],"compressionType":"default","optimizeHotUpdate":false,"inlineSpriteFrames":true,"isRemote":false}
+
+2024-08-01T09:59:49.210Z - normal: 
+--- build-asset: {"root":"db://assets/MatchingCardHeros","name":"MatchingCardHeros","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/MatchingCardHeros","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/MatchingCardHeros","priority":1,"scenes":["c1f37510-65f2-4d13-9b85-b1c311155868","a4bcb048-de30-4f0e-9d2c-11b914568649"],"compressionType":"merge_all_json","optimizeHotUpdate":false,"inlineSpriteFrames":false,"isRemote":false}
+
+2024-08-01T09:59:49.486Z - normal: Finish build-assets in worker
+2024-08-01T09:59:49.505Z - normal: Start building plugin scripts
+2024-08-01T09:59:49.512Z - normal: Generating main.js from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2024-08-01T09:59:49.516Z - normal: Generating html from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/web-mobile/template/index.html
+2024-08-01T09:59:49.605Z - normal: settings============= {"platform":"web-mobile","groupList":["default"],"collisionMatrix":[[true]],"hasResourcesBundle":false,"hasStartSceneBundle":false,"remoteBundles":[],"subpackages":[],"launchScene":"db://assets/MatchingCardHeros/MainBuild.fire","orientation":"","jsList":[],"bundleVers":{"internal":"1b082","MatchingCardHeros":"86004","main":"a3c5b"}}
+2024-08-01T09:59:49.606Z - normal: Built to "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile" successfully
+2024-08-01T10:38:19.243Z - normal: Start building with options : {
+  "title": "MatchingCardHeros",
+  "packageName": "org.cocos2d.demo",
+  "startScene": "c1f37510-65f2-4d13-9b85-b1c311155868",
+  "excludeScenes": [],
+  "orientation": {
+    "landscapeRight": false,
+    "landscapeLeft": false,
+    "portrait": true,
+    "upsideDown": true
+  },
+  "webOrientation": "auto",
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mainCompressionType": "default",
+  "mainIsRemote": false,
+  "optimizeHotUpdate": false,
+  "md5Cache": true,
+  "encryptJs": false,
+  "xxteaKey": "3f1ea7ab-d2d7-48",
+  "zipCompressJs": true,
+  "fb-instant-games": {},
+  "android": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": ""
+  },
+  "ios": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "ios_enable_jit": true
+  },
+  "mac": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "win32": {
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "android-instant": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "pathPattern": "",
+    "scheme": "https",
+    "host": "",
+    "skipRecord": false,
+    "recordPath": ""
+  },
+  "appBundle": false,
+  "agreements": {},
+  "platform": "web-mobile",
+  "actualPlatform": "web-mobile",
+  "template": "default",
+  "buildPath": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build",
+  "debug": false,
+  "sourceMaps": false,
+  "embedWebDebugger": false,
+  "previewWidth": "1280",
+  "previewHeight": "720",
+  "useDebugKeystore": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "vsVersion": "auto",
+  "buildScriptsOnly": false,
+  "dest": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile",
+  "separateEngineMode": false,
+  "scenes": [
+    "c1f37510-65f2-4d13-9b85-b1c311155868",
+    "a4bcb048-de30-4f0e-9d2c-11b914568649"
+  ],
+  "excludedModules": [
+    "3D Physics/Builtin"
+  ],
+  "project": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros",
+  "projectName": "MatchingCardHeros",
+  "debugBuildWorker": false
+}
+2024-08-01T10:38:19.245Z - normal: Building /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T10:38:19.245Z - normal: Destination /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile
+2024-08-01T10:38:19.246Z - normal: Start spawn build-worker
+2024-08-01T10:38:19.246Z - normal: Finish spawn build-worker
+2024-08-01T10:38:19.247Z - normal: Delete /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/**/*
+2024-08-01T10:38:19.310Z - normal: Building 3D physics modules...
+2024-08-01T10:38:25.916Z - normal: Compiling /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T10:38:27.024Z - normal: Start build-assets in worker
+2024-08-01T10:38:27.024Z - normal: 
+--- build-asset: {"root":"db://internal/resources","name":"internal","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/internal","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/internal","priority":11,"scenes":[],"compressionType":"merge_all_json"}
+
+2024-08-01T10:38:27.085Z - normal: 
+--- build-asset: {"root":null,"priority":7,"dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/main","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/main","name":"main","scenes":[],"compressionType":"default","optimizeHotUpdate":false,"inlineSpriteFrames":true,"isRemote":false}
+
+2024-08-01T10:38:27.095Z - normal: 
+--- build-asset: {"root":"db://assets/MatchingCardHeros","name":"MatchingCardHeros","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/MatchingCardHeros","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/MatchingCardHeros","priority":1,"scenes":["c1f37510-65f2-4d13-9b85-b1c311155868","a4bcb048-de30-4f0e-9d2c-11b914568649"],"compressionType":"merge_all_json","optimizeHotUpdate":false,"inlineSpriteFrames":false,"isRemote":false}
+
+2024-08-01T10:38:27.357Z - normal: Finish build-assets in worker
+2024-08-01T10:38:27.378Z - normal: Start building plugin scripts
+2024-08-01T10:38:27.389Z - normal: Generating main.js from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2024-08-01T10:38:27.393Z - normal: Generating html from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/web-mobile/template/index.html
+2024-08-01T10:38:27.477Z - normal: settings============= {"platform":"web-mobile","groupList":["default"],"collisionMatrix":[[true]],"hasResourcesBundle":false,"hasStartSceneBundle":false,"remoteBundles":[],"subpackages":[],"launchScene":"db://assets/MatchingCardHeros/MainBuild.fire","orientation":"","jsList":[],"bundleVers":{"internal":"1b082","MatchingCardHeros":"d226d","main":"a3c5b"}}
+2024-08-01T10:38:27.477Z - normal: Built to "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile" successfully
+2024-08-01T10:39:24.030Z - normal: Start building with options : {
+  "title": "MatchingCardHeros",
+  "packageName": "org.cocos2d.demo",
+  "startScene": "c1f37510-65f2-4d13-9b85-b1c311155868",
+  "excludeScenes": [],
+  "orientation": {
+    "landscapeRight": false,
+    "landscapeLeft": false,
+    "portrait": true,
+    "upsideDown": true
+  },
+  "webOrientation": "auto",
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mainCompressionType": "default",
+  "mainIsRemote": false,
+  "optimizeHotUpdate": false,
+  "md5Cache": true,
+  "encryptJs": false,
+  "xxteaKey": "3f1ea7ab-d2d7-48",
+  "zipCompressJs": true,
+  "fb-instant-games": {},
+  "android": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": ""
+  },
+  "ios": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "ios_enable_jit": true
+  },
+  "mac": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "win32": {
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "android-instant": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "pathPattern": "",
+    "scheme": "https",
+    "host": "",
+    "skipRecord": false,
+    "recordPath": ""
+  },
+  "appBundle": false,
+  "agreements": {},
+  "platform": "web-mobile",
+  "actualPlatform": "web-mobile",
+  "template": "default",
+  "buildPath": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build",
+  "debug": false,
+  "sourceMaps": false,
+  "embedWebDebugger": false,
+  "previewWidth": "1280",
+  "previewHeight": "720",
+  "useDebugKeystore": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "vsVersion": "auto",
+  "buildScriptsOnly": false,
+  "dest": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile",
+  "separateEngineMode": false,
+  "scenes": [
+    "c1f37510-65f2-4d13-9b85-b1c311155868",
+    "a4bcb048-de30-4f0e-9d2c-11b914568649"
+  ],
+  "excludedModules": [
+    "3D Physics/Builtin"
+  ],
+  "project": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros",
+  "projectName": "MatchingCardHeros",
+  "debugBuildWorker": false
+}
+2024-08-01T10:39:24.031Z - normal: Building /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T10:39:24.031Z - normal: Destination /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile
+2024-08-01T10:39:24.033Z - normal: Start spawn build-worker
+2024-08-01T10:39:24.033Z - normal: Finish spawn build-worker
+2024-08-01T10:39:24.033Z - normal: Delete /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/**/*
+2024-08-01T10:39:24.098Z - normal: Building 3D physics modules...
+2024-08-01T10:39:30.515Z - normal: Compiling /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-01T10:39:31.592Z - normal: Start build-assets in worker
+2024-08-01T10:39:31.593Z - normal: 
+--- build-asset: {"root":"db://internal/resources","name":"internal","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/internal","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/internal","priority":11,"scenes":[],"compressionType":"merge_all_json"}
+
+2024-08-01T10:39:31.648Z - normal: 
+--- build-asset: {"root":null,"priority":7,"dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/main","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/main","name":"main","scenes":[],"compressionType":"default","optimizeHotUpdate":false,"inlineSpriteFrames":true,"isRemote":false}
+
+2024-08-01T10:39:31.657Z - normal: 
+--- build-asset: {"root":"db://assets/MatchingCardHeros","name":"MatchingCardHeros","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/MatchingCardHeros","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile/assets/MatchingCardHeros","priority":1,"scenes":["c1f37510-65f2-4d13-9b85-b1c311155868","a4bcb048-de30-4f0e-9d2c-11b914568649"],"compressionType":"merge_all_json","optimizeHotUpdate":false,"inlineSpriteFrames":false,"isRemote":false}
+
+2024-08-01T10:39:31.891Z - normal: Finish build-assets in worker
+2024-08-01T10:39:31.911Z - normal: Start building plugin scripts
+2024-08-01T10:39:31.917Z - normal: Generating main.js from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2024-08-01T10:39:31.920Z - normal: Generating html from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/web-mobile/template/index.html
+2024-08-01T10:39:32.000Z - normal: settings============= {"platform":"web-mobile","groupList":["default"],"collisionMatrix":[[true]],"hasResourcesBundle":false,"hasStartSceneBundle":false,"remoteBundles":[],"subpackages":[],"launchScene":"db://assets/MatchingCardHeros/MainBuild.fire","orientation":"","jsList":[],"bundleVers":{"internal":"1b082","MatchingCardHeros":"eee8d","main":"a3c5b"}}
+2024-08-01T10:39:32.000Z - normal: Built to "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/web-mobile" successfully

@@ -40,6 +40,7 @@ var ItemLevelView = /** @class */ (function (_super) {
         _this.nBossBock = null;
         _this.nBossActive = null;
         _this.nFlag = null;
+        _this.nFlagBoss = null;
         _this.idLevel = 0;
         return _this;
         // update (dt) {}
@@ -47,7 +48,7 @@ var ItemLevelView = /** @class */ (function (_super) {
     // LIFE-CYCLE CALLBACKS:
     // onLoad () {
     // }
-    ItemLevelView.prototype.setData = function (id, completed, isBoss, isUnlocked, flag) {
+    ItemLevelView.prototype.setData = function (id, completed, isBoss, isUnlocked, flag, flagBoss) {
         this.idLevel = id;
         this.nBlock.active = completed;
         switch (id) {
@@ -62,6 +63,12 @@ var ItemLevelView = /** @class */ (function (_super) {
         this.nLevelActive.active = isUnlocked;
         this.node.getComponent(cc.Button).interactable = isUnlocked;
         this.nBossActive.active = isBoss;
+        this.nFlagBoss.active = flagBoss;
+        if (isBoss) {
+            this.nFlag.active = false;
+            this.nLevelActive.active = false;
+            this.nBlock.active = false;
+        }
     };
     ItemLevelView.prototype.onClickPlay = function () {
         CardHero_GameManager_1.default.instance.onClickPlay(this.idLevel);
@@ -84,6 +91,9 @@ var ItemLevelView = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], ItemLevelView.prototype, "nFlag", void 0);
+    __decorate([
+        property(cc.Node)
+    ], ItemLevelView.prototype, "nFlagBoss", void 0);
     ItemLevelView = __decorate([
         ccclass
     ], ItemLevelView);

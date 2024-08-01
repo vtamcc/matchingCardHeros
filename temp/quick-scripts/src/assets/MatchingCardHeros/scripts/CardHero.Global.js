@@ -14,33 +14,33 @@ exports.Global = void 0;
 var Global = /** @class */ (function () {
     function Global() {
     }
-    Global.totalGold = 10;
+    Global.totalGold = 0;
     Global.hpChar = 10;
     Global.hpMonster = 10;
     Global.shield = 0;
     Global.dameMonster = 1;
-    Global.dameCharSmall = 5;
-    Global.dameCharNormal = 10;
-    Global.dameCharBig = 15;
+    Global.dameCharSmall = 2;
+    Global.dameCharNormal = 4;
+    Global.dameCharBig = 6;
     // static priceItemHp = 1;
     // static priceItemAttack = 1;
     Global.priceItem = [1, 1];
     Global.levelData = [
         { dame: 1, hp: 10, monsters: 1 },
-        { dame: 7, hp: 15, monsters: 1 },
-        { dame: 10, hp: 20, monsters: 1 },
-        { dame: 12, hp: 25, monsters: 1 },
-        { dame: 12, hp: 20, monsters: 1 },
-        { dame: 20, hp: 50, monsters: 0, isBoss: true },
-        { dame: 8, hp: 18, monsters: 4 },
-        { dame: 9, hp: 22, monsters: 5 },
-        { dame: 11, hp: 28, monsters: 6 },
-        { dame: 13, hp: 30, monsters: 7 },
-        { dame: 15, hp: 35, monsters: 8 },
-        { dame: 18, hp: 40, monsters: 9 },
-        { dame: 22, hp: 45, monsters: 10 },
-        { dame: 25, hp: 50, monsters: 11 },
-        { dame: 30, hp: 100, monsters: 1, isBoss: true } // Level 14 - Boss
+        { dame: 1, hp: 15, monsters: 1 },
+        { dame: 2, hp: 20, monsters: 1 },
+        { dame: 3, hp: 25, monsters: 1 },
+        { dame: 3, hp: 20, monsters: 1 },
+        { dame: 5, hp: 50, monsters: 0, isBoss: true },
+        { dame: 1, hp: 10, monsters: 0 },
+        { dame: 1, hp: 10, monsters: 1 },
+        { dame: 1, hp: 10, monsters: 1 },
+        { dame: 1, hp: 10, monsters: 1 },
+        { dame: 1, hp: 10, monsters: 1 },
+        { dame: 1, hp: 10, monsters: 1 },
+        { dame: 1, hp: 10, monsters: 1 },
+        { dame: 1, hp: 10, monsters: 1 },
+        { dame: 30, hp: 100, monsters: 0, isBoss: true } // Level 14 - Boss
     ];
     Global.levelMonsterSprites = {
         0: [0, 1],
@@ -49,6 +49,15 @@ var Global = /** @class */ (function () {
         3: [1, 2,],
         4: [2, 3],
         5: [4],
+        6: [4],
+        7: [0, 1],
+        8: [0, 1],
+        9: [0, 1],
+        10: [0, 1],
+        11: [0, 1],
+        12: [0, 1],
+        13: [0, 1],
+        14: [0, 1],
     };
     Global.selectedLevel = 0;
     Global.levelCount = 0;

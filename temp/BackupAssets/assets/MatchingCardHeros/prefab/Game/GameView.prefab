@@ -454,7 +454,7 @@
       "__id__": 8
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 10
@@ -576,14 +576,14 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 234,
+      "g": 241,
+      "b": 67,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 17.96,
+      "width": 0,
       "height": 50.4
     },
     "_anchorPoint": {
@@ -595,7 +595,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        69.633,
+        -17.695,
         1.355,
         0,
         0,
@@ -635,8 +635,8 @@
     ],
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_string": "1",
-    "_N$string": "1",
+    "_string": "",
+    "_N$string": "",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -3514,6 +3514,9 @@
     },
     "nDameMonsterMiss": {
       "__id__": 87
+    },
+    "lbLevel": {
+      "__id__": 13
     },
     "_id": ""
   },

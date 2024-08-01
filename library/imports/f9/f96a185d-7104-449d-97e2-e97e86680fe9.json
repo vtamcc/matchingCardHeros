@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "win_characters-sheet1",
+    "texture": "1269eba3-0cd3-4f84-b3fd-78d4dbf11743",
+    "atlas": "",
+    "rect": [
+      30,
+      71,
+      343,
+      260
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      402,
+      402
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

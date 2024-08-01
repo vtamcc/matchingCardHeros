@@ -47,6 +47,7 @@ var Level = /** @class */ (function (_super) {
             [11, 10, 9],
             [12, 13, 14]
         ];
+        _this.selectedLevel = null;
         return _this;
         // update (dt) {}
     }
@@ -55,6 +56,7 @@ var Level = /** @class */ (function (_super) {
         Level_1.instance = this;
         CardHero_Global_1.Global.totalGold = parseInt(cc.sys.localStorage.getItem("totalGold"), CardHero_Global_1.Global.totalGold) || CardHero_Global_1.Global.totalGold;
         CardHero_Global_1.Global.levelCount = parseInt(cc.sys.localStorage.getItem("levelCount")) || 0;
+        CardHero_Global_1.Global.selectedLevel = parseInt(cc.sys.localStorage.getItem("levelGame")) || CardHero_Global_1.Global.selectedLevel;
         console.log("LevelCount", CardHero_Global_1.Global.levelCount);
         this.updateGold();
         this.loadItemLevel();
@@ -63,6 +65,9 @@ var Level = /** @class */ (function (_super) {
     Level.prototype.onClickShopView = function () {
         var shopView = cc.instantiate(this.prfShopView);
         this.node.addChild(shopView);
+    };
+    Level.prototype.onClickBack = function () {
+        this.node.destroy();
     };
     Level.prototype.updateGold = function () {
         this.lbGold.string = '$' + CardHero_Global_1.Global.totalGold + ' ';
@@ -81,8 +86,8 @@ var Level = /** @class */ (function (_super) {
                 var flag = cc.sys.localStorage.getItem("level_" + id + "_flag") === 'true' || false;
                 var isBoss = cc.sys.localStorage.getItem("level_" + id + "_isBoss") === 'true' || false;
                 console.log("isBoss", isBoss);
-                console.log("Completed", completed);
-                item.setData(id, true, isBoss, isUnlocked, flag);
+                var flagBoss = cc.sys.localStorage.getItem("level_" + id + "_flagBoss") === 'true';
+                item.setData(id, true, isBoss, isUnlocked, flag, flagBoss);
                 this.nLayout.addChild(item.node);
             }
         }
@@ -94,7 +99,9 @@ var Level = /** @class */ (function (_super) {
                 var completed = cc.sys.localStorage.getItem("level_" + levelId + "_completed") === 'true';
                 var isUnlocked = cc.sys.localStorage.getItem("level_" + levelId + "_unlocked") === 'true' || levelId == 0;
                 var flag = cc.sys.localStorage.getItem("level_" + levelId + "_flag") === 'true' || false;
-                itemComponent.setData(levelId, completed, true, isUnlocked, flag);
+                var isBoss = cc.sys.localStorage.getItem("level_" + levelId + "_isBoss") === 'true';
+                var flagBoss = cc.sys.localStorage.getItem("level_" + levelId + "_flagBoss") === 'true';
+                itemComponent.setData(levelId, completed, isBoss, isUnlocked, flag, flagBoss);
             }
         });
     };
