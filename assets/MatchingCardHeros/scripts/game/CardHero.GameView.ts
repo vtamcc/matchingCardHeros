@@ -460,7 +460,7 @@ export default class GameView extends cc.Component {
         node.active = true;
         node.getComponent(cc.Label).string = "-" + dame;
         cc.tween(node)
-            .to(0.8, { y: 200 })
+            .to(1, { y: 200 })
             .call(() => {
                 node.active = false;
                 node.y = -70;
@@ -472,7 +472,7 @@ export default class GameView extends cc.Component {
             node.active = true;
             //node.getComponent(cc.Label).string = "-" + dame;
             cc.tween(node)
-                .to(0.8, { y: 200 })
+                .to(1, { y: 200 })
                 .call(() => {
                     node.active = false;
                     node.y = -70;
@@ -519,6 +519,7 @@ export default class GameView extends cc.Component {
         this.loadCards();
         this.createMonster(0, 10, 1);
         Global.shield = 0;
+        this.nShield.active = false;
         console.log("Game restarted");
     }
 

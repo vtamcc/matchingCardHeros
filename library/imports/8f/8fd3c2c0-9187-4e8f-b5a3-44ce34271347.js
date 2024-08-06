@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '8fd3cLAkYdOj7WjRM40JxNH', 'CardHero.GameView');
-// scripts/game/CardHero.GameView.ts
+// MatchingCardHeros/scripts/game/CardHero.GameView.ts
 
 "use strict";
 // Learn TypeScript:
@@ -430,7 +430,7 @@ var GameView = /** @class */ (function (_super) {
         node.active = true;
         node.getComponent(cc.Label).string = "-" + dame;
         cc.tween(node)
-            .to(0.8, { y: 200 })
+            .to(1, { y: 200 })
             .call(function () {
             node.active = false;
             node.y = -70;
@@ -441,7 +441,7 @@ var GameView = /** @class */ (function (_super) {
             node.active = true;
             //node.getComponent(cc.Label).string = "-" + dame;
             cc.tween(node)
-                .to(0.8, { y: 200 })
+                .to(1, { y: 200 })
                 .call(function () {
                 node.active = false;
                 node.y = -70;
@@ -487,6 +487,7 @@ var GameView = /** @class */ (function (_super) {
         this.loadCards();
         this.createMonster(0, 10, 1);
         CardHero_Global_1.Global.shield = 0;
+        this.nShield.active = false;
         console.log("Game restarted");
     };
     GameView.prototype.destroyGame = function () {
