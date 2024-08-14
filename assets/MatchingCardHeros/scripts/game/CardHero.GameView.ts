@@ -115,7 +115,7 @@ export default class GameView extends cc.Component {
     }
 
     updateLevelLb() {
-        this.lbLevel.string = `LVL ${this.selectedLevel + 1}`;
+        this.lbLevel.string = `LV ${this.selectedLevel + 1}`;
     }
     onDestroy() {
         GameView.instance = null
@@ -226,9 +226,15 @@ export default class GameView extends cc.Component {
         cc.sys.localStorage.setItem(`level_${this.selectedLevel}_flag`, 'true');
         Level.instance.updateLevelStatus(this.selectedLevel);
     
+        const lastLevel = Global.levelData.length - 1;
+        if (this.selectedLevel >= lastLevel) {
+            console.log("Đã hoàn thành tất cả các level, không thể chơi tiếp.");
+        }
+        
         this.gameOver(true);
     
     }
+
 
     loadNextLevel() {
         // Thiết lập lại trạng thái cần thiết cho level mới
@@ -264,21 +270,55 @@ export default class GameView extends cc.Component {
 
 
     gameOver(isWin: boolean) {
-        let prfGameOver = cc.instantiate(this.prfGameOver).getComponent(GameOver);
+        // let prfGameOver = cc.instantiate(this.prfGameOver).getComponent(GameOver);
         
+        // if (isWin) {
+        //     prfGameOver.nStarWin_1.active = true;
+        //     prfGameOver.nStarWin_2.active = true;
+        //     prfGameOver.nStarWin_3.active = true;
+        //     prfGameOver.nBtnNext.getComponent(cc.Button).interactable = true;
+        //     prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = false;
+        //     prfGameOver.winGame(true);
+        //     prfGameOver.nBtnNext.on('click', () => {
+        //         this.selectedLevel++;
+        //         cc.sys.localStorage.setItem('selectedLevel', this.selectedLevel.toString());
+        //         this.loadNextLevel();
+        //     }, this);
+    
+        //     console.log("Level hoàn thành", this.selectedLevel);
+        // } else {
+        //     prfGameOver.winGame(false);
+        //     prfGameOver.nBtnNext.getComponent(cc.Button).interactable = false;
+        //     prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = true;
+        // }
+        
+        // this.node.addChild(prfGameOver.node);
+        // console.log("Số quái vật trong level: ", Global.levelData[this.selectedLevel].monsters);
+        // console.log("Số quái vật đã chết: ", this.countMonsterDie);
+
+        let prfGameOver = cc.instantiate(this.prfGameOver).getComponent(GameOver);
+    
         if (isWin) {
             prfGameOver.nStarWin_1.active = true;
             prfGameOver.nStarWin_2.active = true;
             prfGameOver.nStarWin_3.active = true;
-            prfGameOver.nBtnNext.getComponent(cc.Button).interactable = true;
-            prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = false;
-            prfGameOver.winGame(true);
-            prfGameOver.nBtnNext.on('click', () => {
-                this.selectedLevel++;
-                cc.sys.localStorage.setItem('selectedLevel', this.selectedLevel.toString());
-                this.loadNextLevel();
-            }, this);
     
+            const lastLevel = Global.levelData.length - 1;
+            if (this.selectedLevel >= lastLevel) {
+                prfGameOver.nBtnNext.getComponent(cc.Button).interactable = false;
+                prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = true;
+                console.log("Đã hoàn thành tất cả các level, không thể chơi tiếp.");
+            } else {
+                prfGameOver.nBtnNext.getComponent(cc.Button).interactable = true;
+                prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = false;
+                prfGameOver.nBtnNext.on('click', () => {
+                    this.selectedLevel++;
+                    cc.sys.localStorage.setItem('selectedLevel', this.selectedLevel.toString());
+                    this.loadNextLevel();
+                }, this);
+            }
+    
+            prfGameOver.winGame(true);
             console.log("Level hoàn thành", this.selectedLevel);
         } else {
             prfGameOver.winGame(false);
@@ -509,7 +549,6 @@ export default class GameView extends cc.Component {
         console.log("quai chet resart", this.countMonsterDie);
         this.updateHpChar();
         //this.updateHpBagGuy();
-        this.updateShield();
         this.maskLoadGame();
         this.nTableCards.removeAllChildren();
         this.nMonters.removeAllChildren();
@@ -517,9 +556,10 @@ export default class GameView extends cc.Component {
         this.listMonsters = [];
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.loadCards();
-        this.createMonster(0, 10, 1);
+        this.createMonster(0, Global.levelData[this.selectedLevel].hp, 1);
         Global.shield = 0;
         this.nShield.active = false;
+        this.updateShield();
         console.log("Game restarted");
     }
 

@@ -1,0 +1,1 @@
+window._CCSettings={platform:"web-mobile",groupList:["default"],collisionMatrix:[[true]],hasResourcesBundle:false,hasStartSceneBundle:false,remoteBundles:[],subpackages:[],launchScene:"db://assets/MatchingCardHeros/MainBuild.fire",orientation:"",jsList:[],bundleVers:{internal:"1b082",MatchingCardHeros:"4bb3b",main:"a3c5b"}};

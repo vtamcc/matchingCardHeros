@@ -113,7 +113,7 @@ var GameView = /** @class */ (function (_super) {
         this.updateLevelLb();
     };
     GameView.prototype.updateLevelLb = function () {
-        this.lbLevel.string = "LVL " + (this.selectedLevel + 1);
+        this.lbLevel.string = "LV " + (this.selectedLevel + 1);
     };
     GameView.prototype.onDestroy = function () {
         GameView_1.instance = null;
@@ -209,6 +209,10 @@ var GameView = /** @class */ (function (_super) {
         // Lưu trạng thái lá cờ
         cc.sys.localStorage.setItem("level_" + this.selectedLevel + "_flag", 'true');
         CardHero_LevelView_1.default.instance.updateLevelStatus(this.selectedLevel);
+        var lastLevel = CardHero_Global_1.Global.levelData.length - 1;
+        if (this.selectedLevel >= lastLevel) {
+            console.log("Đã hoàn thành tất cả các level, không thể chơi tiếp.");
+        }
         this.gameOver(true);
     };
     GameView.prototype.loadNextLevel = function () {
@@ -242,20 +246,50 @@ var GameView = /** @class */ (function (_super) {
         this.updateLevelLb();
     };
     GameView.prototype.gameOver = function (isWin) {
+        // let prfGameOver = cc.instantiate(this.prfGameOver).getComponent(GameOver);
         var _this = this;
+        // if (isWin) {
+        //     prfGameOver.nStarWin_1.active = true;
+        //     prfGameOver.nStarWin_2.active = true;
+        //     prfGameOver.nStarWin_3.active = true;
+        //     prfGameOver.nBtnNext.getComponent(cc.Button).interactable = true;
+        //     prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = false;
+        //     prfGameOver.winGame(true);
+        //     prfGameOver.nBtnNext.on('click', () => {
+        //         this.selectedLevel++;
+        //         cc.sys.localStorage.setItem('selectedLevel', this.selectedLevel.toString());
+        //         this.loadNextLevel();
+        //     }, this);
+        //     console.log("Level hoàn thành", this.selectedLevel);
+        // } else {
+        //     prfGameOver.winGame(false);
+        //     prfGameOver.nBtnNext.getComponent(cc.Button).interactable = false;
+        //     prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = true;
+        // }
+        // this.node.addChild(prfGameOver.node);
+        // console.log("Số quái vật trong level: ", Global.levelData[this.selectedLevel].monsters);
+        // console.log("Số quái vật đã chết: ", this.countMonsterDie);
         var prfGameOver = cc.instantiate(this.prfGameOver).getComponent(CardHero_GameOver_1.default);
         if (isWin) {
             prfGameOver.nStarWin_1.active = true;
             prfGameOver.nStarWin_2.active = true;
             prfGameOver.nStarWin_3.active = true;
-            prfGameOver.nBtnNext.getComponent(cc.Button).interactable = true;
-            prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = false;
+            var lastLevel = CardHero_Global_1.Global.levelData.length - 1;
+            if (this.selectedLevel >= lastLevel) {
+                prfGameOver.nBtnNext.getComponent(cc.Button).interactable = false;
+                prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = true;
+                console.log("Đã hoàn thành tất cả các level, không thể chơi tiếp.");
+            }
+            else {
+                prfGameOver.nBtnNext.getComponent(cc.Button).interactable = true;
+                prfGameOver.nBtnNext.getComponent(cc.Button).enableAutoGrayEffect = false;
+                prfGameOver.nBtnNext.on('click', function () {
+                    _this.selectedLevel++;
+                    cc.sys.localStorage.setItem('selectedLevel', _this.selectedLevel.toString());
+                    _this.loadNextLevel();
+                }, this);
+            }
             prfGameOver.winGame(true);
-            prfGameOver.nBtnNext.on('click', function () {
-                _this.selectedLevel++;
-                cc.sys.localStorage.setItem('selectedLevel', _this.selectedLevel.toString());
-                _this.loadNextLevel();
-            }, this);
             console.log("Level hoàn thành", this.selectedLevel);
         }
         else {
@@ -477,7 +511,6 @@ var GameView = /** @class */ (function (_super) {
         console.log("quai chet resart", this.countMonsterDie);
         this.updateHpChar();
         //this.updateHpBagGuy();
-        this.updateShield();
         this.maskLoadGame();
         this.nTableCards.removeAllChildren();
         this.nMonters.removeAllChildren();
@@ -485,9 +518,10 @@ var GameView = /** @class */ (function (_super) {
         this.listMonsters = [];
         this.listIdCard = this.shuffleArray(this.listIdCard);
         this.loadCards();
-        this.createMonster(0, 10, 1);
+        this.createMonster(0, CardHero_Global_1.Global.levelData[this.selectedLevel].hp, 1);
         CardHero_Global_1.Global.shield = 0;
         this.nShield.active = false;
+        this.updateShield();
         console.log("Game restarted");
     };
     GameView.prototype.destroyGame = function () {

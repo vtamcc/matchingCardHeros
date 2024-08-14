@@ -1,0 +1,1 @@
+{"platform":"ios","groupList":["default"],"collisionMatrix":[[true]],"hasResourcesBundle":false,"hasStartSceneBundle":false,"remoteBundles":false,"subpackages":[],"launchScene":"db://assets/MatchingCardHeros/MainBuild.fire","orientation":"","server":"","jsList":[]}

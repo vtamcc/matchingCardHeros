@@ -75,14 +75,14 @@ export default class Card extends cc.Component {
 
     flipCard() {
         cc.tween(this.node)
-        .to(0.3,{scaleX: 0})
+        .to(0.2,{scaleX: 0})
         .call(() =>{
             if(!this.nCardBack.active) {
                 this.setCards(true);
             }else {
                 this.setCards(false);
             }
-        }).to(0.3, {scaleX:1}).start();
+        }).to(0.2, {scaleX:1}).start();
     }
    
     // start() {

@@ -67,6 +67,7 @@ export default class ItemLevelView extends cc.Component {
     onClickPlay() {
         GameManager.instance.onClickPlay(this.idLevel);
         console.log("Level ", this.idLevel);
+        
     }
 
     start() {

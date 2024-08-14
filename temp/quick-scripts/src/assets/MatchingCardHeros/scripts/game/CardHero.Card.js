@@ -100,7 +100,7 @@ var Card = /** @class */ (function (_super) {
     Card.prototype.flipCard = function () {
         var _this = this;
         cc.tween(this.node)
-            .to(0.3, { scaleX: 0 })
+            .to(0.2, { scaleX: 0 })
             .call(function () {
             if (!_this.nCardBack.active) {
                 _this.setCards(true);
@@ -108,7 +108,7 @@ var Card = /** @class */ (function (_super) {
             else {
                 _this.setCards(false);
             }
-        }).to(0.3, { scaleX: 1 }).start();
+        }).to(0.2, { scaleX: 1 }).start();
     };
     __decorate([
         property(cc.Node)
