@@ -1,79 +1,184 @@
-2024-08-12T09:04:11.786Z - success: protocol editor-framework registered
-2024-08-12T09:04:11.788Z - success: protocol app registered
-2024-08-12T09:04:11.788Z - success: protocol theme registered
-2024-08-12T09:04:11.788Z - success: protocol packages registered
-2024-08-12T09:04:11.810Z - normal: Load ~/.CocosCreator/settings.json
-2024-08-12T09:04:11.838Z - success: protocol uuid registerred
-2024-08-12T09:04:11.838Z - success: protocol db registerred
-2024-08-12T09:04:11.838Z - success: protocol thumbnail registerred
-2024-08-12T09:04:11.924Z - normal: Initializing Asset Database
-2024-08-12T09:04:11.929Z - normal: checking language setting...
-2024-08-12T09:04:11.929Z - normal: Language: en
-2024-08-12T09:04:11.932Z - success: protocol unpack registerred
-2024-08-12T09:04:11.932Z - success: protocol disable-commonjs registerred
-2024-08-12T09:04:15.159Z - normal: failed to connect login server due to request timeout
-2024-08-12T09:04:15.171Z - normal: Check project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
-2024-08-12T09:04:15.174Z - normal: Initializing project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
-2024-08-12T09:04:15.397Z - success: adapters loaded
-2024-08-12T09:04:15.402Z - success: asset-db-debugger loaded
-2024-08-12T09:04:15.474Z - success: fb-audience-network loaded
-2024-08-12T09:04:15.522Z - success: fb-live-stream loaded
-2024-08-12T09:04:15.526Z - success: google-play-instant loaded
-2024-08-12T09:04:15.527Z - success: jsb-adapter loaded
-2024-08-12T09:04:15.548Z - success: package-manager loaded
-2024-08-12T09:04:15.549Z - success: runtime-adapters loaded
-2024-08-12T09:04:15.553Z - success: runtime-dev-tools loaded
-2024-08-12T09:04:15.556Z - success: ui-kit-preview-extra loaded
-2024-08-12T09:04:15.558Z - success: ui-kit-preview loaded
-2024-08-12T09:04:16.411Z - success: alipay-minigame loaded
-2024-08-12T09:04:16.432Z - success: assets loaded
-2024-08-12T09:04:16.437Z - success: baidugame-opendata loaded
-2024-08-12T09:04:16.439Z - success: baidugame loaded
-2024-08-12T09:04:16.444Z - success: builder loaded
-2024-08-12T09:04:16.450Z - success: bytedance-opendata loaded
-2024-08-12T09:04:16.452Z - success: bytedance loaded
-2024-08-12T09:04:16.458Z - success: channel-upload-tools loaded
-2024-08-12T09:04:16.612Z - success: cloud-function loaded
-2024-08-12T09:04:16.847Z - success: cocos-services loaded
-2024-08-12T09:04:16.854Z - success: console loaded
-2024-08-12T09:04:16.856Z - success: curve-editor loaded
-2024-08-12T09:04:16.865Z - success: fb-instant-games loaded
-2024-08-12T09:04:16.868Z - success: game-window loaded
-2024-08-12T09:04:16.869Z - success: google-instant-games loaded
-2024-08-12T09:04:16.873Z - success: hierarchy loaded
-2024-08-12T09:04:16.876Z - success: huawei-agc loaded
-2024-08-12T09:04:16.879Z - success: huawei-runtime loaded
-2024-08-12T09:04:16.883Z - success: inspector loaded
-2024-08-12T09:04:16.902Z - success: cpk-publish loaded
-2024-08-12T09:04:16.904Z - success: keystore loaded
-2024-08-12T09:04:16.925Z - success: link-sure-runtime loaded
-2024-08-12T09:04:16.946Z - success: node-library loaded
-2024-08-12T09:04:16.948Z - success: open-recent-items loaded
-2024-08-12T09:04:16.951Z - success: oppo-runtime loaded
-2024-08-12T09:04:16.953Z - success: package-asset loaded
-2024-08-12T09:04:16.953Z - success: preferences loaded
-2024-08-12T09:04:16.957Z - success: project-importer loaded
-2024-08-12T09:04:16.961Z - success: project-settings loaded
-2024-08-12T09:04:16.974Z - success: qtt-runtime loaded
-2024-08-12T09:04:16.978Z - success: scene loaded
-2024-08-12T09:04:16.979Z - success: simulator-debugger loaded
-2024-08-12T09:04:16.980Z - success: sprite-editor loaded
-2024-08-12T09:04:17.051Z - success: store loaded
-2024-08-12T09:04:17.053Z - success: taobao-creativeapp loaded
-2024-08-12T09:04:17.057Z - success: timeline loaded
-2024-08-12T09:04:17.061Z - success: vivo-runtime loaded
-2024-08-12T09:04:17.064Z - success: wechatgame-opendata loaded
-2024-08-12T09:04:17.067Z - success: wechatgame loaded
-2024-08-12T09:04:17.071Z - success: xiaomi-runtime loaded
-2024-08-12T09:04:17.129Z - success: im-plugin loaded
-2024-08-12T09:04:17.133Z - success: bundle_instant loaded
-2024-08-12T09:04:17.134Z - warn: The current '7456' preview port is already occupied, the port is automatically incremented
-2024-08-12T09:04:17.135Z - success: preview server running at http://localhost:7457
-2024-08-12T09:04:19.397Z - normal: Initializing Cocos2d
-2024-08-12T09:04:19.693Z - normal: Initializing engine extends
-2024-08-12T09:04:20.140Z - info: Cocos Service load base data!
-2024-08-12T09:04:24.311Z - normal: Loading packages
-2024-08-12T09:04:24.315Z - normal: Watching packages
-2024-08-12T09:04:24.541Z - normal: Run Application
-2024-08-12T09:04:29.384Z - success: cloud-function unloaded
-2024-08-12T10:28:41.194Z - info: shutdown preview server
+2024-08-14T10:36:04.034Z - success: protocol editor-framework registered
+2024-08-14T10:36:04.037Z - success: protocol app registered
+2024-08-14T10:36:04.038Z - success: protocol theme registered
+2024-08-14T10:36:04.038Z - success: protocol packages registered
+2024-08-14T10:36:04.074Z - normal: Load ~/.CocosCreator/settings.json
+2024-08-14T10:36:04.108Z - success: protocol uuid registerred
+2024-08-14T10:36:04.108Z - success: protocol db registerred
+2024-08-14T10:36:04.108Z - success: protocol thumbnail registerred
+2024-08-14T10:36:04.222Z - normal: Initializing Asset Database
+2024-08-14T10:36:04.226Z - normal: checking language setting...
+2024-08-14T10:36:04.226Z - normal: Language: en
+2024-08-14T10:36:04.229Z - success: protocol unpack registerred
+2024-08-14T10:36:04.230Z - success: protocol disable-commonjs registerred
+2024-08-14T10:36:06.604Z - normal: connected!
+2024-08-14T10:36:07.368Z - normal: Check project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-14T10:36:07.372Z - normal: Initializing project /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-14T10:36:07.669Z - success: adapters loaded
+2024-08-14T10:36:07.679Z - success: asset-db-debugger loaded
+2024-08-14T10:36:07.794Z - success: fb-audience-network loaded
+2024-08-14T10:36:07.861Z - success: fb-live-stream loaded
+2024-08-14T10:36:07.867Z - success: google-play-instant loaded
+2024-08-14T10:36:07.868Z - success: jsb-adapter loaded
+2024-08-14T10:36:07.925Z - success: package-manager loaded
+2024-08-14T10:36:07.926Z - success: runtime-adapters loaded
+2024-08-14T10:36:07.933Z - success: runtime-dev-tools loaded
+2024-08-14T10:36:07.937Z - success: ui-kit-preview-extra loaded
+2024-08-14T10:36:07.940Z - success: ui-kit-preview loaded
+2024-08-14T10:36:08.848Z - success: alipay-minigame loaded
+2024-08-14T10:36:08.865Z - success: assets loaded
+2024-08-14T10:36:08.869Z - success: baidugame-opendata loaded
+2024-08-14T10:36:08.870Z - success: baidugame loaded
+2024-08-14T10:36:08.874Z - success: builder loaded
+2024-08-14T10:36:08.877Z - success: bytedance-opendata loaded
+2024-08-14T10:36:08.879Z - success: bytedance loaded
+2024-08-14T10:36:08.884Z - success: channel-upload-tools loaded
+2024-08-14T10:36:09.028Z - success: cloud-function loaded
+2024-08-14T10:36:09.223Z - success: cocos-services loaded
+2024-08-14T10:36:09.229Z - success: console loaded
+2024-08-14T10:36:09.232Z - success: curve-editor loaded
+2024-08-14T10:36:09.241Z - success: fb-instant-games loaded
+2024-08-14T10:36:09.243Z - success: game-window loaded
+2024-08-14T10:36:09.244Z - success: google-instant-games loaded
+2024-08-14T10:36:09.249Z - success: hierarchy loaded
+2024-08-14T10:36:09.251Z - success: huawei-agc loaded
+2024-08-14T10:36:09.254Z - success: huawei-runtime loaded
+2024-08-14T10:36:09.257Z - success: inspector loaded
+2024-08-14T10:36:09.279Z - success: cpk-publish loaded
+2024-08-14T10:36:09.281Z - success: keystore loaded
+2024-08-14T10:36:09.308Z - success: link-sure-runtime loaded
+2024-08-14T10:36:09.320Z - success: node-library loaded
+2024-08-14T10:36:09.321Z - success: open-recent-items loaded
+2024-08-14T10:36:09.324Z - success: oppo-runtime loaded
+2024-08-14T10:36:09.325Z - success: package-asset loaded
+2024-08-14T10:36:09.326Z - success: preferences loaded
+2024-08-14T10:36:09.330Z - success: project-importer loaded
+2024-08-14T10:36:09.333Z - success: project-settings loaded
+2024-08-14T10:36:09.346Z - success: qtt-runtime loaded
+2024-08-14T10:36:09.351Z - success: scene loaded
+2024-08-14T10:36:09.351Z - success: simulator-debugger loaded
+2024-08-14T10:36:09.352Z - success: sprite-editor loaded
+2024-08-14T10:36:09.414Z - success: store loaded
+2024-08-14T10:36:09.416Z - success: taobao-creativeapp loaded
+2024-08-14T10:36:09.419Z - success: timeline loaded
+2024-08-14T10:36:09.425Z - success: vivo-runtime loaded
+2024-08-14T10:36:09.428Z - success: wechatgame-opendata loaded
+2024-08-14T10:36:09.431Z - success: wechatgame loaded
+2024-08-14T10:36:09.437Z - success: xiaomi-runtime loaded
+2024-08-14T10:36:09.494Z - success: im-plugin loaded
+2024-08-14T10:36:09.499Z - success: bundle_instant loaded
+2024-08-14T10:36:09.500Z - success: preview server running at http://localhost:7456
+2024-08-14T10:36:11.738Z - normal: Initializing Cocos2d
+2024-08-14T10:36:12.030Z - normal: Initializing engine extends
+2024-08-14T10:36:16.769Z - normal: Loading packages
+2024-08-14T10:36:16.774Z - normal: Watching packages
+2024-08-14T10:36:17.042Z - normal: Run Application
+2024-08-14T10:36:21.831Z - success: cloud-function unloaded
+2024-08-14T10:37:13.408Z - info: Cocos Service load base data!
+2024-08-14T10:38:25.984Z - normal: Start building with options : {
+  "title": "MatchingCardHeros",
+  "packageName": "org.cocos2d.demo",
+  "startScene": "c1f37510-65f2-4d13-9b85-b1c311155868",
+  "excludeScenes": [],
+  "orientation": {
+    "landscapeRight": false,
+    "landscapeLeft": false,
+    "portrait": true,
+    "upsideDown": true
+  },
+  "webOrientation": "auto",
+  "inlineSpriteFrames": true,
+  "inlineSpriteFrames_native": true,
+  "mainCompressionType": "default",
+  "mainIsRemote": false,
+  "optimizeHotUpdate": false,
+  "md5Cache": false,
+  "encryptJs": false,
+  "xxteaKey": "3f1ea7ab-d2d7-48",
+  "zipCompressJs": true,
+  "fb-instant-games": {},
+  "android": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": ""
+  },
+  "ios": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "ios_enable_jit": true
+  },
+  "mac": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "win32": {
+    "REMOTE_SERVER_ROOT": "",
+    "width": 1280,
+    "height": 720
+  },
+  "android-instant": {
+    "packageName": "org.cocos2d.demo",
+    "REMOTE_SERVER_ROOT": "",
+    "pathPattern": "",
+    "scheme": "https",
+    "host": "",
+    "skipRecord": false,
+    "recordPath": ""
+  },
+  "appBundle": false,
+  "agreements": {},
+  "platform": "ios",
+  "actualPlatform": "ios",
+  "template": "default",
+  "buildPath": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build",
+  "debug": false,
+  "sourceMaps": false,
+  "embedWebDebugger": false,
+  "previewWidth": "1280",
+  "previewHeight": "720",
+  "useDebugKeystore": true,
+  "apiLevel": "",
+  "appABIs": [],
+  "vsVersion": "auto",
+  "buildScriptsOnly": false,
+  "dest": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default",
+  "separateEngineMode": false,
+  "scenes": [
+    "c1f37510-65f2-4d13-9b85-b1c311155868",
+    "a4bcb048-de30-4f0e-9d2c-11b914568649"
+  ],
+  "excludedModules": [
+    "3D Physics/Builtin"
+  ],
+  "project": "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros",
+  "projectName": "MatchingCardHeros",
+  "debugBuildWorker": false
+}
+2024-08-14T10:38:25.985Z - normal: Building /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-14T10:38:25.986Z - normal: Destination /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default
+2024-08-14T10:38:26.074Z - normal: Start spawn build-worker
+2024-08-14T10:38:28.226Z - normal: Finish spawn build-worker
+2024-08-14T10:38:28.228Z - normal: Delete /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/assets/**/*,/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/remote/**/*,/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/src/**/*
+2024-08-14T10:38:28.415Z - normal: Checked Python Version [2.7.14]
+2024-08-14T10:38:29.665Z - normal: Building 3D physics modules...
+2024-08-14T10:38:38.925Z - normal: Compiling /Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros
+2024-08-14T10:38:39.964Z - normal: Start init build-worker
+2024-08-14T10:38:41.187Z - normal: Finish init build-worker
+2024-08-14T10:38:41.187Z - normal: Start build-assets in worker
+2024-08-14T10:38:41.187Z - normal: 
+--- build-asset: {"root":"db://internal/resources","name":"internal","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/assets/internal","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/assets/internal","priority":11,"scenes":[],"compressionType":"merge_all_json"}
+
+2024-08-14T10:38:41.282Z - normal: 
+--- build-asset: {"root":null,"priority":7,"dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/assets/main","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/assets/main","name":"main","scenes":[],"compressionType":"default","optimizeHotUpdate":false,"inlineSpriteFrames":true,"isRemote":false}
+
+2024-08-14T10:38:41.284Z - info: Enable "Inline all SpriteFrames" in native platform will increase the package size used in hot update.
+2024-08-14T10:38:41.296Z - normal: 
+--- build-asset: {"root":"db://assets/MatchingCardHeros","name":"MatchingCardHeros","dest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/assets/MatchingCardHeros","scriptDest":"/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default/assets/MatchingCardHeros","priority":1,"scenes":["c1f37510-65f2-4d13-9b85-b1c311155868","a4bcb048-de30-4f0e-9d2c-11b914568649"],"compressionType":"default"}
+
+2024-08-14T10:38:41.518Z - normal: Finish build-assets in worker
+2024-08-14T10:38:41.538Z - normal: Start building plugin scripts
+2024-08-14T10:38:41.551Z - normal: Generating main.js from /Applications/Cocos/Creator/2.4.6/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2024-08-14T10:38:41.570Z - normal: settings============= {"platform":"ios","groupList":["default"],"collisionMatrix":[[true]],"hasResourcesBundle":false,"hasStartSceneBundle":false,"remoteBundles":[],"subpackages":[],"launchScene":"db://assets/MatchingCardHeros/MainBuild.fire","orientation":"","server":"","jsList":[]}
+2024-08-14T10:38:41.571Z - normal: Built to "/Users/mac/Documents/WORK/MINIGAME/MatchingCardHeros/build/jsb-default" successfully
+2024-08-14T11:02:53.229Z - info: shutdown preview server

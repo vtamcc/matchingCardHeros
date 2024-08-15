@@ -78,7 +78,7 @@ if (2 == n.default.instance.countClick) {
 n.default.instance.nMaskClick.active = !0;
 this.scheduleOnce(function() {
 n.default.instance.nMaskClick.active = !1;
-}, .6);
+}, .58);
 n.default.instance.countClick = 0;
 }
 }
